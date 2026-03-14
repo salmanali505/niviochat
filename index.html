@@ -6,124 +6,178 @@
     <title>NIVIO CHAT | الموظف الرقمي الذكي</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
-        :root { --gold: #D4AF37; --cyan: #00F2FF; --dark: #05080a; --gray: #111; }
+        :root { --gold: #D4AF37; --cyan: #00F2FF; --dark: #05080a; --gray: #111; --white: #ffffff; }
         * { box-sizing: border-box; transition: 0.3s ease; }
-        body { background: var(--dark); color: white; font-family: 'Cairo', sans-serif; margin: 0; scroll-behavior: smooth; }
+        body { background: var(--dark); color: var(--white); font-family: 'Cairo', sans-serif; margin: 0; scroll-behavior: smooth; }
         
         /* شريط التنقل */
         nav { background: rgba(5, 8, 10, 0.95); padding: 15px; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--gold); display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; backdrop-filter: blur(10px); }
-        nav a { color: #aaa; text-decoration: none; font-size: 0.9rem; font-weight: 600; padding: 5px 10px; }
-        nav a:hover { color: var(--gold); }
+        nav a { color: #aaa; text-decoration: none; font-size: 0.85rem; font-weight: 600; padding: 5px 10px; border-radius: 5px; }
+        nav a:hover { color: var(--gold); background: rgba(212, 175, 55, 0.1); }
 
         /* قسم الواجهة Hero */
-        .hero { padding: 100px 20px; text-align: center; background: radial-gradient(circle at center, #1a1a1a 0%, var(--dark) 70%); }
-        .hero h1 { font-size: 3.5rem; margin: 0; color: var(--gold); text-shadow: 0 0 20px rgba(212,175,55,0.3); font-weight: 900; }
-        .hero p { font-size: 1.3rem; color: var(--cyan); margin: 20px 0; }
+        .hero { padding: 120px 20px; text-align: center; background: radial-gradient(circle at center, #1a1a1a 0%, var(--dark) 70%); }
+        .hero h1 { font-size: clamp(2.5rem, 8vw, 4rem); margin: 0; color: var(--gold); text-shadow: 0 0 20px rgba(212,175,55,0.3); font-weight: 900; }
+        .hero p { font-size: 1.2rem; color: var(--cyan); margin: 20px 0; max-width: 700px; margin-left: auto; margin-right: auto; }
 
-        /* الأقسام المشتركة */
-        section { padding: 80px 20px; max-width: 1100px; margin: auto; }
-        h2 { text-align: center; color: var(--gold); font-size: 2rem; margin-bottom: 40px; border-bottom: 2px solid var(--gold); display: table; margin-left: auto; margin-right: auto; padding-bottom: 10px; }
+        /* الأقسام */
+        section { padding: 80px 20px; max-width: 1200px; margin: auto; }
+        h2 { text-align: center; color: var(--gold); font-size: 2.2rem; margin-bottom: 50px; border-bottom: 2px solid var(--gold); display: table; margin-left: auto; margin-right: auto; padding-bottom: 10px; }
 
-        /* كروت الميزات والحلول */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .card { background: var(--gray); padding: 30px; border-radius: 20px; border: 1px solid #222; position: relative; overflow: hidden; }
-        .card:hover { border-color: var(--cyan); transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,242,255,0.1); }
-        .card h3 { color: var(--cyan); margin-top: 0; }
+        /* الشبكة والكروت */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .card { background: var(--gray); padding: 30px; border-radius: 20px; border: 1px solid #222; text-align: right; }
+        .card:hover { border-color: var(--gold); transform: translateY(-5px); }
+        .card h3 { color: var(--gold); margin-top: 0; display: flex; align-items: center; gap: 10px; }
 
-        /* باقات الأسعار */
-        .price-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 40px; }
-        .price-card { background: linear-gradient(145deg, #111, #000); padding: 40px; border-radius: 30px; border: 2px solid var(--gold); width: 320px; text-align: center; }
-        .price-card.featured { transform: scale(1.1); background: #111; border-color: var(--cyan); box-shadow: 0 0 30px rgba(0,242,255,0.2); }
-        .price-card h4 { font-size: 2rem; margin: 10px 0; color: white; }
-        .price-card .amount { font-size: 2.5rem; font-weight: 900; color: var(--gold); }
+        /* قسم الأسعار المعدل */
+        .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .price-card { background: linear-gradient(145deg, #111, #000); padding: 40px; border-radius: 30px; border: 1px solid #333; text-align: center; position: relative; }
+        .price-card.featured { border: 2px solid var(--cyan); box-shadow: 0 0 30px rgba(0,242,255,0.15); transform: scale(1.05); z-index: 2; }
+        .price-card h3 { color: var(--white); font-size: 1.8rem; margin-bottom: 10px; }
+        .price-card .amount { font-size: 3rem; font-weight: 900; color: var(--gold); margin: 10px 0; }
+        .price-card .setup-fee { color: #aaa; font-size: 0.9rem; margin-bottom: 20px; display: block; }
+        
+        .subscription-box { background: rgba(255,255,255,0.05); padding: 15px; border-radius: 15px; margin: 20px 0; border: 1px dashed #444; }
+        .subscription-box span { display: block; font-size: 0.8rem; color: #888; }
+        .subscription-box b { font-size: 1.2rem; color: var(--cyan); }
+
+        ul { list-style: none; padding: 0; text-align: right; margin-bottom: 30px; }
+        ul li { padding: 8px 0; border-bottom: 1px solid #222; font-size: 0.95rem; color: #ccc; }
+        ul li::before { content: "✓ "; color: var(--gold); font-weight: bold; }
 
         /* الأزرار */
-        .btn-order { background: var(--gold); color: black; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 20px; }
-        .btn-order:hover { background: white; }
+        .btn-order { background: var(--gold); color: black; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 800; display: inline-block; width: 100%; }
+        .btn-order:hover { background: var(--white); transform: scale(1.02); }
 
         /* الأيقونات العائمة */
-        .floating-icons { position: fixed; bottom: 30px; left: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 2000; }
-        .icon { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(0,0,0,0.5); text-decoration: none; color: white; font-size: 30px; }
-        .wa-chat { background: #25D366; animation: pulse 2s infinite; } /* الواتساب الأخضر للدردشة */
-        .fb-link { background: #1877F2; } /* الفيسبوك */
+        .floating-icons { position: fixed; bottom: 30px; left: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 9999; }
+        .icon { width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(0,0,0,0.5); text-decoration: none; color: white; transition: 0.3s; }
+        .wa-chat { background: #25D366; animation: pulse 2s infinite; }
+        .fb-link { background: #1877F2; }
+        .icon:hover { transform: scale(1.1); }
 
         @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
 
-        @media (max-width: 768px) { .hero h1 { font-size: 2.2rem; } .price-card.featured { transform: scale(1); } }
+        footer { background: #000; padding: 60px 20px; text-align: center; border-top: 1px solid #222; margin-top: 50px; }
+
+        @media (max-width: 768px) { .price-card.featured { transform: scale(1); } nav { gap: 5px; } .floating-icons { bottom: 20px; left: 20px; } }
     </style>
 </head>
 <body>
 
     <nav>
         <a href="#home">الرئيسية</a>
-        <a href="#about">لماذا نحن؟</a>
+        <a href="#about">المشكلة</a>
+        <a href="#security">الأمان</a>
         <a href="#features">الميزات</a>
         <a href="#prices">الباقات</a>
-        <a href="#contact">تواصل معنا</a>
     </nav>
 
-    <div id="home" class="hero">
+    <section id="home" class="hero">
         <h1>NIVIO CHAT</h1>
-        <p>المستقبل هنا.. الموظف الرقمي الذكي لمؤسستك في عدن</p>
-        <a href="#prices" class="btn-order">ابدأ الآن - اختر باقتك</a>
-    </div>
+        <p>نحن لا نصنع مجرد رد آلي، نحن نبرمج لك مستقبلاً رقمياً يخدم عملك في عدن على مدار الساعة بالذكاء الاصطناعي.</p>
+        <a href="#prices" class="btn-order" style="width: auto;">ابدأ رحلة النجاح الآن</a>
+    </section>
 
     <section id="about">
-        <h2>تحليل الفجوة والحل الذكي</h2>
+        <h2>لماذا تحتاج نيفيو شات؟</h2>
         <div class="grid">
             <div class="card">
-                <h3>المشكلة ❌</h3>
-                <p>خسارة الزبائن، ضغط الرسائل، وتوقف العمل بعد الدوام الرسمي.</p>
+                <h3>❌ تحديات العمل التقليدي</h3>
+                <p>تراكم الرسائل، تأخر الرد على العملاء، ضياع فرص البيع خارج أوقات الدوام، والجهد البشري المكرر في الإجابة على نفس الأسئلة.</p>
             </div>
-            <div class="card">
-                <h3>حل نيفيو ✅</h3>
-                <p>رد فوري ذكي، تنظيم آلي للمواعيد، وعمل مستمر 24/7 دون تعب.</p>
+            <div class="card" style="border-color: var(--cyan);">
+                <h3>✅ الحل مع نيفيو شات</h3>
+                <p>موظف رقمي ذكي يرد فوراً، ينظم المواعيد، يعرض المنتجات، ويحول الاستفسارات إلى مبيعات حقيقية دون تدخل منك.</p>
             </div>
         </div>
     </section>
 
-    <section id="features" style="background: #080a0c;">
-        <h2>ميزات تتجاوز التوقعات</h2>
+    <section id="security" style="background: #080a0c; border-radius: 50px;">
+        <h2>الأمان والخصوصية</h2>
         <div class="grid">
-            <div class="card"><h3>🤖 ذكاء اصطناعي</h3><p>يفهم لهجة الزبائن ويجيب بدقة بشرية.</p></div>
-            <div class="card"><h3>📅 جدولة المواعيد</h3><p>ربط مباشر مع جداول المواعيد والعيادات.</p></div>
-            <div class="card"><h3>🛡️ أمان Meta</h3><p>ربط رسمي ومحمي عبر منصة Meta العالمية.</p></div>
+            <div class="card">
+                <h3>🛡️ ربط رسمي (Meta)</h3>
+                <p>يتم الربط عبر واجهة برمجة التطبيقات الرسمية من شركة Meta، مما يضمن استقرار الخدمة وحماية حسابك من الحظر.</p>
+            </div>
+            <div class="card">
+                <h3>🔐 تشفير البيانات</h3>
+                <p>جميع المحادثات والبيانات مشفرة، ولا يمكن لأي طرف ثالث الاطلاع على خصوصية عملائك أو بيانات مؤسستك.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="features">
+        <h2>ميزات تتخطى الحدود</h2>
+        <div class="grid">
+            <div class="card"><h3>🤖 ذكاء اصطناعي فائق</h3><p>الروبوت يفهم اللهجة المحلية ويجيب بمرونة عالية كأنه موظف بشري.</p></div>
+            <div class="card"><h3>📅 نظام الحجز الذكي</h3><p>إمكانية ربط النظام بجداول العيادات أو المعاهد لتنظيم المواعيد آلياً.</p></div>
+            <div class="card"><h3>💳 الدفع والطلبات</h3><p>عرض كتالوج المنتجات واستقبال طلبات الشراء وتأكيدها عبر الواتساب مباشرة.</p></div>
         </div>
     </section>
 
     <section id="prices">
-        <h2>باقات الاستثمار في النجاح</h2>
+        <h2>باقات الاستثمار الذكي</h2>
         <div class="price-grid">
+            
             <div class="price-card">
                 <h3>الباقة الأساسية</h3>
                 <div class="amount">40$</div>
-                <p>مرة واحدة فقط</p>
-                <ul style="text-align: right; font-size: 0.9rem;">
-                    <li>رد آلي ذكي للترحيب</li>
-                    <li>إضافة الأقسام والخدمات</li>
-                    <li>ربط مباشر بالواتساب</li>
+                <span class="setup-fee">رسوم إعداد لمرة واحدة</span>
+                <div class="subscription-box">
+                    <span>اشتراك شهري</span>
+                    <b>مجاني 100%</b>
+                </div>
+                <ul>
+                    <li>رد ترحيبي وقائمة خدمات</li>
+                    <li>إعداد الأقسام الأساسية</li>
+                    <li>ربط مباشر برقمك الحالي</li>
+                    <li>صيانة مجانية لمدة شهر</li>
                 </ul>
                 <a href="https://wa.me/967782483336?text=أريد طلب الباقة الأساسية" class="btn-order">اطلب الآن</a>
             </div>
 
             <div class="price-card featured">
-                <div style="background:var(--cyan); color:black; font-weight:bold; border-radius:10px; margin-bottom:10px;">الأكثر طلباً</div>
+                <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--cyan); color: black; padding: 5px 20px; border-radius: 20px; font-weight: bold; font-size: 0.8rem;">الأكثر طلباً</div>
                 <h3>الباقة الاحترافية</h3>
                 <div class="amount">85$</div>
-                <p>مرة واحدة فقط</p>
-                <ul style="text-align: right; font-size: 0.9rem;">
-                    <li>رد بالذكاء الاصطناعي الكامل</li>
-                    <li>نظام حجز مواعيد آلي</li>
-                    <li>كتالوج دفع إلكتروني</li>
-                    <li>دعم فني لمدة 6 أشهر</li>
+                <span class="setup-fee">رسوم إعداد لمرة واحدة</span>
+                <div class="subscription-box">
+                    <span>اشتراك شهري</span>
+                    <b>15$ فقط</b>
+                </div>
+                <ul>
+                    <li>ذكاء اصطناعي كامل (GPT)</li>
+                    <li>نظام حجز مواعيد متقدم</li>
+                    <li>كتالوج منتجات احترافي</li>
+                    <li>دعم فني متميز 6 أشهر</li>
                 </ul>
-                <a href="https://wa.me/967782483336?text=أريد طلب الباقة الاحترافية" class="btn-order" style="background:var(--cyan)">اطلب الآن</a>
+                <a href="https://wa.me/967782483336?text=أريد طلب الباقة الاحترافية" class="btn-order" style="background: var(--cyan);">اطلب الآن</a>
             </div>
+
+            <div class="price-card">
+                <h3>باقة المؤسسات</h3>
+                <div class="amount">150$</div>
+                <span class="setup-fee">رسوم برمجة وتخصيص</span>
+                <div class="subscription-box">
+                    <span>اشتراك شهري</span>
+                    <b>30$ شهرياً</b>
+                </div>
+                <ul>
+                    <li>ربط مع أنظمة ERP/SQL</li>
+                    <li>تخصيص كامل لواجهة الروبوت</li>
+                    <li>تدريب فريق العمل</li>
+                    <li>أولوية الدعم الفني 24/7</li>
+                </ul>
+                <a href="https://wa.me/967782483336?text=أريد استشارة حول باقة المؤسسات" class="btn-order">تواصل للاستشارة</a>
+            </div>
+
         </div>
     </section>
 
     <div class="floating-icons">
-        <a href="https://wa.me/967773354434?text=مرحباً نيفيو، أريد تجربة الخدمة" class="icon wa-chat" title="دردش مع الروبوت">
+        <a href="https://wa.me/967773354434?text=مرحباً نيفيو، أريد تجربة الروبوت الذكي" class="icon wa-chat" title="دردش مع الروبوت">
             <svg viewBox="0 0 24 24" width="35" height="35" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217s.231.001.332.005c.109.004.258-.041.404.314l.542 1.317c.058.145.096.314.01.482l-.246.416c-.087.145-.177.303-.077.476.1.173.444.733.953 1.185.656.581 1.208.761 1.381.848.173.087.274.072.376-.043s.433-.506.548-.68c.116-.173.231-.145.39-.087l1.344.667c.158.08.261.12.3.188.04.067.04 1.139-.104 1.544z"/></svg>
         </a>
         <a href="https://www.facebook.com/share/1DSyz7schq/" class="icon fb-link" title="تابعنا على فيسبوك">
@@ -131,10 +185,10 @@
         </a>
     </div>
 
-    <footer style="background:#000; padding:50px 20px; text-align:center; border-top:1px solid #222;">
-        <h3 style="color:var(--gold)">NIVIO TECH</h3>
-        <p>عدن - اليمن | تقنيات المستقبل بين يديك</p>
-        <p style="font-size:0.8rem; color:#444;">جميع الحقوق محفوظة لشركة نيفيو تيك © 2026</p>
+    <footer>
+        <h3 style="color:var(--gold); margin:0;">NIVIO TECH</h3>
+        <p style="color: #666; margin: 10px 0;">حلول الذكاء الاصطناعي والأتمتة</p>
+        <p style="font-size: 0.9rem; color: #444;">عدن، اليمن | جميع الحقوق محفوظة لـ سلمان علي © 2026</p>
     </footer>
 
 </body>
