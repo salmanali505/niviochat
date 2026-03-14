@@ -7,56 +7,31 @@
     <style>
         :root { --gold: #D4AF37; --cyan: #00F2FF; --dark: #05080a; }
         body { background: var(--dark); color: white; font-family: sans-serif; margin: 0; text-align: center; }
-        
-        /* شريط التنقل العلوي */
-        nav { 
-            background: rgba(0,0,0,0.9); 
-            padding: 15px; 
-            position: sticky; 
-            top: 0; 
-            border-bottom: 1px solid var(--gold); 
-            display: flex; 
-            justify-content: center; 
-            gap: 15px; 
-            flex-wrap: wrap;
-            z-index: 1000;
-        }
-        nav a { color: white; text-decoration: none; font-size: 0.9rem; padding: 5px 10px; border-radius: 5px; transition: 0.3s; }
-        nav a:hover { background: var(--gold); color: black; }
-        .active { border: 1px solid var(--gold); color: var(--gold) !important; }
-
-        .content { padding: 40px 20px; }
-        .main-img { width: 100%; max-width: 900px; border-radius: 15px; border: 2px solid var(--gold); box-shadow: 0 0 30px rgba(212,175,55,0.2); }
-        
-        .footer-nav { margin-top: 30px; display: flex; justify-content: center; gap: 20px; }
-        .next-btn { background: var(--gold); color: black; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; }
+        nav { background: rgba(0,0,0,0.9); padding: 15px; position: sticky; top: 0; border-bottom: 1px solid var(--gold); display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; z-index: 1000; }
+        nav a { color: white; text-decoration: none; font-size: 0.8rem; padding: 5px 8px; border-radius: 5px; border: 1px solid transparent; }
+        nav a:hover, .active { border-color: var(--gold); color: var(--gold); }
+        .content { padding: 30px 15px; }
+        .main-img { width: 100%; max-width: 800px; border-radius: 15px; border: 2px solid var(--gold); box-shadow: 0 0 25px rgba(212,175,55,0.2); margin-top: 20px; }
+        .next-btn { background: var(--gold); color: black; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 30px; }
     </style>
 </head>
 <body>
-
-<nav>
-    <a href="index.html" class="active">الرئيسية</a>
-    <a href="problem.html">المشكلة والحل</a>
-    <a href="security.html">الأمان</a>
-    <a href="features.html">الميزات</a>
-    <a href="payment.html">الدفع</a>
-    <a href="prices.html">الأسعار</a>
-    <a href="offers.html">العروض</a>
-    <a href="success.html">النجاح</a>
-</nav>
-
-<div class="content">
-    <h1 style="color: var(--gold);">نيفيو شات - NIVIO CHAT</h1>
-    <p>مرحباً بك في مستقبل خدمة العملاء الذكية</p>
-    
-    <img src="1.jpg" alt="الصفحة الأولى" class="main-img">
-
-    <div class="footer-nav">
-        <a href="problem.html" class="next-btn">ابدأ الرحلة (الصفحة التالية) ←</a>
+    <nav>
+        <a href="index.html" class="active">الرئيسية</a>
+        <a href="problem.html">المشكلة</a>
+        <a href="security.html">الأمان</a>
+        <a href="features.html">الميزات</a>
+        <a href="payment.html">الدفع</a>
+        <a href="prices.html">الباقات</a>
+        <a href="offers.html">العروض</a>
+        <a href="success.html">النجاح</a>
+    </nav>
+    <div class="content">
+        <h1 style="color: var(--gold); margin-bottom: 5px;">NIVIO CHAT</h1>
+        <p>الموظف الرقمي الذكي لمؤسستك</p>
+        <img src="1.jpg" alt="نيفيو شات الغلاف" class="main-img">
+        <br>
+        <a href="problem.html" class="next-btn">ابدأ العرض (الصفحة التالية) ←</a>
     </div>
-</div>
-
-<footer style="padding: 40px; color: #555;">جميع الحقوق محفوظة © نيفيو تيك</footer>
-
 </body>
 </html>
