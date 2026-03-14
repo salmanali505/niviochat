@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نيفيو شات | Nevio Chat - الموظف الرقمي الذكي</title>
+    <title>Nevio Chat | نيفيو شات - الفخامة في أتمتة الأعمال</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
         :root { 
@@ -19,7 +19,7 @@
             overflow-x: hidden; scroll-behavior: smooth;
         }
 
-        /* خلفية تقنية متحركة */
+        /* تأثير الخلفية التكنولوجية المتحركة */
         .bg-glow {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: radial-gradient(circle at 50% 50%, #0a1a33 0%, #02050a 100%);
@@ -29,84 +29,95 @@
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background-image: linear-gradient(rgba(0, 242, 255, 0.05) 1px, transparent 1px), 
                               linear-gradient(90deg, rgba(0, 242, 255, 0.05) 1px, transparent 1px);
-            background-size: 50px 50px; z-index: -1; opacity: 0.2;
+            background-size: 50px 50px; z-index: -1; opacity: 0.3;
         }
 
-        /* شريط التنقل */
+        /* شريط التنقل الزجاجي (Glassmorphism) */
         nav { 
-            background: rgba(2, 5, 10, 0.85); padding: 15px; position: sticky; top: 0; z-index: 1000; 
+            background: rgba(2, 5, 10, 0.8); padding: 15px; position: sticky; top: 0; z-index: 1000; 
             backdrop-filter: blur(15px); border-bottom: 1px solid rgba(212, 175, 55, 0.3);
             display: flex; justify-content: center; gap: 20px;
         }
         nav a { color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 700; padding: 5px 15px; border-radius: 20px; }
         nav a:hover { color: var(--gold); background: rgba(212, 175, 55, 0.1); }
 
-        /* الواجهة الرئيسية والشعار */
-        .hero { padding: 100px 20px; text-align: center; }
+        /* الشعار والواجهة الرئيسية */
+        .hero { padding: 120px 20px; text-align: center; }
         .shield-container {
-            width: 130px; height: 130px; margin: 0 auto 30px; position: relative;
-            perspective: 1000px;
+            width: 180px; height: 180px; margin: 0 auto 30px; position: relative;
+            perspective: 1000px; /* لإعطاء بُعد ثلاثي الأبعاد للدوران */
         }
+        
+        /* دمج الشعار الذهبي السداسي الجديد */
         .shield-logo {
             width: 100%; height: 100%;
-            background: linear-gradient(135deg, var(--gold), #8B6508);
-            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 3rem; font-weight: 900; color: #000;
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
-            animation: rotateShield 10s infinite linear;
+            /* استبدال الخلفية بصورة الشعار المرسل */
+            background: url('image_5.png') no-repeat center;
+            background-size: contain; /* لضمان ظهور الشعار بالكامل */
+            filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.6)); /* توهج ذهبي */
+            
+            /* تفعيل الدوران ثلاثي الأبعاد وطاقة النبض */
+            animation: rotateShield 12s infinite linear, pulseShield 4s infinite ease-in-out;
+            transform-style: preserve-3d;
         }
 
-        .hero h1 { font-size: clamp(2.5rem, 10vw, 4.2rem); margin: 10px 0; color: var(--gold); font-weight: 900; }
+        .hero h1 { font-size: clamp(2.5rem, 10vw, 4.5rem); margin: 10px 0; color: var(--gold); letter-spacing: -2px; }
         .hero p { color: var(--cyan); font-size: 1.3rem; max-width: 800px; margin: 20px auto; text-shadow: 0 0 10px rgba(0,242,255,0.4); }
 
-        /* الأقسام والكروت */
-        section { padding: 80px 20px; max-width: 1200px; margin: auto; }
-        h2 { text-align: center; color: var(--gold); font-size: 2.3rem; margin-bottom: 50px; position: relative; }
-        h2::after { content: ''; display: block; width: 80px; height: 3px; background: var(--cyan); margin: 10px auto; }
+        /* الأقسام والميزات */
+        section { padding: 100px 20px; max-width: 1200px; margin: auto; }
+        h2 { text-align: center; color: var(--gold); font-size: 2.5rem; margin-bottom: 50px; text-transform: uppercase; }
         
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .card { 
             background: var(--card-bg); padding: 40px; border-radius: 30px; 
-            border: 1px solid rgba(255,255,255,0.05); text-align: right;
+            border: 1px solid rgba(255,255,255,0.05); position: relative; overflow: hidden;
             backdrop-filter: blur(10px);
         }
-        .card:hover { border-color: var(--cyan); transform: translateY(-10px); }
-        .card h3 { color: var(--gold); font-size: 1.5rem; margin-bottom: 15px; }
+        .card:hover { border-color: var(--cyan); transform: scale(1.02); box-shadow: 0 20px 40px rgba(0,0,0,0.6); }
 
-        /* الباقات والأسعار */
+        /* الباقات */
         .price-card { 
             background: linear-gradient(180deg, rgba(20,25,45,0.9) 0%, rgba(5,10,20,1) 100%);
-            padding: 50px 30px; border-radius: 40px; border: 1px solid #222; text-align: center; position: relative;
+            padding: 50px 30px; border-radius: 40px; border: 1px solid #222; text-align: center;
         }
-        .price-card.featured { border: 2px solid var(--cyan); transform: scale(1.05); z-index: 5; }
-        .featured-tag { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--cyan); color: #000; padding: 5px 20px; border-radius: 20px; font-weight: 900; font-size: 0.8rem; }
-        
-        .amount { font-size: 3.5rem; font-weight: 900; color: var(--gold); margin: 5px 0; display: block; }
-        .setup-tag { color: #aaa; font-size: 0.9rem; font-weight: bold; border-bottom: 1px solid #222; padding-bottom: 10px; display: block; }
-        
+        .price-card.featured { border: 2px solid var(--cyan); transform: scale(1.05); }
+        .amount { font-size: 4rem; font-weight: 900; color: var(--gold); margin: 10px 0; display: block; }
         .sub-fee { margin: 20px 0; padding: 15px; background: rgba(0, 242, 255, 0.05); border-radius: 20px; border: 1px dashed var(--cyan); }
-        .sub-fee span { font-size: 0.85rem; color: #888; display: block; }
         .sub-fee b { font-size: 1.5rem; color: var(--cyan); }
 
         .btn-order { 
             background: linear-gradient(90deg, var(--gold), var(--gold-bright)); color: #000; 
             padding: 18px; border-radius: 50px; text-decoration: none; font-weight: 900; 
-            display: block; margin-top: 30px; font-size: 1.1rem;
+            display: block; margin-top: 30px; font-size: 1.1rem; box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
         }
-        .btn-order:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4); }
 
-        /* أيقونات التواصل */
+        /* الأيقونات العائمة */
         .floating-icons { position: fixed; bottom: 30px; left: 30px; z-index: 2000; display: flex; flex-direction: column; gap: 20px; }
-        .icon { width: 65px; height: 65px; border-radius: 20px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
-        .icon-wa { background: #25D366; }
-        .icon-fb { background: #1877F2; }
+        .icon { 
+            width: 70px; height: 70px; border-radius: 25px; display: flex; align-items: center; justify-content: center; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5); border: 1px solid #fff; backdrop-filter: blur(10px);
+        }
+        .icon-wa { background: rgba(37, 211, 102, 0.9); }
+        .icon-fb { background: rgba(24, 119, 242, 0.9); }
 
-        @keyframes rotateShield { 0% { transform: rotateY(0deg); } 100% { transform: rotateY(360deg); } }
+        /* Animations */
+        @keyframes rotateShield { 
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(360deg); } /* دوران كامل */
+        }
+        @keyframes pulseShield {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.6)); }
+            50% { transform: scale(1.05); filter: drop-shadow(0 0 35px rgba(212, 175, 55, 0.9)); } /* نبض وتوهج أقوى */
+        }
 
-        footer { padding: 60px 20px; text-align: center; border-top: 1px solid #111; background: #010205; }
+        footer { padding: 80px 20px; text-align: center; border-top: 1px solid #111; background: #010205; }
         
-        @media (max-width: 768px) { .price-card.featured { transform: scale(1); } }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            .shield-container { width: 140px; height: 140px; }
+            .price-card.featured { transform: scale(1); }
+        }
     </style>
 </head>
 <body>
@@ -117,15 +128,15 @@
     <nav>
         <a href="#home">الرئيسية</a>
         <a href="#about">لماذا نحن؟</a>
-        <a href="#prices">الباقات والأسعار</a>
+        <a href="#prices">الأسعار</a>
     </nav>
 
     <section id="home" class="hero">
         <div class="shield-container">
-            <div class="shield-logo">N</div>
+            <div class="shield-logo" title="Nevio Chat Gold Shield"></div>
         </div>
-        <h1>نيفيو شات</h1>
-        <p>نصنع الذكاء الذي يدير أعمالك. الحل العالمي المبتكر لأتمتة الواتساب ونظم الرد الذكي في قلب عدن.</p>
+        <h1>Nevio Chat</h1>
+        <p>نصنع الذكاء الذي يدير أعمالك. الحل العالمي المبتكر لأتمتة الواتساب في قلب عدن.</p>
         <a href="#prices" class="btn-order" style="width: auto; padding: 18px 60px;">ابدأ الآن</a>
     </section>
 
@@ -133,12 +144,12 @@
         <h2>أتمتة ذكية.. نتائج عالمية</h2>
         <div class="grid">
             <div class="card">
-                <h3>🛡️ موثوقية وأمان فائق</h3>
-                <p>ربط رسمي ومباشر عبر واجهة ميتـا (Meta API) يضمن لك استقرار الخدمة وحماية بياناتك بأعلى معايير التشفير.</p>
+                <h3>🛡️ موثوقية وأمان</h3>
+                <p>ربط رسمي عبر Meta API يضمن لك استقرار الخدمة وحماية بياناتك بأعلى معايير التشفير العالمية.</p>
             </div>
             <div class="card">
                 <h3>🤖 ذكاء اصطناعي تفاعلي</h3>
-                <p>نظامنا لا يكتفي بالرد، بل يفهم احتياج الزبون، ينظم المواعيد، يروج لمنتجاتك، ويحول العميل للمختص عند الضرورة.</p>
+                <p>الروبوت ليس مجرد رد آلي، بل نظام يفهم احتياج الزبون، يحجز، يبيع، ويحول العميل للمختص عند الحاجة.</p>
             </div>
         </div>
     </section>
@@ -146,71 +157,19 @@
     <section id="prices">
         <h2>باقات الاستثمار الرقمي</h2>
         <div class="price-grid">
-            
-            <div class="price-card">
-                <h3>الباقة الأساسية</h3>
-                <span class="setup-tag">إعداد مبدئي: 100$ (مرة واحدة)</span>
-                <span class="amount">40$</span>
-                <div class="sub-fee">
-                    <span>الاشتراك الشهري</span>
-                    <b>40$ فقط</b>
-                </div>
-                <ul style="text-align: right; line-height: 2; padding: 0; list-style: none;">
-                    <li>✓ الرد الذكي على الاستفسارات</li>
-                    <li>✓ عرض معلومات الدورات والخدمات</li>
-                    <li>✓ إدارة وحملات الإعلانات</li>
-                </ul>
-                <a href="https://wa.me/967782483336?text=أريد الباقة الأساسية من نيفيو شات" class="btn-order">اطلب الآن</a>
             </div>
-
-            <div class="price-card featured">
-                <div class="featured-tag">الأكثر طلباً</div>
-                <h3>الباقة الاحترافية</h3>
-                <span class="setup-tag">إعداد مبدئي: 250$ (مرة واحدة)</span>
-                <span class="amount">85$</span>
-                <div class="sub-fee">
-                    <span>الاشتراك الشهري</span>
-                    <b>85$ فقط</b>
-                </div>
-                <ul style="text-align: right; line-height: 2; padding: 0; list-style: none;">
-                    <li>✓ كل ميزات الباقة الأساسية</li>
-                    <li>✓ نظام التسجيل والحجوزات الآلي</li>
-                    <li>✓ تحويل العميل المباشر لخدمة العملاء</li>
-                </ul>
-                <a href="https://wa.me/967782483336?text=أريد الباقة الاحترافية من نيفيو شات" class="btn-order">اشترك الآن</a>
-            </div>
-
-            <div class="price-card">
-                <h3>باقة المؤسسات</h3>
-                <span class="setup-tag">إعداد مبدئي: 500$ (مرة واحدة)</span>
-                <span class="amount">180$</span>
-                <div class="sub-fee">
-                    <span>الاشتراك الشهري</span>
-                    <b>180$ فقط</b>
-                </div>
-                <ul style="text-align: right; line-height: 2; padding: 0; list-style: none;">
-                    <li>✓ كل ما سبق في الباقات الأخرى</li>
-                    <li>✓ دعم الدفع المباشر عبر المحافظ المحلية</li>
-                    <li>✓ ربط مخصص مع أنظمة المؤسسات</li>
-                </ul>
-                <a href="https://wa.me/967782483336?text=أريد باقة المؤسسات من نيفيو شات" class="btn-order">تواصل معنا</a>
-            </div>
-
-        </div>
     </section>
 
     <div class="floating-icons">
         <a href="https://wa.me/967773354434" class="icon icon-wa">
-            <svg width="35" height="35" fill="#fff" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217s.231.001.332.005c.109.004.258-.041.404.314l.542 1.317c.058.145.096.314.01.482l-.246.416c-.087.145-.177.303-.077.476.1.173.444.733.953 1.185.656.581 1.208.761 1.381.848.173.087.274.072.376-.043s.433-.506.548-.68c.116-.173.231-.145.39-.087l1.344.667c.158.08.261.12.3.188.04.067.04 1.139-.104 1.544z"/></svg>
-        </a>
+            </a>
         <a href="https://www.facebook.com/share/1DSyz7schq/" class="icon icon-fb">
-            <svg width="35" height="35" fill="#fff" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-        </a>
+            </a>
     </div>
 
     <footer>
         <h3 style="color:var(--gold); margin:0;">NIVIO TECH</h3>
-        <p style="color: #555;">عدن، اليمن | جميع الحقوق محفوظة لشركة نيفيو تك © 2026</p>
+        <p style="color: #555;">عدن، اليمن |  الحقوق محفوظة لشركة © نيفيو تك 2026</p>
     </footer>
 
 </body>
