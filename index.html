@@ -17,7 +17,7 @@
             margin: 0; overflow-x: hidden; scroll-behavior: smooth;
         }
 
-        /* خلفية تكنولوجية متطورة (Moving Tech Particles) */
+        /* خلفية تكنولوجية متطورة */
         .tech-bg {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2;
             background: radial-gradient(circle at 50% 50%, #0a1a33 0%, var(--bg-dark) 100%);
@@ -29,14 +29,14 @@
             background-size: 60px 60px; opacity: 0.1;
         }
 
-        /* شريط التنقل العلوي مع القائمة المنسدلة */
+        /* شريط التنقل العلوي */
         nav { 
             background: var(--glass); padding: 10px 40px; position: fixed; width: 100%; top: 0; 
             z-index: 2000; backdrop-filter: blur(20px); border-bottom: 1px solid var(--border);
             display: flex; justify-content: space-between; align-items: center;
         }
 
-        /* تصميم القائمة المنسدلة في أعلى اليمين */
+        /* القائمة المنسدلة */
         .dropdown { position: relative; display: inline-block; }
         .dropbtn {
             background: rgba(212, 175, 55, 0.1); color: var(--gold); padding: 10px 20px;
@@ -100,6 +100,27 @@
         }
         .btn-order:hover { background: #fff; transform: scale(1.03); }
 
+        /* أيقونة الواتساب العائمة */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 15px rgba(0,0,0,0.5);
+            z-index: 2100;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); background-color: #128c7e; }
+
         /* Animations */
         @keyframes rotateShield { 0% { transform: rotateY(0deg); } 100% { transform: rotateY(360deg); } }
         @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
@@ -126,8 +147,12 @@
                 <a href="#prices">💰 باقات الأسعار</a>
             </div>
         </div>
-        <div style="font-weight: 900; color: var(--gold); font-size: 1.2rem;">NIVIO TECH</div>
+        <div style="font-weight: 900; color: var(--gold); font-size: 1.2rem;">نيفيو شات</div>
     </nav>
+
+    <a href="https://wa.me/967773354434?text" class="whatsapp-float" target="_blank">
+        <svg width="35" height="35" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217s.231.001.332.005c.109.004.258-.041.404.314l.542 1.317c.058.145.096.314.01.482l-.246.416c-.087.145-.177.303-.077.476.1.173.444.733.953 1.185.656.581 1.208.761 1.381.848.173.087.274.072.376-.043s.433-.506.548-.68c.116-.173.231-.145.39-.087l1.344.667c.158.08.261.12.3.188.04.067.04 1.139-.104 1.544z"/></svg>
+    </a>
 
     <section id="home" class="hero">
         <div class="shield-box"></div>
@@ -142,7 +167,6 @@
             <h2 style="display: block; border: none;">الحل لكل قطاع عمل</h2>
         </div>
         <div class="activity-grid">
-            
             <div class="card">
                 <h3>العيادات والمستشفيات</h3>
                 <p><b>المشكلة:</b> فوضى المواعيد وضغط الاتصالات.<br><b>الحل:</b> حجز آلي وتذكيرات ذكية للمرضى.</p>
@@ -151,7 +175,6 @@
                     <div class="comp-box comp-after">موعد مؤكد</div>
                 </div>
             </div>
-
             <div class="card">
                 <h3>المعاهد والمتاجر</h3>
                 <p><b>المشكلة:</b> تأخر الرد وضياع فرص البيع.<br><b>الحل:</b> تسجيل آلي وعرض منيو المنتجات فورا.</p>
@@ -160,7 +183,6 @@
                     <div class="comp-box comp-after">طلب مكتمل</div>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -169,7 +191,6 @@
             <h2 style="display: block; border: none;">باقات الاستثمار الرقمي</h2>
         </div>
         <div class="price-grid">
-            
             <div class="price-card">
                 <h3>الباقة الأساسية</h3>
                 <span class="setup-fee">إعداد مبدئي: 100$</span>
@@ -182,7 +203,6 @@
                 </ul>
                 <a href="https://wa.me/967782483336" class="btn-order">اطلب الباقة</a>
             </div>
-
             <div class="price-card featured">
                 <h3>الباقة الاحترافية</h3>
                 <span class="setup-fee">إعداد مبدئي: 250$</span>
@@ -195,7 +215,6 @@
                 </ul>
                 <a href="https://wa.me/967782483336" class="btn-order">اطلب الباقة</a>
             </div>
-
             <div class="price-card">
                 <h3>باقة المؤسسات</h3>
                 <span class="setup-fee">إعداد مبدئي: 500$</span>
@@ -208,13 +227,12 @@
                 </ul>
                 <a href="https://wa.me/967782483336" class="btn-order">تواصل معنا</a>
             </div>
-
         </div>
     </section>
 
     <footer>
-        <div style="font-weight: 900; color: #fff; margin-bottom: 10px;">NIVIO TECH</div>
-        <p>جميع الحقوق محفوظة لشركة نيفيو تك © 2026</p>
+        <div style="font-weight: 900; color: #fff; margin-bottom: 10px;">نيفيو شات</div>
+        <p>جميع الحقوق محفوظة لشركة نيفيو شات © 2026</p>
     </footer>
 
 </body>
