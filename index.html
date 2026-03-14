@@ -3,35 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نيفيو شات | الرئيسية</title>
+    <title>NIVIO CHAT | الرئيسية</title>
     <style>
-        :root { --gold: #D4AF37; --cyan: #00F2FF; --dark: #05080a; }
-        body { background: var(--dark); color: white; font-family: sans-serif; margin: 0; text-align: center; }
-        nav { background: rgba(0,0,0,0.9); padding: 15px; position: sticky; top: 0; border-bottom: 1px solid var(--gold); display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; z-index: 1000; }
-        nav a { color: white; text-decoration: none; font-size: 0.8rem; padding: 5px 8px; border-radius: 5px; border: 1px solid transparent; }
+        :root { --gold: #D4AF37; --dark: #0a0a0a; --gray: #1a1a1a; --text: #e0e0e0; }
+        body { background: var(--dark); color: var(--text); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; line-height: 1.6; }
+        
+        /* شريط التنقل */
+        nav { background: var(--gray); padding: 15px; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid var(--gold); display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+        nav a { color: white; text-decoration: none; font-size: 0.85rem; padding: 8px 12px; border-radius: 5px; transition: 0.3s; border: 1px solid transparent; }
         nav a:hover, .active { border-color: var(--gold); color: var(--gold); }
-        .content { padding: 30px 15px; }
-        .main-img { width: 100%; max-width: 800px; border-radius: 15px; border: 2px solid var(--gold); box-shadow: 0 0 25px rgba(212,175,55,0.2); margin-top: 20px; }
-        .next-btn { background: var(--gold); color: black; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 30px; }
+
+        /* المحتوى الرئيسي */
+        .hero { padding: 60px 20px; text-align: center; background: linear-gradient(to bottom, #111, #0a0a0a); }
+        .hero h1 { color: var(--gold); font-size: 2.5rem; margin-bottom: 10px; letter-spacing: 2px; }
+        .hero p { font-size: 1.2rem; color: #aaa; max-width: 700px; margin: 0 auto 30px; }
+
+        .feature-box { background: var(--gray); padding: 30px; margin: 20px auto; max-width: 800px; border-radius: 15px; border-right: 5px solid var(--gold); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .feature-box h2 { color: var(--gold); margin-top: 0; }
+
+        .btn { background: var(--gold); color: black; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; transition: 0.3s; margin-top: 20px; }
+        .btn:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(212,175,55,0.4); }
+
+        footer { text-align: center; padding: 40px; color: #555; font-size: 0.8rem; }
     </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html" class="active">الرئيسية</a>
-        <a href="problem.html">المشكلة</a>
-        <a href="security.html">الأمان</a>
-        <a href="features.html">الميزات</a>
-        <a href="payment.html">الدفع</a>
-        <a href="prices.html">الباقات</a>
-        <a href="offers.html">العروض</a>
-        <a href="success.html">النجاح</a>
-    </nav>
-    <div class="content">
-        <h1 style="color: var(--gold); margin-bottom: 5px;">NIVIO CHAT</h1>
-        <p>الموظف الرقمي الذكي لمؤسستك</p>
-        <img src="1.jpg" alt="نيفيو شات الغلاف" class="main-img">
-        <br>
-        <a href="problem.html" class="next-btn">ابدأ العرض (الصفحة التالية) ←</a>
+
+<nav>
+    <a href="index.html" class="active">الرئيسية</a>
+    <a href="problem.html">المشكلة والحل</a>
+    <a href="security.html">الأمان</a>
+    <a href="features.html">الميزات</a>
+    <a href="payment.html">الدفع</a>
+    <a href="prices.html">الباقات</a>
+    <a href="offers.html">العروض</a>
+    <a href="success.html">النجاح</a>
+</nav>
+
+<section class="hero">
+    <h1>NIVIO CHAT</h1>
+    <p>أول موظف رقمي ذكي في عدن يعمل بنظام الذكاء الاصطناعي المتكامل عبر الواتساب.</p>
+    <a href="problem.html" class="btn">اكتشف القوة الآن</a>
+</section>
+
+<div class="content">
+    <div class="feature-box">
+        <h2>لماذا نيفيو شات؟</h2>
+        <p>نحن لا نقدم مجرد رد آلي، نحن نبني لك نظاماً متكاملاً يدير مبيعاتك، يحجز مواعيدك، ويجيب على استفسارات عملائك بدقة بشرية وسرعة فائقة 24/7.</p>
     </div>
+</div>
+
+<footer>جميع الحقوق محفوظة © نيفيو تيك 2026</footer>
+
 </body>
 </html>
