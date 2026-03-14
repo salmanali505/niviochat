@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نيفيو شات | NIVIO CHAT - مستقبل الأعمال الذكية</title>
+    <style>
+        /* تعريف الألوان والهوية البصرية */
+        :root {
+            --gold: #D4AF37;
+            --cyan: #00F2FF;
+            --dark-bg: #05080a;
+            --glass: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(212, 175, 55, 0.2);
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            background-image: radial-gradient(circle at 50% 50%, #0a1520 0%, #05080a 100%);
+        }
+
+        /* خلفية الشبكة التقنية المضيئة */
+        .grid-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(rgba(0, 242, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(0, 242, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+        }
+
+        header {
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--card-border);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo-text {
+            font-size: 2.8rem;
+            font-weight: bold;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+            margin: 0;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            background: linear-gradient(to left, #fff, var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #ccc;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        /* تصميم كروت الباقات */
+        .card {
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--card-border);
+            border-radius: 25px;
+            padding: 40px;
+            width: 340px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(0, 242, 255, 0.05) 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        .card:hover {
+            transform: translateY(-15px);
+            border-color: var(--cyan);
+            box-shadow: 0 15px 40px rgba(0, 242, 255, 0.1);
+        }
+
+        .card h3 {
+            color: var(--gold);
+            font-size: 2rem;
+            margin-top: 0;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 25px 0;
+            color: #fff;
+        }
+
+        .price small {
+            font-size: 1rem;
+            color: #aaa;
+        }
+
+        .features {
+            list-style: none;
+            padding: 0;
+            text-align: right;
+            margin-bottom: 30px;
+        }
+
+        .features li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+        }
+
+        .features li::before {
+            content: '✓';
+            color: var(--cyan);
+            margin-left: 10px;
+            font-weight: bold;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, var(--gold), #f3d066);
+            color: #000;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            background: var(--cyan);
+            box-shadow: 0 5px 20px rgba(0, 242, 255, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px;
+            border-top: 1px solid var(--card-border);
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-bg"></div>
+    
+    <header>
+        <div class="logo-text">NIVIO CHAT</div>
+    </header>
+
+    <section class="hero">
+        <h1>الموظف الرقمي الذكي لمؤسستك</h1>
+        <p>أنظمة أتمتة الواتساب الرسمية والذكاء الاصطناعي لتطوير خدمة العملاء وزيادة مبيعاتك في عدن.</p>
+    </section>
+
+    <div class="container">
+        <div class="card">
+            <h3>باقة الانطلاقة</h3>
+            <p>مثالية للمحلات والمشاريع الناشئة</p>
+            <div class="price">40$ <small>شهرياً</small></div>
+            <ul class="features">
+                <li>رد آلي ذكي ومتطور</li>
+                <li>أزرار وقوائم تفاعلية</li>
+                <li>خدمة 24/7 بدون توقف</li>
+                <li>ربط رسمي مع شركة Meta</li>
+            </ul>
+            <a href="https://wa.me/967773354434?text=مرحباً نيفيو شات، أريد الاستفسار عن باقة الانطلاقة (المرحلة الأولى)" class="btn">اطلبها الآن</a>
+        </div>
+
+        <div class="card" style="border-color: var(--gold); border-width: 2px;">
+            <div style="background: var(--gold); color: #000; position: absolute; top: 10px; left: -30px; transform: rotate(-45deg); width: 150px; font-size: 0.8rem; font-weight: bold;">الأكثر طلباً</div>
+            <h3>باقة النمو</h3>
+            <p>للعيادات والمعاهد والشركات</p>
+            <div class="price">85$ <small>شهرياً</small></div>
+            <ul class="features">
+                <li>جميع مميزات باقة الانطلاقة</li>
+                <li>نظام حجز المواعيد الآلي</li>
+                <li>ربط مع جداول Google Sheets</li>
+                <li>تحويل المحادثات للموظفين</li>
+            </ul>
+            <a href="https://wa.me/967773354434?text=مرحباً نيفيو شات، أريد الاشتراك في باقة النمو (المرحلة الثانية)" class="btn">اختر باقة النمو</a>
+        </div>
+    </div>
+
+    <footer>
+        جميع الحقوق محفوظة © 2026 - نيفيو تيك (NIVIO TECH)<br>
+        شريكك الموثوق في التحول الرقمي
+    </footer>
+</body>
+</html>
