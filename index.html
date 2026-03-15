@@ -8,15 +8,37 @@
     <style>
         :root { 
             --gold: #D4AF37; --gold-bright: #FFD700; --cyan: #00F2FF; 
-            --bg-dark: #02050a; --glass: rgba(15, 20, 35, 0.85); --border: rgba(212, 175, 55, 0.3);
+            --bg-dark: #02050a; --glass: rgba(15, 20, 35, 0.7); --border: rgba(212, 175, 55, 0.3);
         }
 
         * { box-sizing: border-box; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
         body { background-color: var(--bg-dark); color: #fff; font-family: 'Cairo', sans-serif; margin: 0; overflow-x: hidden; scroll-behavior: smooth; }
 
-        /* الخلفية التكنولوجية الشبكية */
-        .tech-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; background: radial-gradient(circle at 50% 50%, #0a1a33 0%, var(--bg-dark) 100%); }
-        .tech-lines { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background-image: linear-gradient(var(--border) 0.5px, transparent 0.5px), linear-gradient(90deg, var(--border) 0.5px, transparent 0.5px); background-size: 50px 50px; opacity: 0.15; }
+        /* =========================================
+           تعديل: الخلفية المتحركة (فيديو)
+           ========================================= */
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+            background-color: var(--bg-dark); /* خلفية احتياطية */
+        }
+        .video-bg video {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: cover; /* يضمن تغطية الفيديو للشاشة */
+            filter: brightness(0.4) contrast(1.1); /* تعتيم الفيديو للحفاظ على وضوح النص */
+        }
 
         /* تنسيق صور البنرات */
         .section-banner {
@@ -28,16 +50,17 @@
             overflow: hidden;
             border: 1px solid var(--border);
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px); /* تأثير زجاجي خلف البنر */
         }
         .section-banner img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.8) contrast(1.1); }
 
         /* شريط التنقل العلوي */
-        nav { background: var(--glass); padding: 12px 40px; position: fixed; width: 100%; top: 0; z-index: 2000; backdrop-filter: blur(25px); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+        nav { background: rgba(15, 20, 35, 0.9); padding: 12px 40px; position: fixed; width: 100%; top: 0; z-index: 2000; backdrop-filter: blur(25px); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
         .nav-logo { font-weight: 900; color: var(--gold); font-size: 1.4rem; letter-spacing: 1px; animation: floatName 3s infinite ease-in-out; }
 
         .dropdown { position: relative; display: inline-block; }
         .dropbtn { background: rgba(212, 175, 55, 0.1); color: var(--gold); padding: 10px 20px; font-size: 1rem; font-weight: 900; border: 1px solid var(--gold); border-radius: 12px; cursor: pointer; display: flex; align-items: center; gap: 10px; }
-        .dropdown-content { display: none; position: absolute; right: 0; top: 50px; background: var(--glass); min-width: 250px; border-radius: 15px; border: 1px solid var(--border); box-shadow: 0 15px 35px rgba(0,0,0,0.8); overflow: hidden; backdrop-filter: blur(25px); }
+        .dropdown-content { display: none; position: absolute; right: 0; top: 50px; background: rgba(15, 20, 35, 0.95); min-width: 250px; border-radius: 15px; border: 1px solid var(--border); box-shadow: 0 15px 35px rgba(0,0,0,0.8); overflow: hidden; backdrop-filter: blur(25px); }
         .dropdown-content a { color: #ccc; padding: 12px 20px; text-decoration: none; display: block; font-size: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .dropdown-content a:hover { background: rgba(0, 242, 255, 0.1); color: var(--cyan); }
         .dropdown:hover .dropdown-content { display: block; }
@@ -61,25 +84,25 @@
         .hero h1 { font-size: clamp(2.5rem, 10vw, 4.5rem); color: var(--gold); margin: 10px 0; font-weight: 900; }
         .hero p { color: var(--cyan); font-size: 1.3rem; max-width: 800px; margin: 20px auto; }
 
-        /* الأقسام والبطاقات */
+        /* الأقسام والبطاقات مع زيادة تأثير الضبابية وضوحاً */
         section { padding: 80px 20px; max-width: 1200px; margin: auto; }
         h2 { text-align: center; color: var(--gold); font-size: 2.3rem; margin-bottom: 50px; }
         h2 span { color: var(--cyan); }
 
         .activity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
-        .card { background: rgba(255,255,255,0.02); padding: 40px; border-radius: 35px; border: 1px solid rgba(255,255,255,0.05); text-align: right; backdrop-filter: blur(10px); }
+        .card { background: var(--glass); padding: 40px; border-radius: 35px; border: 1px solid var(--border); text-align: right; backdrop-filter: blur(15px); }
         .card h3 { color: var(--cyan); font-size: 1.6rem; margin-bottom: 20px; border-right: 4px solid var(--gold); padding-right: 15px; }
 
         .problem-box { background: rgba(255, 77, 77, 0.08); padding: 15px; border-radius: 15px; margin: 15px 0; border-right: 4px solid #ff4d4d; font-size: 0.95rem; }
         .solution-box { background: rgba(0, 242, 255, 0.08); padding: 15px; border-radius: 15px; margin: 15px 0; border-right: 4px solid var(--cyan); font-size: 0.95rem; }
 
         .comparison { display: flex; gap: 15px; margin-top: 25px; }
-        .comp-box { flex: 1; height: 110px; border-radius: 20px; background: #050505; border: 1px solid #222; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; position: relative; text-align: center; padding: 10px; color: #aaa; }
+        .comp-box { flex: 1; height: 110px; border-radius: 20px; background: rgba(5, 5, 5, 0.8); border: 1px solid rgba(34, 34, 34, 0.5); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; position: relative; text-align: center; padding: 10px; color: #aaa; backdrop-filter: blur(5px); }
         .comp-box::after { content: 'قبل نيفيو'; position: absolute; top: -10px; right: 10px; background: #ff4d4d; padding: 2px 8px; border-radius: 5px; font-size: 0.75rem; color: #fff; }
         .comp-after::after { content: 'بعد نيفيو'; background: var(--gold); color: #000; font-weight: 900; }
 
-        /* باقات الأسعار */
-        .price-card { background: linear-gradient(180deg, #0a0f1e 0%, #02050a 100%); padding: 50px 30px; border-radius: 40px; border: 1px solid #1a1a1a; text-align: center; position: relative; }
+        /* باقات الأسعار الزجاجية */
+        .price-card { background: rgba(10, 15, 30, 0.8); padding: 50px 30px; border-radius: 40px; border: 1px solid rgba(26, 26, 26, 0.5); text-align: center; position: relative; backdrop-filter: blur(20px); }
         .price-card.featured { border: 2px solid var(--cyan); transform: scale(1.05); z-index: 5; }
         .featured-tag { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--cyan); color: #000; padding: 5px 20px; border-radius: 20px; font-weight: 900; font-size: 0.8rem; }
         .amount { font-size: 3.5rem; font-weight: 900; color: var(--gold); margin: 5px 0; display: block; }
@@ -95,15 +118,19 @@
         @keyframes floatingShield { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
         @keyframes floatName { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
         
-        footer { padding: 80px 20px; text-align: center; border-top: 1px solid #111; }
+        footer { padding: 80px 20px; text-align: center; border-top: 1px solid #111; backdrop-filter: blur(10px); }
 
         @media (max-width: 768px) { nav { padding: 10px 20px; } .price-card.featured { transform: scale(1); } .section-banner { height: 200px; } }
     </style>
 </head>
 <body>
 
-    <div class="tech-bg"></div>
-    <div class="tech-lines"></div>
+    <div class="video-bg">
+        <video autoplay loop muted playsinline>
+            <source src="https://cdn.pixabay.com/video/2021/08/17/85376-589710323_large.mp4" type="video/mp4">
+            متصفحك لا يدعم تشغيل الفيديو.
+        </video>
+    </div>
 
     <nav>
         <div class="dropdown">
@@ -248,7 +275,7 @@
                     <li>✓ تحويل العميل للمختص مباشرة</li>
                     <li>✓ كل ميزات الباقة الأساسية</li>
                 </ul>
-                <a href="https://wa.me/967782483336" class="btn-order">اطلب الباقة</a>
+                <a href="https://wa.me/967782483336" class="btn-order">اشترك الآن</a>
             </div>
         </div>
     </section>
@@ -262,7 +289,7 @@
             <div class="card" style="grid-column: 1 / -1; text-align: center; border: 1px solid var(--gold);">
                 <h3 style="border-right: none; border-bottom: 3px solid var(--gold); display: inline-block; padding-bottom: 10px; margin-bottom: 30px;">رؤيتنا وقصتنا</h3>
                 <p style="font-size: 1.2rem; line-height: 1.8; color: #ccc; max-width: 900px; margin: 0 auto;">
-                    تأسست <b>نيفيو شات (Nevio Chat)</b> في قلب مدينة <b>عدن</b> في الأول من يناير <b>2026</b>، لتكون الشرارة الأولى لثورة الذكاء الاصطناعي في المنطقة. نحن لسنا مجرد مزود خدمة، بل نحن شريكك الاستراتيجي في التحول الرقمي.
+                    تأسست <b>نيفيو شات (Nevio Chat)</b> في قلب مدينة <b>عدن</b> لتكون الشرارة الأولى لثورة الذكاء الاصطناعي في المنطقة. نحن لسنا مجرد مزود خدمة، بل نحن شريكك الاستراتيجي في التحول الرقمي.
                 </p>
                 
                 <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 40px;">
@@ -284,7 +311,7 @@
     </section>
 
     <footer>
-        <div style="font-weight: 900; color: #fff; margin-bottom: 10px; font-size: 1.5rem;">شركةنيفيوشات</div>
+        <div style="font-weight: 900; color: #fff; margin-bottom: 10px; font-size: 1.5rem;">نيفيو شات</div>
         <p>جميع الحقوق محفوظة لشركة نيفيو شات © 2026</p>
     </footer>
 
