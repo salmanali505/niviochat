@@ -14,7 +14,7 @@
         * { box-sizing: border-box; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
         body { background-color: var(--bg-dark); color: #fff; font-family: 'Cairo', sans-serif; margin: 0; overflow-x: hidden; scroll-behavior: smooth; }
 
-        /* الخلفية المتحركة */
+        /* الخلفية المتحركة للموقع */
         .video-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%; z-index: -2;
@@ -24,6 +24,27 @@
             min-width: 100%; min-height: 100%; width: auto; height: auto;
             position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
             object-fit: cover; filter: brightness(0.35) contrast(1.2);
+        }
+
+        /* تنسيق إطار عرض الأتمتة الجديد بدل السداسي */
+        .automation-display {
+            width: 100%;
+            max-width: 600px;
+            height: 250px;
+            margin: 0 auto 30px;
+            border-radius: 40px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 0 40px rgba(0, 242, 255, 0.1);
+            position: relative;
+        }
+        .automation-display video, .automation-display img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
         }
 
         /* تنسيق البنرات */
@@ -47,16 +68,6 @@
 
         /* الواجهة الرئيسية */
         .hero { padding: 180px 20px 100px; text-align: center; }
-        .hexagon-logo { 
-            width: 160px; height: 160px; margin: 0 auto 30px; 
-            background: linear-gradient(135deg, var(--gold), #8A6D3B);
-            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-            display: flex; align-items: center; justify-content: center;
-            filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.5));
-            animation: rotateShield 15s infinite linear, floatingShield 4s infinite ease-in-out;
-            transform-style: preserve-3d;
-        }
-        .hexagon-logo::after { content: 'N'; font-size: 90px; font-weight: 900; color: #02050a; text-shadow: 1px 1px 2px rgba(255,255,255,0.3); }
         .hero h1 { font-size: clamp(2.5rem, 10vw, 4.5rem); color: var(--gold); margin: 10px 0; font-weight: 900; }
         .hero p { color: var(--cyan); font-size: 1.3rem; max-width: 800px; margin: 20px auto; }
 
@@ -75,11 +86,11 @@
         .comparison { display: flex; gap: 15px; margin-top: 25px; }
         .comp-box { flex: 1; height: 110px; border-radius: 20px; background: rgba(5, 5, 5, 0.8); border: 1px solid rgba(34, 34, 34, 0.5); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; position: relative; text-align: center; padding: 10px; color: #aaa; backdrop-filter: blur(5px); }
         
-        /* استعادة تسمية "قبل نيفيو" للأقسام العامة */
+        /* تسمية "قبل نيفيو" للأقسام العامة */
         .comp-box::after { content: 'قبل نيفيو'; position: absolute; top: -10px; right: 10px; background: #ff4d4d; padding: 2px 8px; border-radius: 5px; font-size: 0.75rem; color: #fff; }
         .comp-after::after { content: 'بعد نيفيو' !important; background: var(--gold) !important; color: #000 !important; font-weight: 900; }
 
-        /* تخصيص تسميات "قسم من نحن" فقط لتبقى كما طلبت */
+        /* تسميات "قسم من نحن" المخصصة */
         .about-box-site::after { content: 'موقع الشركة' !important; }
         .about-box-date::after { content: 'تاريخ التأسيس' !important; }
         .about-box-owner::after { content: 'المؤسس' !important; background: var(--gold) !important; color: #000 !important; font-weight: 900; }
@@ -96,12 +107,15 @@
         /* واتساب العائم */
         .whatsapp-float { position: fixed; bottom: 30px; left: 30px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; width: 65px; height: 65px; display: flex; align-items: center; justify-content: center; box-shadow: 2px 2px 20px rgba(0,0,0,0.5); z-index: 2500; text-decoration: none; }
 
-        @keyframes rotateShield { 0% { transform: rotateY(0deg); } 100% { transform: rotateY(360deg); } }
-        @keyframes floatingShield { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
         @keyframes floatName { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
         
         footer { padding: 80px 20px; text-align: center; border-top: 1px solid #111; backdrop-filter: blur(10px); }
-        @media (max-width: 768px) { nav { padding: 10px 20px; } .price-card.featured { transform: scale(1); } .section-banner { height: 200px; } }
+        @media (max-width: 768px) { 
+            nav { padding: 10px 20px; } 
+            .price-card.featured { transform: scale(1); } 
+            .section-banner { height: 200px; } 
+            .automation-display { height: 180px; width: 90%; }
+        }
     </style>
 </head>
 <body>
@@ -133,7 +147,11 @@
     </a>
 
     <section id="home" class="hero">
-        <div class="hexagon-logo"></div>
+        <div class="automation-display">
+            <video autoplay loop muted playsinline>
+                <source src="https://cdn.pixabay.com/video/2023/10/20/185791-876255169_large.mp4" type="video/mp4">
+            </video>
+        </div>
         <h1>نيفيو شات</h1>
         <p>الذكاء الذي يقود مؤسستك للقمة. أتمتة شاملة لخدمة العملاء والبيع المباشر عبر الواتساب في عدن.</p>
         <a href="#prices" class="btn-order" style="width: auto; padding: 18px 60px; margin: 0 auto;">ابدأ الآن</a>
@@ -232,7 +250,7 @@
                     <li>✓ عرض معلومات الخدمات</li>
                     <li>✓ إدارة وحملات الإعلانات</li>
                 </ul>
-                <a href="https://wa.me/967782483336" class="btn-order">اطلب الباقة</a>
+                <a href="https://wa.me/967782483336" class="btn-order">اطلب الباقة الآن</a>
             </div>
             <div class="price-card featured">
                 <div class="featured-tag">الأكثر طلباً</div>
@@ -245,7 +263,7 @@
                     <li>✓ تحويل العميل للمختص مباشرة</li>
                     <li>✓ كل ميزات الباقة الأساسية</li>
                 </ul>
-                <a href="https://wa.me/967782483336" class="btn-order">اشترك الآن</a>
+                <a href="https://wa.me/967782483336" class="btn-order">اطلب الباقة الآن</a>
             </div>
         </div>
     </section>
@@ -283,9 +301,9 @@
     </section>
 
     <footer>
-        <div style="font-weight: 900; color: #fff; margin-bottom: 10px; font-size: 1.5rem;">نيفيو شات</div>
+        <div style="font-weight: 900; color: #fff; margin-bottom: 10px; font-size: 1.5rem;">شركة نيفيو شات</div>
         <p>جميع الحقوق محفوظة لشركة نيفيو شات © 2026</p>
     </footer>
 
 </body>
-</html>
+                        </html>
