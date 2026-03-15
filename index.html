@@ -14,11 +14,11 @@
         * { box-sizing: border-box; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
         body { background-color: var(--bg-dark); color: #fff; font-family: 'Cairo', sans-serif; margin: 0; overflow-x: hidden; scroll-behavior: smooth; }
 
-        /* الخلفية التكنولوجية */
+        /* الخلفية التكنولوجية الشبكية */
         .tech-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; background: radial-gradient(circle at 50% 50%, #0a1a33 0%, var(--bg-dark) 100%); }
         .tech-lines { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background-image: linear-gradient(var(--border) 0.5px, transparent 0.5px), linear-gradient(90deg, var(--border) 0.5px, transparent 0.5px); background-size: 50px 50px; opacity: 0.15; }
 
-        /* تنسيق الصور */
+        /* تنسيق صور البنرات */
         .section-banner {
             width: 100%;
             max-width: 900px;
@@ -31,7 +31,7 @@
         }
         .section-banner img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.8) contrast(1.1); }
 
-        /* شريط التنقل */
+        /* شريط التنقل العلوي */
         nav { background: var(--glass); padding: 12px 40px; position: fixed; width: 100%; top: 0; z-index: 2000; backdrop-filter: blur(25px); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
         .nav-logo { font-weight: 900; color: var(--gold); font-size: 1.4rem; letter-spacing: 1px; animation: floatName 3s infinite ease-in-out; }
 
@@ -42,7 +42,7 @@
         .dropdown-content a:hover { background: rgba(0, 242, 255, 0.1); color: var(--cyan); }
         .dropdown:hover .dropdown-content { display: block; }
 
-        /* الواجهة الرئيسية والأيقونة السداسية N */
+        /* الواجهة الرئيسية والأيقونة السداسية المنحوتة N */
         .hero { padding: 180px 20px 100px; text-align: center; }
         .hexagon-logo { 
             width: 160px; height: 160px; margin: 0 auto 30px; 
@@ -62,7 +62,7 @@
         .hero p { color: var(--cyan); font-size: 1.3rem; max-width: 800px; margin: 20px auto; }
 
         /* الأقسام والبطاقات */
-        section { padding: 100px 20px; max-width: 1200px; margin: auto; }
+        section { padding: 80px 20px; max-width: 1200px; margin: auto; }
         h2 { text-align: center; color: var(--gold); font-size: 2.3rem; margin-bottom: 50px; }
         h2 span { color: var(--cyan); }
 
@@ -87,12 +87,14 @@
         .sub-fee b { font-size: 1.5rem; color: var(--cyan); }
         .btn-order { background: linear-gradient(90deg, var(--gold), var(--gold-bright)); color: #000; padding: 18px 40px; border-radius: 100px; text-decoration: none; font-weight: 900; display: block; font-size: 1.1rem; }
 
-        /* العناصر العائمة */
+        /* واتساب العائم */
         .whatsapp-float { position: fixed; bottom: 30px; left: 30px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; width: 65px; height: 65px; display: flex; align-items: center; justify-content: center; box-shadow: 2px 2px 20px rgba(0,0,0,0.5); z-index: 2500; text-decoration: none; }
 
+        /* الحركات */
         @keyframes rotateShield { 0% { transform: rotateY(0deg); } 100% { transform: rotateY(360deg); } }
         @keyframes floatingShield { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
         @keyframes floatName { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+        
         footer { padding: 80px 20px; text-align: center; border-top: 1px solid #111; }
 
         @media (max-width: 768px) { nav { padding: 10px 20px; } .price-card.featured { transform: scale(1); } .section-banner { height: 200px; } }
@@ -137,8 +139,8 @@
         <div class="activity-grid">
             <div class="card">
                 <h3>أتمتة المواعيد الطبية</h3>
-                <div class="problem-box"><b>المشكلة:</b> ضغط اتصالات هائل، وتداخل في مواعيد المرضى يدوياً.</div>
-                <div class="solution-box"><b>الحل:</b> نظام حجز آلي 24/7، تذكيرات تلقائية، ورد فوري على الأسعار والخدمات.</div>
+                <div class="problem-box"><b>المشكلة:</b> ضغط اتصالات هائل وتداخل في مواعيد المرضى يدوياً.</div>
+                <div class="solution-box"><b>الحل:</b> نظام حجز آلي 24/7، تذكيرات تلقائية، ورد فوري على الأسعار.</div>
                 <div class="comparison">
                     <div class="comp-box">فوضى في الانتظار وتأخير</div>
                     <div class="comp-box comp-after">جدول مواعيد دقيق آلياً</div>
@@ -155,11 +157,11 @@
         <div class="activity-grid">
             <div class="card">
                 <h3>إدارة التسجيل والطلاب</h3>
-                <div class="problem-box"><b>المشكلة:</b> ضغط هائل عند التسجيل، وصعوبة فرز بيانات الطلاب يدوياً.</div>
-                <div class="solution-box"><b>الحل:</b> تسجيل الطلاب آلياً، إرسال تفاصيل الدورات، وتنبيهات مواعيد المحاضرات.</div>
+                <div class="problem-box"><b>المشكلة:</b> ضغط عند فتح باب التسجيل وصعوبة فرز البيانات يدوياً.</div>
+                <div class="solution-box"><b>الحل:</b> تسجيل الطلاب آلياً، إرسال تفاصيل الدورات، وتنبيهات المحاضرات.</div>
                 <div class="comparison">
                     <div class="comp-box">رسائل مفقودة وغير معالجة</div>
-                    <div class="comp-box comp-after">قوائم طلاب جاهزة في جداول</div>
+                    <div class="comp-box comp-after">بيانات طلاب جاهزة في جداول</div>
                 </div>
             </div>
         </div>
@@ -173,8 +175,8 @@
         <div class="activity-grid">
             <div class="card">
                 <h3>البيع المباشر والطلبات</h3>
-                <div class="problem-box"><b>المشكلة:</b> ضياع الطلبات بسبب تأخر الرد، وصعوبة عرض المنيو بشكل منظم.</div>
-                <div class="solution-box"><b>الحل:</b> منيو ذكي تفاعلي، استقبال الطلبات وتحويلها فوراً، وتأكيد الطلب آلياً.</div>
+                <div class="problem-box"><b>المشكلة:</b> ضياع الطلبات بسبب تأخر الرد وصعوبة عرض المنيو.</div>
+                <div class="solution-box"><b>الحل:</b> منيو ذكي تفاعلي، استقبال الطلبات وتحويلها، وتأكيد آلي.</div>
                 <div class="comparison">
                     <div class="comp-box">زبون يغادر بسبب عدم الرد</div>
                     <div class="comp-box comp-after">عملية بيع مكتملة في ثوانٍ</div>
@@ -192,28 +194,25 @@
             <div class="card">
                 <h3>الاستعلام وخدمة العملاء</h3>
                 <div class="problem-box"><b>المشكلة:</b> انتظار العملاء الطويل لمعرفة أسعار الصرف أو حالة الحوالات.</div>
-                <div class="solution-box"><b>الحل:</b> تحديث آلي للأسعار، استعلام برقم الحوالة، وعرض مواقع الفروع.</div>
+                <div class="solution-box"><b>الحل:</b> تحديث آلي للأسعار، استعلام برقم الحوالة، ومواقع الفروع.</div>
                 <div class="comparison">
                     <div class="comp-box">ازدحام خانق في الفروع</div>
-                    <div class="comp-box comp-after">خدمة ذاتية فورية عبر الهاتف</div>
+                    <div class="comp-box comp-after">خدمة ذاتية فورية بالهاتف</div>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="travel">
-        <div class="section-banner">
-            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109c0f3?auto=format&fit=crop&q=80&w=1000" alt="Travel">
-        </div>
         <h2>✈️ وكالات <span>السفر والسياحة</span></h2>
         <div class="activity-grid">
             <div class="card">
                 <h3>حجز الرحلات والاستعلام</h3>
-                <div class="problem-box"><b>المشكلة:</b> تغير مواعيد الرحلات المستمر وضغط الاستفسارات عن التأشيرات.</div>
-                <div class="solution-box"><b>الحل:</b> عرض جداول الرحلات الحية، استقبال طلبات الحجز المبدئي، والرد الآلي.</div>
+                <div class="problem-box"><b>المشكلة:</b> تغير مواعيد الرحلات المستمر وضغط استفسارات التأشيرات.</div>
+                <div class="solution-box"><b>الحل:</b> عرض جداول الرحلات الحية، استقبال الحجوزات، والردود الآلية.</div>
                 <div class="comparison">
                     <div class="comp-box">فوات مواعيد وتأخر في الرد</div>
-                    <div class="comp-box comp-after">تواصل وتنبيهات لحظية للمسافر</div>
+                    <div class="comp-box comp-after">تنبيهات لحظية للمسافر</div>
                 </div>
             </div>
         </div>
@@ -244,7 +243,7 @@
                 <p style="color: #888;">إعداد مبدئي: 250$ (مرة واحدة)</p>
                 <div class="sub-fee"><span>الاشتراك الشهري</span><b>85$ فقط</b></div>
                 <ul style="text-align: right; list-style: none; padding: 0; line-height: 2.5; color: #aaa;">
-                    <li>✓ نظام التسجيل والحجوزات الآلي</li>
+                    <li>✓ نظام الحجوزات الآلي الكامل</li>
                     <li>✓ تحويل العميل للمختص مباشرة</li>
                     <li>✓ كل ميزات الباقة الأساسية</li>
                 </ul>
