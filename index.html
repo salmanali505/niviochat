@@ -26,15 +26,14 @@
             object-fit: cover; filter: brightness(0.35) contrast(1.2);
         }
 
-        /* تنسيق البنرات البانورامية المشترك - تم إصلاح الصور لتكون متجاوبة 100% */
+        /* تنسيق البنرات البانورامية المشترك - متجاوب تماماً */
         .section-banner, .main-hero-banner {
             width: 100%; max-width: 900px; height: 300px; margin: 0 auto 30px;
             border-radius: 30px; overflow: hidden; border: 1px solid var(--border);
             box-shadow: 0 10px 30px rgba(0,0,0,0.5); backdrop-filter: blur(10px);
-            display: flex; justify-content: center; align-items: center; /* لضمان توسط الصورة */
+            display: flex; justify-content: center; align-items: center;
         }
         .section-banner img, .main-hero-banner img { 
-            /* التعديل الجذري هنا: جعل الصورة متجاوبة تماماً */
             max-width: 100%; 
             height: auto; 
             object-fit: cover; 
@@ -100,7 +99,7 @@
         @media (max-width: 768px) { 
             nav { padding: 10px 20px; } 
             .price-card.featured { transform: scale(1); } 
-            .section-banner, .main-hero-banner { height: auto; min-height: 200px; } /* السماح بارتفاع تلقائي للجوال */
+            .section-banner, .main-hero-banner { height: auto; min-height: 200px; }
         }
     </style>
 </head>
@@ -142,7 +141,7 @@
     </section>
 
     <section id="hospitals">
-        <div class="section-banner"><img src="https://images.unsplash.com/photo-1586773860418-d3b97998c06d?auto=format&fit=crop&q=80&w=1000" alt="Hospitals"></div>
+        <div class="section-banner"><img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=1000" alt="Hospitals"></div>
         <h2>🏥 المستشفيات <span>والعيادات</span></h2>
         <div class="activity-grid">
             <div class="card">
