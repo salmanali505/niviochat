@@ -26,25 +26,37 @@
             object-fit: cover; filter: brightness(0.35) contrast(1.2);
         }
 
-        /* تنسيق إطار عرض الأتمتة الجديد بدل السداسي */
-        .automation-display {
+        /* تنسيق إطار عرض المباني العملاقة (المعدل) */
+        .tech-buildings-display {
             width: 100%;
-            max-width: 600px;
-            height: 250px;
-            margin: 0 auto 30px;
+            max-width: 800px;
+            height: 220px;
+            margin: 0 auto 40px;
             border-radius: 40px;
             overflow: hidden;
             border: 1px solid var(--border);
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(15px);
-            box-shadow: 0 0 40px rgba(0, 242, 255, 0.1);
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 0 50px rgba(0, 242, 255, 0.1);
             position: relative;
+            display: flex;
+            align-items: flex-end; /* لجعل المباني ترتكز في الأسفل */
+            justify-content: space-around;
+            padding: 10px;
         }
-        .automation-display video, .automation-display img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.8;
+        
+        /* تنسيق صور المباني */
+        .tech-buildings-display img {
+            max-height: 180px; 
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 0 15px rgba(0, 242, 255, 0.3)) brightness(1.2);
+            transition: all 0.6s ease;
+        }
+        
+        .tech-buildings-display img:hover {
+            transform: translateY(-10px) scale(1.05);
+            filter: drop-shadow(0 0 25px var(--gold));
         }
 
         /* تنسيق البنرات */
@@ -86,11 +98,10 @@
         .comparison { display: flex; gap: 15px; margin-top: 25px; }
         .comp-box { flex: 1; height: 110px; border-radius: 20px; background: rgba(5, 5, 5, 0.8); border: 1px solid rgba(34, 34, 34, 0.5); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; position: relative; text-align: center; padding: 10px; color: #aaa; backdrop-filter: blur(5px); }
         
-        /* تسمية "قبل نيفيو" للأقسام العامة */
         .comp-box::after { content: 'قبل نيفيو'; position: absolute; top: -10px; right: 10px; background: #ff4d4d; padding: 2px 8px; border-radius: 5px; font-size: 0.75rem; color: #fff; }
         .comp-after::after { content: 'بعد نيفيو' !important; background: var(--gold) !important; color: #000 !important; font-weight: 900; }
 
-        /* تسميات "قسم من نحن" المخصصة */
+        /* تسميات "قسم من نحن" */
         .about-box-site::after { content: 'موقع الشركة' !important; }
         .about-box-date::after { content: 'تاريخ التأسيس' !important; }
         .about-box-owner::after { content: 'المؤسس' !important; background: var(--gold) !important; color: #000 !important; font-weight: 900; }
@@ -110,11 +121,13 @@
         @keyframes floatName { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
         
         footer { padding: 80px 20px; text-align: center; border-top: 1px solid #111; backdrop-filter: blur(10px); }
+        
         @media (max-width: 768px) { 
             nav { padding: 10px 20px; } 
             .price-card.featured { transform: scale(1); } 
             .section-banner { height: 200px; } 
-            .automation-display { height: 180px; width: 90%; }
+            .tech-buildings-display { height: 150px; width: 95%; }
+            .tech-buildings-display img { max-height: 110px; }
         }
     </style>
 </head>
@@ -147,10 +160,10 @@
     </a>
 
     <section id="home" class="hero">
-        <div class="automation-display">
-            <video autoplay loop muted playsinline>
-                <source src="https://cdn.pixabay.com/video/2023/10/20/185791-876255169_large.mp4" type="video/mp4">
-            </video>
+        <div class="tech-buildings-display">
+            <img src="https://www.transparentpng.com/download/skyscraper/future-skyscraper-clipart-png-21.png" alt="Building 1">
+            <img src="https://www.transparentpng.com/download/skyscraper/modern-skyscraper-png-image-11.png" alt="Building 2">
+            <img src="https://www.transparentpng.com/download/skyscraper/skyscraper-png-transparent-14.png" alt="Building 3">
         </div>
         <h1>نيفيو شات</h1>
         <p>الذكاء الذي يقود مؤسستك للقمة. أتمتة شاملة لخدمة العملاء والبيع المباشر عبر الواتساب في عدن.</p>
@@ -205,37 +218,6 @@
         </div>
     </section>
 
-    <section id="banks">
-        <div class="section-banner"><img src="https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?auto=format&fit=crop&q=80&w=1000" alt="Banking"></div>
-        <h2>🏦 البنوك <span>وشركات الصرافة</span></h2>
-        <div class="activity-grid">
-            <div class="card">
-                <h3>الاستعلام وخدمة العملاء</h3>
-                <div class="problem-box"><b>المشكلة:</b> انتظار العملاء الطويل لمعرفة أسعار الصرف أو حالة الحوالات.</div>
-                <div class="solution-box"><b>الحل:</b> تحديث آلي للأسعار، استعلام برقم الحوالة، ومواقع الفروع.</div>
-                <div class="comparison">
-                    <div class="comp-box">ازدحام خانق في الفروع</div>
-                    <div class="comp-box comp-after">خدمة ذاتية فورية بالهاتف</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="travel">
-        <h2>✈️ وكالات <span>السفر والسياحة</span></h2>
-        <div class="activity-grid">
-            <div class="card">
-                <h3>حجز الرحلات والاستعلام</h3>
-                <div class="problem-box"><b>المشكلة:</b> تغير مواعيد الرحلات المستمر وضغط الاستفسارات.</div>
-                <div class="solution-box"><b>الحل:</b> عرض جداول الرحلات الحية، استقبال الحجوزات، والردود الآلية.</div>
-                <div class="comparison">
-                    <div class="comp-box">فوات مواعيد وتأخر في الرد</div>
-                    <div class="comp-box comp-after">تنبيهات لحظية للمسافر</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section id="prices">
         <div class="section-banner"><img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=1000" alt="Pricing"></div>
         <h2>💰 باقات <span>نيفيو شات</span></h2>
@@ -250,7 +232,7 @@
                     <li>✓ عرض معلومات الخدمات</li>
                     <li>✓ إدارة وحملات الإعلانات</li>
                 </ul>
-                <a href="https://wa.me/967782483336" class="btn-order">اطلب الباقة الآن</a>
+                <a href="https://wa.me/967782483336" class="btn-order">اطلب الباقة</a>
             </div>
             <div class="price-card featured">
                 <div class="featured-tag">الأكثر طلباً</div>
@@ -263,7 +245,7 @@
                     <li>✓ تحويل العميل للمختص مباشرة</li>
                     <li>✓ كل ميزات الباقة الأساسية</li>
                 </ul>
-                <a href="https://wa.me/967782483336" class="btn-order">اطلب الباقة الآن</a>
+                <a href="https://wa.me/967782483336" class="btn-order">اشترك الآن</a>
             </div>
         </div>
     </section>
@@ -301,9 +283,9 @@
     </section>
 
     <footer>
-        <div style="font-weight: 900; color: #fff; margin-bottom: 10px; font-size: 1.5rem;">شركة نيفيو شات</div>
+        <div style="font-weight: 900; color: #fff; margin-bottom: 10px; font-size: 1.5rem;">نيفيو شات</div>
         <p>جميع الحقوق محفوظة لشركة نيفيو شات © 2026</p>
     </footer>
 
 </body>
-                        </html>
+</html>
