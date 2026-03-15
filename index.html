@@ -26,13 +26,20 @@
             object-fit: cover; filter: brightness(0.35) contrast(1.2);
         }
 
-        /* تنسيق البنرات البانورامية المشترك */
+        /* تنسيق البنرات البانورامية المشترك - تم إصلاح الصور لتكون متجاوبة 100% */
         .section-banner, .main-hero-banner {
             width: 100%; max-width: 900px; height: 300px; margin: 0 auto 30px;
             border-radius: 30px; overflow: hidden; border: 1px solid var(--border);
             box-shadow: 0 10px 30px rgba(0,0,0,0.5); backdrop-filter: blur(10px);
+            display: flex; justify-content: center; align-items: center; /* لضمان توسط الصورة */
         }
-        .section-banner img, .main-hero-banner img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.8) contrast(1.1); }
+        .section-banner img, .main-hero-banner img { 
+            /* التعديل الجذري هنا: جعل الصورة متجاوبة تماماً */
+            max-width: 100%; 
+            height: auto; 
+            object-fit: cover; 
+            filter: brightness(0.8) contrast(1.1); 
+        }
 
         /* شريط التنقل */
         nav { background: rgba(15, 20, 35, 0.9); padding: 12px 40px; position: fixed; width: 100%; top: 0; z-index: 2000; backdrop-filter: blur(25px); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
@@ -89,10 +96,11 @@
         
         footer { padding: 80px 20px; text-align: center; border-top: 1px solid #111; backdrop-filter: blur(10px); }
         
+        /* التجاوب مع الجوال */
         @media (max-width: 768px) { 
             nav { padding: 10px 20px; } 
             .price-card.featured { transform: scale(1); } 
-            .section-banner, .main-hero-banner { height: 200px; } 
+            .section-banner, .main-hero-banner { height: auto; min-height: 200px; } /* السماح بارتفاع تلقائي للجوال */
         }
     </style>
 </head>
@@ -126,7 +134,7 @@
 
     <section id="home" class="hero">
         <div class="main-hero-banner">
-            <img src="https://images.unsplash.com/photo-1496815591321-789a7ac79f32?auto=format&fit=crop&q=80&w=1000" alt="Nevio Chat Tech City">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1000" alt="Nevio Chat Tech City">
         </div>
         <h1>نيفيو شات</h1>
         <p>الذكاء الذي يقود مؤسستك للقمة. أتمتة شاملة لخدمة العملاء والبيع المباشر عبر الواتساب في عدن.</p>
@@ -134,7 +142,7 @@
     </section>
 
     <section id="hospitals">
-        <div class="section-banner"><img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1000" alt="Hospitals"></div>
+        <div class="section-banner"><img src="https://images.unsplash.com/photo-1586773860418-d3b97998c06d?auto=format&fit=crop&q=80&w=1000" alt="Hospitals"></div>
         <h2>🏥 المستشفيات <span>والعيادات</span></h2>
         <div class="activity-grid">
             <div class="card">
@@ -150,7 +158,7 @@
     </section>
 
     <section id="institutes">
-        <div class="section-banner"><img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=1000" alt="Education"></div>
+        <div class="section-banner"><img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=1000" alt="Education"></div>
         <h2>🎓 المعاهد <span>والمراكز التعليمية</span></h2>
         <div class="activity-grid">
             <div class="card">
@@ -166,7 +174,7 @@
     </section>
 
     <section id="stores">
-        <div class="section-banner"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=1000" alt="Stores"></div>
+        <div class="section-banner"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=1000" alt="Stores"></div>
         <h2>🛒 المتاجر <span>والمطاعم</span></h2>
         <div class="activity-grid">
             <div class="card">
@@ -182,7 +190,7 @@
     </section>
 
     <section id="travel">
-        <div class="section-banner"><img src="https://images.unsplash.com/photo-1436491865332-7a61a109c0f2?auto=format&fit=crop&q=80&w=1000" alt="Travel Agency Airport"></div>
+        <div class="section-banner"><img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&q=80&w=1000" alt="Travel Agency Airport"></div>
         <h2>✈️ وكالات <span>السفر والسياحة</span></h2>
         <div class="activity-grid">
             <div class="card">
@@ -198,7 +206,7 @@
     </section>
 
     <section id="prices">
-        <div class="section-banner"><img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=1000" alt="Pricing"></div>
+        <div class="section-banner"><img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&q=80&w=1000" alt="Pricing"></div>
         <h2>💰 باقات <span>نيفيو شات</span></h2>
         <div class="activity-grid">
             <div class="price-card">
