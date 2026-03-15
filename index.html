@@ -26,46 +26,13 @@
             object-fit: cover; filter: brightness(0.35) contrast(1.2);
         }
 
-        /* تنسيق إطار عرض المباني العملاقة (المعدل) */
-        .tech-buildings-display {
-            width: 100%;
-            max-width: 800px;
-            height: 220px;
-            margin: 0 auto 40px;
-            border-radius: 40px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px);
-            box-shadow: 0 0 50px rgba(0, 242, 255, 0.1);
-            position: relative;
-            display: flex;
-            align-items: flex-end; /* لجعل المباني ترتكز في الأسفل */
-            justify-content: space-around;
-            padding: 10px;
-        }
-        
-        /* تنسيق صور المباني */
-        .tech-buildings-display img {
-            max-height: 180px; 
-            width: auto;
-            object-fit: contain;
-            filter: drop-shadow(0 0 15px rgba(0, 242, 255, 0.3)) brightness(1.2);
-            transition: all 0.6s ease;
-        }
-        
-        .tech-buildings-display img:hover {
-            transform: translateY(-10px) scale(1.05);
-            filter: drop-shadow(0 0 25px var(--gold));
-        }
-
-        /* تنسيق البنرات */
-        .section-banner {
+        /* تنسيق البنرات البانورامية المشترك */
+        .section-banner, .main-hero-banner {
             width: 100%; max-width: 900px; height: 300px; margin: 0 auto 30px;
             border-radius: 30px; overflow: hidden; border: 1px solid var(--border);
             box-shadow: 0 10px 30px rgba(0,0,0,0.5); backdrop-filter: blur(10px);
         }
-        .section-banner img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.8) contrast(1.1); }
+        .section-banner img, .main-hero-banner img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.8) contrast(1.1); }
 
         /* شريط التنقل */
         nav { background: rgba(15, 20, 35, 0.9); padding: 12px 40px; position: fixed; width: 100%; top: 0; z-index: 2000; backdrop-filter: blur(25px); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
@@ -83,7 +50,7 @@
         .hero h1 { font-size: clamp(2.5rem, 10vw, 4.5rem); color: var(--gold); margin: 10px 0; font-weight: 900; }
         .hero p { color: var(--cyan); font-size: 1.3rem; max-width: 800px; margin: 20px auto; }
 
-        /* الأقسام والبطاقات */
+        /* الأقسام والبطاقات الزجاجية */
         section { padding: 80px 20px; max-width: 1200px; margin: auto; }
         h2 { text-align: center; color: var(--gold); font-size: 2.3rem; margin-bottom: 50px; }
         h2 span { color: var(--cyan); }
@@ -125,9 +92,7 @@
         @media (max-width: 768px) { 
             nav { padding: 10px 20px; } 
             .price-card.featured { transform: scale(1); } 
-            .section-banner { height: 200px; } 
-            .tech-buildings-display { height: 150px; width: 95%; }
-            .tech-buildings-display img { max-height: 110px; }
+            .section-banner, .main-hero-banner { height: 200px; } 
         }
     </style>
 </head>
@@ -160,10 +125,8 @@
     </a>
 
     <section id="home" class="hero">
-        <div class="tech-buildings-display">
-            <img src="https://www.transparentpng.com/download/skyscraper/future-skyscraper-clipart-png-21.png" alt="Building 1">
-            <img src="https://www.transparentpng.com/download/skyscraper/modern-skyscraper-png-image-11.png" alt="Building 2">
-            <img src="https://www.transparentpng.com/download/skyscraper/skyscraper-png-transparent-14.png" alt="Building 3">
+        <div class="main-hero-banner">
+            <img src="https://images.unsplash.com/photo-1496815591321-789a7ac79f32?auto=format&fit=crop&q=80&w=1000" alt="Nevio Chat Tech City">
         </div>
         <h1>نيفيو شات</h1>
         <p>الذكاء الذي يقود مؤسستك للقمة. أتمتة شاملة لخدمة العملاء والبيع المباشر عبر الواتساب في عدن.</p>
@@ -213,6 +176,22 @@
                 <div class="comparison">
                     <div class="comp-box">زبون يغادر بسبب عدم الرد</div>
                     <div class="comp-box comp-after">عملية بيع مكتملة في ثوانٍ</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="travel">
+        <div class="section-banner"><img src="https://images.unsplash.com/photo-1436491865332-7a61a109c0f2?auto=format&fit=crop&q=80&w=1000" alt="Travel Agency Airport"></div>
+        <h2>✈️ وكالات <span>السفر والسياحة</span></h2>
+        <div class="activity-grid">
+            <div class="card">
+                <h3>حجز الرحلات والاستعلام</h3>
+                <div class="problem-box"><b>المشكلة:</b> تغير مواعيد الرحلات المستمر وضغط الاستفسارات.</div>
+                <div class="solution-box"><b>الحل:</b> عرض جداول الرحلات الحية، استقبال الحجوزات، والردود الآلية.</div>
+                <div class="comparison">
+                    <div class="comp-box">فوات مواعيد وتأخر في الرد</div>
+                    <div class="comp-box comp-after">تنبيهات لحظية للمسافر</div>
                 </div>
             </div>
         </div>
