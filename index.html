@@ -18,7 +18,7 @@
         .tech-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; background: radial-gradient(circle at 50% 50%, #0a1a33 0%, var(--bg-dark) 100%); }
         .tech-lines { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background-image: linear-gradient(var(--border) 0.5px, transparent 0.5px), linear-gradient(90deg, var(--border) 0.5px, transparent 0.5px); background-size: 50px 50px; opacity: 0.15; }
 
-        /* تنسيق الصور الجديدة */
+        /* تنسيق الصور */
         .section-banner {
             width: 100%;
             max-width: 900px;
@@ -38,7 +38,6 @@
 
         /* شريط التنقل العلوي */
         nav { background: var(--glass); padding: 12px 40px; position: fixed; width: 100%; top: 0; z-index: 2000; backdrop-filter: blur(25px); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
-        
         .nav-logo { font-weight: 900; color: var(--gold); font-size: 1.4rem; letter-spacing: 1px; animation: floatName 3s infinite ease-in-out; }
 
         /* القائمة المنسدلة */
@@ -49,9 +48,30 @@
         .dropdown-content a:hover { background: rgba(0, 242, 255, 0.1); color: var(--cyan); }
         .dropdown:hover .dropdown-content { display: block; }
 
-        /* الواجهة الرئيسية والدرع */
+        /* الواجهة الرئيسية والأيقونة السداسية المنحوتة */
         .hero { padding: 180px 20px 100px; text-align: center; }
-        .shield-box { width: 170px; height: 170px; margin: 0 auto 30px; background: url('https://cdn-icons-png.flaticon.com/512/591/591576.png') no-repeat center; background-size: contain; filter: drop-shadow(0 0 35px var(--gold)); animation: rotateShield 15s infinite linear, floatingShield 4s infinite ease-in-out; transform-style: preserve-3d; }
+        .hexagon-logo { 
+            width: 170px; 
+            height: 170px; 
+            margin: 0 auto 30px; 
+            background: var(--gold);
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            filter: drop-shadow(0 0 35px var(--gold));
+            animation: rotateShield 15s infinite linear, floatingShield 4s infinite ease-in-out;
+            transform-style: preserve-3d;
+        }
+        .hexagon-logo::before {
+            content: 'N';
+            font-size: 80px;
+            font-weight: 900;
+            color: var(--bg-dark);
+            text-shadow: 2px 2px 0px rgba(255,255,255,0.2);
+        }
+
         .hero h1 { font-size: clamp(2.5rem, 10vw, 4.5rem); color: var(--gold); margin: 10px 0; font-weight: 900; }
         .hero p { color: var(--cyan); font-size: 1.3rem; max-width: 800px; margin: 20px auto; }
 
@@ -122,7 +142,7 @@
     </a>
 
     <section id="home" class="hero">
-        <div class="shield-container"><div class="shield-box"></div></div>
+        <div class="hexagon-logo"></div>
         <h1>نيفيو شات</h1>
         <p>الذكاء الذي يقود مؤسستك للقمة. أتمتة شاملة لخدمة العملاء والبيع المباشر عبر الواتساب في عدن.</p>
         <a href="#prices" class="btn-order" style="width: auto; padding: 18px 60px;">ابدأ الآن</a>
@@ -136,11 +156,11 @@
         <div class="activity-grid">
             <div class="card">
                 <h3>أتمتة المواعيد الطبية</h3>
-                <div class="problem-box"><b>المشكلة:</b> ضغط الاتصالات، تداخل المواعيد، وضياع وقت موظفي الاستقبال في الرد على استفسارات مكررة.</div>
-                <div class="solution-box"><b>الحل:</b> نظام حجز آلي 24/7، تذكيرات تلقائية للمرضى بمواعيدهم، ورد فوري على أسعار الكشوفات والخدمات.</div>
+                <div class="problem-box"><b>المشكلة:</b> ضغط الاتصالات، تداخل المواعيد، وضياع وقت الاستقبال.</div>
+                <div class="solution-box"><b>الحل:</b> نظام حجز آلي 24/7، تذكيرات تلقائية، ورد فوري على الاستفسارات.</div>
                 <div class="comparison">
-                    <div class="comp-box">فوضى في صالة الانتظار وتأخير</div>
-                    <div class="comp-box comp-after">جدول مواعيد منظم ودقيق آلياً</div>
+                    <div class="comp-box">فوضى في الانتظار</div>
+                    <div class="comp-box comp-after">جدول منظم آلياً</div>
                 </div>
             </div>
         </div>
@@ -154,11 +174,11 @@
         <div class="activity-grid">
             <div class="card">
                 <h3>إدارة التسجيل والطلاب</h3>
-                <div class="problem-box"><b>المشكلة:</b> ضغط هائل عند فتح باب التسجيل، وصعوبة فرز بيانات الطلاب يدوياً عبر الواتساب.</div>
-                <div class="solution-box"><b>الحل:</b> تسجيل الطلاب آلياً، إرسال تفاصيل الدورات والمناهج فوراً، وتنبيه الطلاب بمواعيد بدء المحاضرات.</div>
+                <div class="problem-box"><b>المشكلة:</b> صعوبة فرز بيانات مئات الطلاب يدوياً عبر الواتساب.</div>
+                <div class="solution-box"><b>الحل:</b> تسجيل الطلاب آلياً، إرسال تفاصيل الدورات، وتنبيهات المحاضرات.</div>
                 <div class="comparison">
-                    <div class="comp-box">مئات الرسائل غير المعالجة</div>
-                    <div class="comp-box comp-after">بيانات الطلاب جاهزة في جداول</div>
+                    <div class="comp-box">بيانات مفقودة</div>
+                    <div class="comp-box comp-after">بيانات جاهزة في جداول</div>
                 </div>
             </div>
         </div>
@@ -172,11 +192,11 @@
         <div class="activity-grid">
             <div class="card">
                 <h3>البيع المباشر والطلبات</h3>
-                <div class="problem-box"><b>المشكلة:</b> ضياع الطلبات بسبب تأخر الرد، وصعوبة عرض المنيو أو المنتجات بشكل منظم.</div>
-                <div class="solution-box"><b>الحل:</b> عرض منيو ذكي، استقبال الطلبات وتحويلها للمطبخ أو المخزن، وتأكيد الطلب مع العميل آلياً.</div>
+                <div class="problem-box"><b>المشكلة:</b> ضياع الطلبات بسبب تأخر الرد، وصعوبة عرض المنتجات.</div>
+                <div class="solution-box"><b>الحل:</b> عرض منيو ذكي، استقبال الطلبات وتحويلها، وتأكيد فوري.</div>
                 <div class="comparison">
-                    <div class="comp-box">زبون يغادر بسبب عدم الرد</div>
-                    <div class="comp-box comp-after">عملية بيع مكتملة في ثوانٍ</div>
+                    <div class="comp-box">زبون يغادر</div>
+                    <div class="comp-box comp-after">بيع مكتمل بلحظات</div>
                 </div>
             </div>
         </div>
@@ -190,11 +210,11 @@
         <div class="activity-grid">
             <div class="card">
                 <h3>الاستعلام وخدمة العملاء</h3>
-                <div class="problem-box"><b>المشكلة:</b> انتظار العملاء الطويل لمعرفة أسعار الصرف أو مواقع الفروع أو حالة الحوالات.</div>
-                <div class="solution-box"><b>الحل:</b> تحديث آلي لأسعار الصرف، استعلام عن حالة الحوالات برقم الحوالة، ومواقع الفروع والصرافات.</div>
+                <div class="problem-box"><b>المشكلة:</b> انتظار طويل لمعرفة أسعار الصرف أو حالة الحوالات.</div>
+                <div class="solution-box"><b>الحل:</b> تحديث آلي للأسعار، استعلام برقم الحوالة، ومواقع الفروع.</div>
                 <div class="comparison">
-                    <div class="comp-box">ازدحام في الفروع للاستفسار</div>
-                    <div class="comp-box comp-after">خدمة ذاتية فورية عبر الهاتف</div>
+                    <div class="comp-box">ازدحام في الفروع</div>
+                    <div class="comp-box comp-after">خدمة ذاتية فورية</div>
                 </div>
             </div>
         </div>
@@ -202,17 +222,17 @@
 
     <section id="travel">
         <div class="section-banner">
-            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109c0f3?auto=format&fit=crop&q=80&w=1000" alt="Travel and Aviation">
+            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109c0f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Travel Agent">
         </div>
         <h2>✈️ وكالات <span>السفر والسياحة</span></h2>
         <div class="activity-grid">
             <div class="card">
                 <h3>حجز الرحلات والاستعلام</h3>
-                <div class="problem-box"><b>المشكلة:</b> كثرة التغييرات في مواعيد الرحلات، وصعوبة الرد على مئات الاستفسارات بخصوص التأشيرات.</div>
-                <div class="solution-box"><b>الحل:</b> عرض جداول الرحلات المتاحة، استقبال طلبات الحجز المبدئي، والرد الآلي على شروط التأشيرات.</div>
+                <div class="problem-box"><b>المشكلة:</b> كثرة التغييرات في مواعيد الرحلات وصعوبة الرد على التأشيرات.</div>
+                <div class="solution-box"><b>الحل:</b> جداول رحلات حية، استقبال طلبات الحجز المبدئي، وردود آلية.</div>
                 <div class="comparison">
-                    <div class="comp-box">فوات مواعيد وتأخر في الرد</div>
-                    <div class="comp-box comp-after">تواصل مستمر وتنبيهات لحظية</div>
+                    <div class="comp-box">تأخر في الرد</div>
+                    <div class="comp-box comp-after">تنبيهات لحظية للمسافر</div>
                 </div>
             </div>
         </div>
@@ -249,18 +269,6 @@
                 </ul>
                 <a href="https://wa.me/967782483336" class="btn-order">اشترك الآن</a>
             </div>
-            <div class="price-card">
-                <h3>باقة المؤسسات</h3>
-                <span class="setup-tag">إعداد مبدئي: 500$ (مرة واحدة)</span>
-                <span class="amount">500$</span>
-                <div class="sub-fee"><span>الاشتراك الشهري</span><b>180$ فقط</b></div>
-                <ul style="text-align: right; list-style: none; padding: 0; line-height: 2.5; color: #888;">
-                    <li>✓ كل ما سبق في الباقات</li>
-                    <li>✓ دعم الدفع عبر المحافظ المحلية</li>
-                    <li>✓ ربط مخصص مع أنظمة ERP</li>
-                </ul>
-                <a href="https://wa.me/967782483336" class="btn-order">تواصل معنا</a>
-            </div>
         </div>
     </section>
 
@@ -274,4 +282,4 @@
     </footer>
 
 </body>
-            </html>
+</html>
