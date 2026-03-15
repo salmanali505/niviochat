@@ -14,6 +14,7 @@
         * { box-sizing: border-box; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
         body { background-color: var(--bg-dark); color: #fff; font-family: 'Cairo', sans-serif; margin: 0; overflow-x: hidden; scroll-behavior: smooth; }
 
+        /* الخلفية التقنية */
         .tech-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; background: radial-gradient(circle at 50% 50%, #0a1a33 0%, var(--bg-dark) 100%); }
         .tech-lines { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background-image: linear-gradient(var(--border) 0.5px, transparent 0.5px), linear-gradient(90deg, var(--border) 0.5px, transparent 0.5px); background-size: 50px 50px; opacity: 0.15; }
 
@@ -26,18 +27,34 @@
         .dropdown-content a { color: #ccc; padding: 12px 20px; text-decoration: none; display: block; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .dropdown:hover .dropdown-content { display: block; }
 
-        /* تنسيق الصور الاحترافي الجديد */
-        .header-img {
+        /* تنسيق إطارات الصور المحدث */
+        .img-container {
             width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 25px;
+            height: 220px;
+            background: #111; /* خلفية بديلة في حال لم تظهر الصورة */
+            border-radius: 20px;
             margin-bottom: 25px;
             border: 1px solid var(--border);
-            filter: grayscale(30%) brightness(80%);
-            transition: 0.5s;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
         }
-        .card:hover .header-img { filter: grayscale(0%) brightness(100%); transform: scale(1.02); }
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.9;
+        }
+        /* نص يظهر إذا اختفت الصورة */
+        .img-container::before {
+            content: 'NEVIO TECH Visual';
+            position: absolute;
+            color: #333;
+            font-size: 0.8rem;
+            z-index: -1;
+        }
 
         .hero { padding: 180px 20px 100px; text-align: center; }
         .shield-box { width: 170px; height: 170px; margin: 0 auto 30px; background: url('Gemini_Generated_Image_vraxisvraxisvrax.jpg') no-repeat center; background-size: contain; filter: drop-shadow(0 0 35px var(--gold)); animation: rotateShield 15s infinite linear, floatingShield 4s infinite ease-in-out; transform-style: preserve-3d; }
@@ -74,6 +91,7 @@
                 <a href="#institutes">🎓 المعاهد والمراكز</a>
                 <a href="#stores">🛒 المتاجر والمطاعم</a>
                 <a href="#banks">🏦 البنوك والصرافة</a>
+                <a href="#travel">✈️ وكالات السفر</a>
                 <a href="#prices">💰 باقات الأسعار</a>
             </div>
         </div>
@@ -83,13 +101,15 @@
     <section id="home" class="hero">
         <div class="shield-container"><div class="shield-box"></div></div>
         <h1>نيفيو شات</h1>
-        <p>نصنع الذكاء الذي يدير أعمالك. حلول الأتمتة العالمية المبتكرة في قلب عدن عبر neviochat.sbs</p>
+        <p>نصنع الذكاء الذي يدير أعمالك. حلول الأتمتة العالمية عبر <b>neviochat.sbs</b></p>
     </section>
 
     <section id="hospitals">
         <div class="activity-grid">
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80" class="header-img">
+                <div class="img-container">
+                    <img src="https://via.placeholder.com/800x450/02050a/D4AF37?text=Medical+AI+Solution" alt="Hospitals">
+                </div>
                 <h3>🏥 المستشفيات والعيادات</h3>
                 <p>تنظيم المواعيد وتذكير المرضى آلياً.</p>
             </div>
@@ -99,7 +119,9 @@
     <section id="institutes">
         <div class="activity-grid">
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1523240715181-014b9f56a5e1?auto=format&fit=crop&w=800&q=80" class="header-img">
+                <div class="img-container">
+                    <img src="https://via.placeholder.com/800x450/02050a/00F2FF?text=Education+Automation" alt="Education">
+                </div>
                 <h3>🎓 المعاهد والمراكز التعليمية</h3>
                 <p>أتمتة التسجيل وعرض المناهج فوراً.</p>
             </div>
@@ -109,7 +131,9 @@
     <section id="stores">
         <div class="activity-grid">
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" class="header-img">
+                <div class="img-container">
+                    <img src="https://via.placeholder.com/800x450/02050a/D4AF37?text=E-Commerce+Chat" alt="Stores">
+                </div>
                 <h3>🛒 المتاجر والمطاعم</h3>
                 <p>منيو تفاعلي واستلام طلبات 24/7.</p>
             </div>
@@ -119,25 +143,23 @@
     <section id="banks">
         <div class="activity-grid">
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?auto=format&fit=crop&w=800&q=80" class="header-img">
+                <div class="img-container">
+                    <img src="https://via.placeholder.com/800x450/02050a/00F2FF?text=Banking+Solutions" alt="Banks">
+                </div>
                 <h3>🏦 البنوك والصرافة</h3>
-                <p>عرض أسعار الصرف وحالة الحوالات.</p>
+                <p>أسعار صرف لحظية واستعلام عن الحوالات.</p>
             </div>
         </div>
     </section>
 
-    <section id="prices">
-        <h2>💰 باقات الاستثمار</h2>
+    <section id="travel">
         <div class="activity-grid">
-            <div class="price-card">
-                <h3>الباقة الأساسية</h3>
-                <span class="amount">100$</span>
-                <a href="https://wa.me/967782483336" class="btn-order">اطلب الآن</a>
-            </div>
-            <div class="price-card" style="border: 2px solid var(--cyan);">
-                <h3>الباقة الاحترافية</h3>
-                <span class="amount">250$</span>
-                <a href="https://wa.me/967782483336" class="btn-order">اطلب الآن</a>
+            <div class="card">
+                <div class="img-container">
+                    <img src="https://via.placeholder.com/800x450/02050a/D4AF37?text=Travel+Agency+AI" alt="Travel">
+                </div>
+                <h3>✈️ وكالات السفر والسياحة</h3>
+                <p>تنبيهات الرحلات وحجز المواعيد آلياً.</p>
             </div>
         </div>
     </section>
