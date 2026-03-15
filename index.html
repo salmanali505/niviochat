@@ -18,6 +18,24 @@
         .tech-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; background: radial-gradient(circle at 50% 50%, #0a1a33 0%, var(--bg-dark) 100%); }
         .tech-lines { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background-image: linear-gradient(var(--border) 0.5px, transparent 0.5px), linear-gradient(90deg, var(--border) 0.5px, transparent 0.5px); background-size: 50px 50px; opacity: 0.15; }
 
+        /* تنسيق الصور الجديدة */
+        .section-banner {
+            width: 100%;
+            max-width: 900px;
+            height: 300px;
+            margin: 0 auto 30px;
+            border-radius: 30px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .section-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.8) contrast(1.1);
+        }
+
         /* شريط التنقل العلوي */
         nav { background: var(--glass); padding: 12px 40px; position: fixed; width: 100%; top: 0; z-index: 2000; backdrop-filter: blur(25px); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
         
@@ -76,7 +94,7 @@
         @keyframes floatName { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
         footer { padding: 80px 20px; text-align: center; border-top: 1px solid #111; }
 
-        @media (max-width: 768px) { nav { padding: 10px 20px; } .price-card.featured { transform: scale(1); } }
+        @media (max-width: 768px) { nav { padding: 10px 20px; } .price-card.featured { transform: scale(1); } .section-banner { height: 180px; } }
     </style>
 </head>
 <body>
@@ -111,6 +129,9 @@
     </section>
 
     <section id="hospitals">
+        <div class="section-banner">
+            <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1000" alt="Hospitals">
+        </div>
         <h2>🏥 المستشفيات <span>والعيادات</span></h2>
         <div class="activity-grid">
             <div class="card">
@@ -126,6 +147,9 @@
     </section>
 
     <section id="institutes">
+        <div class="section-banner">
+            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=1000" alt="Education">
+        </div>
         <h2>🎓 المعاهد <span>والمراكز التعليمية</span></h2>
         <div class="activity-grid">
             <div class="card">
@@ -141,6 +165,9 @@
     </section>
 
     <section id="stores">
+        <div class="section-banner">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=1000" alt="Stores">
+        </div>
         <h2>🛒 المتاجر <span>والمطاعم</span></h2>
         <div class="activity-grid">
             <div class="card">
@@ -156,6 +183,9 @@
     </section>
 
     <section id="banks">
+        <div class="section-banner">
+            <img src="https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?auto=format&fit=crop&q=80&w=1000" alt="Banking">
+        </div>
         <h2>🏦 البنوك <span>وشركات الصرافة</span></h2>
         <div class="activity-grid">
             <div class="card">
@@ -171,6 +201,9 @@
     </section>
 
     <section id="travel">
+        <div class="section-banner">
+            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109c0f3?auto=format&fit=crop&q=80&w=1000" alt="Travel">
+        </div>
         <h2>✈️ وكالات <span>السفر والسياحة</span></h2>
         <div class="activity-grid">
             <div class="card">
@@ -186,6 +219,9 @@
     </section>
 
     <section id="prices">
+        <div class="section-banner">
+            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=1000" alt="Pricing">
+        </div>
         <h2>💰 باقات <span>نيفيو شات</span></h2>
         <div class="activity-grid">
             <div class="price-card">
@@ -195,7 +231,7 @@
                 <div class="sub-fee"><span>الاشتراك الشهري</span><b>40$ فقط</b></div>
                 <ul style="text-align: right; list-style: none; padding: 0; line-height: 2.5; color: #888;">
                     <li>✓ الرد الآلي على الاستفسارات</li>
-                    <li>✓ عرض معلومات الدورات/الخدمات</li>
+                    <li>✓ عرض معلومات الدورات/الخدمات</li>7 ع ٥
                     <li>✓ إدارة وحملات الإعلانات</li>
                 </ul>
                 <a href="https://wa.me/967782483336" class="btn-order">اطلب الباقة</a>
