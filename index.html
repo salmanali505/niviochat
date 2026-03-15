@@ -14,31 +14,33 @@
         * { box-sizing: border-box; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
         body { background-color: var(--bg-dark); color: #fff; font-family: 'Cairo', sans-serif; margin: 0; overflow-x: hidden; scroll-behavior: smooth; }
 
+        /* الخلفية التكنولوجية */
         .tech-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; background: radial-gradient(circle at 50% 50%, #0a1a33 0%, var(--bg-dark) 100%); }
         .tech-lines { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background-image: linear-gradient(var(--border) 0.5px, transparent 0.5px), linear-gradient(90deg, var(--border) 0.5px, transparent 0.5px); background-size: 50px 50px; opacity: 0.15; }
 
+        /* تنسيق الصور */
         .section-banner {
             width: 100%;
             max-width: 900px;
-            height: 300px;
+            height: 350px;
             margin: 0 auto 30px;
             border-radius: 30px;
             overflow: hidden;
             border: 1px solid var(--border);
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            background-color: #111;
         }
         .section-banner img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: brightness(0.8) contrast(1.1);
-            display: block;
+            filter: brightness(0.9) contrast(1.1);
         }
 
+        /* شريط التنقل العلوي */
         nav { background: var(--glass); padding: 12px 40px; position: fixed; width: 100%; top: 0; z-index: 2000; backdrop-filter: blur(25px); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
         .nav-logo { font-weight: 900; color: var(--gold); font-size: 1.4rem; letter-spacing: 1px; animation: floatName 3s infinite ease-in-out; }
 
+        /* القائمة المنسدلة */
         .dropdown { position: relative; display: inline-block; }
         .dropbtn { background: rgba(212, 175, 55, 0.1); color: var(--gold); padding: 10px 20px; font-size: 1rem; font-weight: 900; border: 1px solid var(--gold); border-radius: 12px; cursor: pointer; display: flex; align-items: center; gap: 10px; }
         .dropdown-content { display: none; position: absolute; right: 0; top: 50px; background: var(--glass); min-width: 250px; border-radius: 15px; border: 1px solid var(--border); box-shadow: 0 15px 35px rgba(0,0,0,0.8); overflow: hidden; backdrop-filter: blur(25px); }
@@ -46,12 +48,14 @@
         .dropdown-content a:hover { background: rgba(0, 242, 255, 0.1); color: var(--cyan); }
         .dropdown:hover .dropdown-content { display: block; }
 
+        /* الواجهة الرئيسية */
         .hero { padding: 180px 20px 100px; text-align: center; }
-        .shield-box { width: 170px; height: 170px; margin: 0 auto 30px; background: url('https://cdn-icons-png.flaticon.com/512/3914/3914404.png') no-repeat center; background-size: contain; filter: drop-shadow(0 0 35px var(--gold)); animation: rotateShield 15s infinite linear, floatingShield 4s infinite ease-in-out; }
+        .shield-box { width: 170px; height: 170px; margin: 0 auto 30px; background: url('https://cdn-icons-png.flaticon.com/512/591/591576.png') no-repeat center; background-size: contain; filter: drop-shadow(0 0 35px var(--gold)); animation: rotateShield 15s infinite linear, floatingShield 4s infinite ease-in-out; }
         .hero h1 { font-size: clamp(2.5rem, 10vw, 4.5rem); color: var(--gold); margin: 10px 0; font-weight: 900; }
         .hero p { color: var(--cyan); font-size: 1.3rem; max-width: 800px; margin: 20px auto; }
 
-        section { padding: 100px 20px; max-width: 1200px; margin: auto; }
+        /* الأقسام */
+        section { padding: 80px 20px; max-width: 1200px; margin: auto; }
         h2 { text-align: center; color: var(--gold); font-size: 2.3rem; margin-bottom: 50px; }
         h2 span { color: var(--cyan); }
 
@@ -67,20 +71,25 @@
         .comp-box::after { content: 'قبل نيفيو'; position: absolute; top: -10px; right: 10px; background: #ff4d4d; padding: 2px 8px; border-radius: 5px; font-size: 0.7rem; color: #fff; }
         .comp-after::after { content: 'بعد نيفيو'; background: var(--gold); color: #000; font-weight: 900; }
 
+        /* باقات الأسعار */
         .price-card { background: linear-gradient(180deg, #0a0f1e 0%, #02050a 100%); padding: 50px 30px; border-radius: 40px; border: 1px solid #1a1a1a; text-align: center; position: relative; }
         .price-card.featured { border: 2px solid var(--cyan); transform: scale(1.05); z-index: 5; }
         .featured-tag { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--cyan); color: #000; padding: 5px 20px; border-radius: 20px; font-weight: 900; font-size: 0.8rem; }
         .amount { font-size: 3.5rem; font-weight: 900; color: var(--gold); margin: 5px 0; display: block; }
+        .setup-tag { color: #aaa; font-size: 0.9rem; font-weight: bold; border-bottom: 1px solid #222; padding-bottom: 10px; display: block; margin-bottom: 20px; }
+        .sub-fee { margin: 20px 0; padding: 15px; background: rgba(0, 242, 255, 0.05); border-radius: 20px; border: 1px dashed var(--cyan); }
+        .sub-fee b { font-size: 1.5rem; color: var(--cyan); }
         .btn-order { background: linear-gradient(90deg, var(--gold), var(--gold-bright)); color: #000; padding: 18px 40px; border-radius: 100px; text-decoration: none; font-weight: 900; display: block; font-size: 1.1rem; }
 
-        .whatsapp-float { position: fixed; bottom: 30px; left: 30px; background-color: #25d366; color: #FFF; border-radius: 50px; width: 65px; height: 65px; display: flex; align-items: center; justify-content: center; box-shadow: 2px 2px 20px rgba(0,0,0,0.5); z-index: 2500; text-decoration: none; }
-
+        /* أيقونة واتساب وتذييل */
+        .whatsapp-float { position: fixed; bottom: 30px; left: 30px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; width: 65px; height: 65px; display: flex; align-items: center; justify-content: center; box-shadow: 2px 2px 20px rgba(0,0,0,0.5); z-index: 2500; text-decoration: none; }
+        footer { padding: 80px 20px; text-align: center; border-top: 1px solid #111; }
+        
         @keyframes rotateShield { 0% { transform: rotateY(0deg); } 100% { transform: rotateY(360deg); } }
         @keyframes floatingShield { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
         @keyframes floatName { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-        footer { padding: 80px 20px; text-align: center; border-top: 1px solid #111; }
 
-        @media (max-width: 768px) { .price-card.featured { transform: scale(1); } .section-banner { height: 180px; } }
+        @media (max-width: 768px) { .section-banner { height: 220px; } .price-card.featured { transform: scale(1); } }
     </style>
 </head>
 <body>
@@ -92,67 +101,156 @@
         <div class="dropdown">
             <button class="dropbtn">☰ الأقسام والخدمات</button>
             <div class="dropdown-content">
-                <a href="#hospitals">🏥 المستشفيات</a>
-                <a href="#institutes">🎓 المعاهد</a>
-                <a href="#stores">🛒 المتاجر</a>
-                <a href="#banks">🏦 البنوك</a>
-                <a href="#travel">✈️ وكالات السفر</a>
-                <a href="#prices">💰 الأسعار</a>
+                <a href="#hospitals">🏥 المستشفيات والعيادات</a>
+                <a href="#institutes">🎓 المعاهد والمراكز التعليمية</a>
+                <a href="#stores">🛒 المتاجر والمطاعم</a>
+                <a href="#banks">🏦 البنوك والصرافة</a>
+                <a href="#travel">✈️ وكالات السفر والسياحة</a>
+                <a href="#prices">💰 باقات الأسعار</a>
             </div>
         </div>
         <div class="nav-logo">نيفيو شات</div>
     </nav>
 
-    <a href="https://wa.me/967773354434" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/967773354434?text=مرحباً نيفيو شات" class="whatsapp-float" target="_blank">
         <svg width="35" height="35" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217s.231.001.332.005c.109.004.258-.041.404.314l.542 1.317c.058.145.096.314.01.482l-.246.416c-.087.145-.177.303-.077.476.1.173.444.733.953 1.185.656.581 1.208.761 1.381.848.173.087.274.072.376-.043s.433-.506.548-.68c.116-.173.231-.145.39-.087l1.344.667c.158.08.261.12.3.188.04.067.04 1.139-.104 1.544z"/></svg>
     </a>
 
-    <section id="home" class="hero">
+    <header class="hero">
         <div class="shield-box"></div>
         <h1>نيفيو شات</h1>
-        <p>الذكاء الذي يقود مؤسستك للقمة. أتمتة شاملة لخدمة العملاء والبيع المباشر عبر الواتساب في عدن.</p>
-        <a href="#prices" class="btn-order" style="display:inline-block; width: auto; padding: 18px 60px;">ابدأ الآن</a>
+        <p>مستقبل الأعمال يبدأ هنا. أتمتة ذكية متكاملة لإدارة العملاء والعمليات عبر الواتساب في عدن.</p>
+        <a href="#prices" class="btn-order" style="display:inline-block; width: auto; padding: 18px 60px;">اكتشف الباقات</a>
+    </header>
+
+    <section id="hospitals">
+        <div class="section-banner">
+            <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1200" alt="Hospitals">
+        </div>
+        <h2>🏥 المستشفيات <span>والعيادات</span></h2>
+        <div class="activity-grid">
+            <div class="card">
+                <h3>أتمتة المواعيد الطبية</h3>
+                <div class="problem-box"><b>المشكلة:</b> ضغط الاتصالات، تداخل المواعيد، وضياع وقت الاستقبال.</div>
+                <div class="solution-box"><b>الحل:</b> نظام حجز آلي 24/7، تذكيرات تلقائية، ورد فوري على الأسعار.</div>
+                <div class="comparison">
+                    <div class="comp-box">فوضى في المواعيد</div>
+                    <div class="comp-box comp-after">جدول منظم آلياً</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="institutes">
+        <div class="section-banner">
+            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=1200" alt="Education">
+        </div>
+        <h2>🎓 المعاهد <span>والمراكز التعليمية</span></h2>
+        <div class="activity-grid">
+            <div class="card">
+                <h3>إدارة التسجيل والطلاب</h3>
+                <div class="problem-box"><b>المشكلة:</b> صعوبة فرز بيانات مئات الطلاب يدوياً عبر الواتساب.</div>
+                <div class="solution-box"><b>الحل:</b> تسجيل الطلاب آلياً، إرسال تفاصيل الدورات، وتنبيهات المحاضرات.</div>
+                <div class="comparison">
+                    <div class="comp-box">بيانات مبعثرة</div>
+                    <div class="comp-box comp-after">قوائم جاهزة Excel</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="stores">
+        <div class="section-banner">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=1200" alt="Stores">
+        </div>
+        <h2>🛒 المتاجر <span>والمطاعم</span></h2>
+        <div class="activity-grid">
+            <div class="card">
+                <h3>البيع المباشر والطلبات</h3>
+                <div class="problem-box"><b>المشكلة:</b> ضياع الطلبات بسبب تأخر الرد أو كثرة المحادثات.</div>
+                <div class="solution-box"><b>الحل:</b> منيو ذكي تفاعلي، استقبال الطلبات آلياً، وتأكيد فوري للعميل.</div>
+                <div class="comparison">
+                    <div class="comp-box">خسارة زبائن</div>
+                    <div class="comp-box comp-after">بيع مكتمل بلحظات</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="banks">
+        <div class="section-banner">
+            <img src="https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?auto=format&fit=crop&q=80&w=1200" alt="Banking">
+        </div>
+        <h2>🏦 البنوك <span>وشركات الصرافة</span></h2>
+        <div class="activity-grid">
+            <div class="card">
+                <h3>الاستعلام الفوري</h3>
+                <div class="problem-box"><b>المشكلة:</b> انتظار العميل لمعرفة سعر الصرف أو حالة الحوالة.</div>
+                <div class="solution-box"><b>الحل:</b> تحديث آلي لأسعار الصرف، استعلام برقم الحوالة، ومواقع الفروع.</div>
+                <div class="comparison">
+                    <div class="comp-box">ازدحام في الفروع</div>
+                    <div class="comp-box comp-after">خدمة ذاتية بالهاتف</div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section id="travel">
         <div class="section-banner">
-            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&q=80&w=1000" alt="Travel Agency">
+            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109c0f3?auto=format&fit=crop&q=80&w=1200" alt="Travel and Tourism">
         </div>
         <h2>✈️ وكالات <span>السفر والسياحة</span></h2>
         <div class="activity-grid">
             <div class="card">
                 <h3>حجز الرحلات والاستعلام</h3>
-                <div class="problem-box"><b>المشكلة:</b> كثرة التغييرات في مواعيد الرحلات، وصعوبة الرد على مئات الاستفسارات.</div>
-                <div class="solution-box"><b>الحل:</b> عرض جداول الرحلات، استقبال طلبات الحجز، والرد الآلي على شروط التأشيرات.</div>
+                <div class="problem-box"><b>المشكلة:</b> كثرة التغييرات في مواعيد الرحلات وضغط استفسارات التأشيرات.</div>
+                <div class="solution-box"><b>الحل:</b> عرض جداول الرحلات المتاحة، استقبال الحجوزات، والرد الآلي على الشروط.</div>
                 <div class="comparison">
-                    <div class="comp-box">فوات مواعيد وتأخر في الرد</div>
-                    <div class="comp-box comp-after">تواصل مستمر وتنبيهات لحظية</div>
+                    <div class="comp-box">فوات مواعيد السفر</div>
+                    <div class="comp-box comp-after">تنبيهات لحظية للمسافر</div>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="prices">
+        <div class="section-banner">
+            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=1200" alt="Pricing">
+        </div>
         <h2>💰 باقات <span>نيفيو شات</span></h2>
         <div class="activity-grid">
             <div class="price-card">
                 <h3>الباقة الأساسية</h3>
+                <span class="setup-tag">إعداد: 100$ (مرة واحدة)</span>
                 <span class="amount">100$</span>
-                <p>إعداد مبدئي + 40$ اشتراك شهري</p>
+                <div class="sub-fee"><span>شهرياً</span><b>40$</b></div>
+                <ul style="text-align: right; list-style: none; padding: 0; line-height: 2; color: #888;">
+                    <li>✓ رد آلي ذكي</li>
+                    <li>✓ عرض الخدمات</li>
+                    <li>✓ حملات إعلانية</li>
+                </ul>
                 <a href="https://wa.me/967782483336" class="btn-order">اطلب الآن</a>
             </div>
             <div class="price-card featured">
                 <div class="featured-tag">الأكثر طلباً</div>
                 <h3>الباقة الاحترافية</h3>
+                <span class="setup-tag">إعداد: 250$ (مرة واحدة)</span>
                 <span class="amount">250$</span>
-                <p>إعداد مبدئي + 85$ اشتراك شهري</p>
+                <div class="sub-fee"><span>شهرياً</span><b>85$</b></div>
+                <ul style="text-align: right; list-style: none; padding: 0; line-height: 2; color: #888;">
+                    <li>✓ نظام حجوزات كامل</li>
+                    <li>✓ ربط موظفين متعددين</li>
+                    <li>✓ تقارير أداء دورية</li>
+                </ul>
                 <a href="https://wa.me/967782483336" class="btn-order">اشترك الآن</a>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>جميع الحقوق محفوظة لشركة نيفيو شات © 2026</p>
+        <div style="font-weight: 900; color: #fff; font-size: 1.5rem;">نيفيو شات</div>
+        <p>القوة الكاملة للذكاء الاصطناعي بين يديك</p>
+        <p style="margin-top: 20px; opacity: 0.5;">جميع الحقوق محفوظة © 2026</p>
     </footer>
 
 </body>
