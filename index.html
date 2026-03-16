@@ -26,33 +26,25 @@
             object-fit: cover; filter: brightness(0.35) contrast(1.2);
         }
 
-        /* تنسيق البنرات البانورامية */
+        /* تنسيق البنرات البانورامية المشترك */
         .section-banner, .main-hero-banner {
             width: 100%; max-width: 900px; height: 300px; margin: 0 auto 30px;
             border-radius: 30px; overflow: hidden; border: 1px solid var(--border);
             box-shadow: 0 10px 30px rgba(0,0,0,0.5); backdrop-filter: blur(10px);
             display: flex; justify-content: center; align-items: center;
         }
-        .section-banner img, .main-hero-banner img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.8) contrast(1.1); }
+        .section-banner img, .main-hero-banner img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            filter: brightness(0.8) contrast(1.1); 
+        }
 
         /* شريط التنقل */
         nav { background: rgba(15, 20, 35, 0.9); padding: 5px 40px; position: fixed; width: 100%; top: 0; z-index: 2000; backdrop-filter: blur(25px); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
         
-        /* ميزة الشعار والاسم العائم بجواره */
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            animation: floatLogo 3s infinite ease-in-out;
-        }
-        .nav-logo-text {
-            color: var(--gold);
-            font-weight: 900;
-            font-size: 1.5rem;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
-            margin: 0;
-        }
-        .nav-logo-img { height: 60px; width: auto; filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5)); }
+        /* تنسيق الشعار في الهيدر */
+        .nav-logo-img { height: 60px; width: auto; animation: floatLogo 3s infinite ease-in-out; filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5)); }
 
         .dropdown { position: relative; display: inline-block; }
         .dropbtn { background: rgba(212, 175, 55, 0.1); color: var(--gold); padding: 10px 20px; font-size: 1rem; font-weight: 900; border: 1px solid var(--gold); border-radius: 12px; cursor: pointer; display: flex; align-items: center; gap: 10px; }
@@ -61,11 +53,12 @@
         .dropdown-content a:hover { background: rgba(0, 242, 255, 0.1); color: var(--cyan); }
         .dropdown:hover .dropdown-content { display: block; }
 
-        /* الواجهة الرئيسية والأقسام */
+        /* الواجهة الرئيسية */
         .hero { padding: 180px 20px 100px; text-align: center; }
         .hero h1 { font-size: clamp(2.5rem, 10vw, 4.5rem); color: var(--gold); margin: 10px 0; font-weight: 900; }
         .hero p { color: var(--cyan); font-size: 1.3rem; max-width: 800px; margin: 20px auto; }
 
+        /* الأقسام والبطاقات الزجاجية */
         section { padding: 80px 20px; max-width: 1200px; margin: auto; }
         h2 { text-align: center; color: var(--gold); font-size: 2.3rem; margin-bottom: 50px; }
         h2 span { color: var(--cyan); }
@@ -92,24 +85,18 @@
         .sub-fee b { font-size: 1.5rem; color: var(--cyan); }
         .btn-order { background: linear-gradient(90deg, var(--gold), var(--gold-bright)); color: #000; padding: 18px 40px; border-radius: 100px; text-decoration: none; font-weight: 900; display: block; font-size: 1.1rem; }
 
-        /* مسميات إطارات من نحن */
-        .about-box { flex: 1; min-width: 250px; height: auto; padding: 25px; border-radius: 20px; background: rgba(5, 5, 5, 0.8); border: 1px solid rgba(34, 34, 34, 0.5); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; position: relative; text-align: center; color: #aaa; backdrop-filter: blur(5px); }
-        .about-box-site::after { content: 'الموقع'; position: absolute; top: -10px; right: 10px; background: var(--cyan); padding: 2px 8px; border-radius: 5px; font-size: 0.75rem; color: #000; font-weight: bold; }
-        .about-box-date::after { content: 'تاريخ التأسيس'; position: absolute; top: -10px; right: 10px; background: var(--gold); padding: 2px 8px; border-radius: 5px; font-size: 0.75rem; color: #000; font-weight: bold; }
-        .about-box-owner::after { content: 'المؤسس'; position: absolute; top: -10px; right: 10px; background: var(--gold); padding: 2px 8px; border-radius: 5px; font-size: 0.75rem; color: #000; font-weight: bold; }
-
         /* واتساب العائم */
         .whatsapp-float { position: fixed; bottom: 30px; left: 30px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; width: 65px; height: 65px; display: flex; align-items: center; justify-content: center; box-shadow: 2px 2px 20px rgba(0,0,0,0.5); z-index: 2500; text-decoration: none; }
 
         @keyframes floatLogo { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
         
+        /* تذييل الصفحة المطور بالشعار */
         footer { padding: 60px 20px; text-align: center; border-top: 1px solid var(--border); backdrop-filter: blur(15px); background: rgba(10, 15, 30, 0.5); }
         .footer-logo { height: 80px; width: auto; margin-bottom: 20px; filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.3)); }
         
         @media (max-width: 768px) { 
             nav { padding: 10px 20px; } 
             .nav-logo-img { height: 45px; }
-            .nav-logo-text { font-size: 1.1rem; }
             .price-card.featured { transform: scale(1); } 
             .section-banner, .main-hero-banner { height: auto; min-height: 200px; }
         }
@@ -136,10 +123,7 @@
                 <a href="#prices">باقات الأسعار</a>
             </div>
         </div>
-        <div class="logo-container">
-            <img src="https://i.ibb.co/C3YFp0tB/retouch-1773451808234.jpg" alt="Nevio Chat Logo" class="nav-logo-img">
-            <span class="nav-logo-text">نيفيو شات</span>
-        </div>
+        <img src="https://lh3.googleusercontent.com/d/1rc6nxRWmc_ETl_9vA7cKx38V9MoJSs9u" alt="Nevio Chat Logo" class="nav-logo-img">
     </nav>
 
     <a href="https://wa.me/967773354434?text=مرحباً نيفيو شات" class="whatsapp-float" target="_blank">
@@ -173,7 +157,7 @@
 
     <section id="institutes">
         <div class="section-banner"><img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=1000" alt="Education"></div>
-        <h2>المعاهد والمدارس <span></span></h2>
+        <h2>المعاهد والمدارس <span> </span></h2>
         <div class="activity-grid">
             <div class="card">
                 <h3>إدارة التسجيل والطلاب</h3>
@@ -244,6 +228,11 @@
                 <span class="amount">100$</span>
                 <p style="color: #888;">إعداد مبدئي: 100$ (مرة واحدة)</p>
                 <div class="sub-fee"><span>الاشتراك الشهري</span><b>40$ فقط</b></div>
+                <ul style="text-align: right; list-style: none; padding: 0; line-height: 2.5; color: #aaa;">
+                    <li>✓ الرد الآلي على الاستفسارات</li>
+                    <li>✓ عرض معلومات الخدمات</li>
+                    <li>✓ إدارة وحملات الإعلانات</li>
+                </ul>
                 <a href="https://wa.me/967782483336" class="btn-order">اطلب الباقة الآن</a>
             </div>
             <div class="price-card featured">
@@ -252,6 +241,11 @@
                 <span class="amount">250$</span>
                 <p style="color: #888;">إعداد مبدئي: 250$ (مرة واحدة)</p>
                 <div class="sub-fee"><span>الاشتراك الشهري</span><b>85$ فقط</b></div>
+                <ul style="text-align: right; list-style: none; padding: 0; line-height: 2.5; color: #aaa;">
+                    <li>✓ نظام الحجوزات الآلي الكامل</li>
+                    <li>✓ تحويل العميل للمختص مباشرة</li>
+                    <li>✓ كل ميزات الباقة الأساسية</li>
+                </ul>
                 <a href="https://wa.me/967782483336" class="btn-order">اطلب الباقة الآن</a>
             </div>
         </div>
@@ -261,7 +255,7 @@
         <div class="section-banner">
             <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1000" alt="Nevio Chat Headquarters">
         </div>
-        <h2> من نحن <span></span></h2>
+        <h2> من نحن <span> </span></h2>
         <div class="activity-grid">
             <div class="card" style="grid-column: 1 / -1; text-align: center; border: 1px solid var(--gold);">
                 <h3 style="border-right: none; border-bottom: 3px solid var(--gold); display: inline-block; padding-bottom: 10px; margin-bottom: 30px;">رؤيتنا وقصتنا</h3>
@@ -270,14 +264,16 @@
                 </p>
                 
                 <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 40px;">
-                    <div class="about-box about-box-site" style="flex: 1; min-width: 250px; border-color: var(--cyan);">
-                        العاصمة عدن_المنصورة<br>صنعاء _خدمة عن بعد
+                    <div class="comp-box about-box-site" style="flex: 1; min-width: 250px; height: auto; padding: 25px; border-color: var(--cyan);">
+                        العاصمة عدن_المنصورة
+                        صنعاء _خدمة عن بعد
                     </div>
-                    <div class="about-box about-box-date" style="flex: 1; min-width: 250px; border-color: var(--gold);">
+                    <div class="comp-box about-box-date" style="flex: 1; min-width: 250px; height: auto; padding: 25px; border-color: var(--gold);">
                         1 يناير 2026
                     </div>
-                    <div class="about-box about-box-owner" style="flex: 1; min-width: 250px; border-color: var(--gold);">
-                        <b> سلمان علي الغويبي</b><br>وشريكة <b> عارف جمال</b>
+                    <div class="comp-box about-box-owner" style="flex: 1; min-width: 250px; height: auto; padding: 25px; border-color: var(--gold);">
+                        <b> سلمان علي الغويبي</b><br>
+                    وشريكة <b> عارف جمال</b>
                     </div>
                 </div>
 
@@ -289,10 +285,10 @@
     </section>
 
     <footer>
-        <img src="https://i.ibb.co/C3YFp0tB/retouch-1773451808234.jpg" alt="Nevio Chat Footer Logo" class="footer-logo">
+        <img src="https://lh3.googleusercontent.com/d/1rc6nxRWmc_ETl_9vA7cKx38V9MoJSs9u" alt="Nevio Chat Footer Logo" class="footer-logo">
         <div style="font-weight: 900; color: #fff; margin-bottom: 10px; font-size: 1.5rem;">شركة نيفيو شات</div>
         <p>جميع الحقوق محفوظة لشركة نيفيو شات © 2026</p>
     </footer>
 
 </body>
-</html>
+                        </html>
