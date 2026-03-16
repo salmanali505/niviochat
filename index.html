@@ -43,6 +43,22 @@
         /* شريط التنقل */
         nav { background: rgba(15, 20, 35, 0.9); padding: 5px 40px; position: fixed; width: 100%; top: 0; z-index: 2000; backdrop-filter: blur(25px); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
         
+        /* حاوية الشعار والاسم الجديدة */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px; /* المسافة بين الشعار والاسم */
+        }
+
+        /* تنسيق الاسم بجوار الشعار */
+        .nav-logo-text {
+            color: var(--gold);
+            font-weight: 900;
+            font-size: 1.5rem;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+            margin: 0;
+        }
+
         /* تنسيق الشعار في الهيدر */
         .nav-logo-img { height: 60px; width: auto; animation: floatLogo 3s infinite ease-in-out; filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5)); }
 
@@ -96,6 +112,8 @@
         
         @media (max-width: 768px) { 
             nav { padding: 10px 20px; } 
+            .logo-container { gap: 10px; }
+            .nav-logo-text { font-size: 1.1rem; }
             .nav-logo-img { height: 45px; }
             .price-card.featured { transform: scale(1); } 
             .section-banner, .main-hero-banner { height: auto; min-height: 200px; }
@@ -123,7 +141,11 @@
                 <a href="#prices">باقات الأسعار</a>
             </div>
         </div>
-        <img src="https://lh3.googleusercontent.com/u/0/d/1rc6nxRWmc_ETl_9vA7cKx38V9MoJSs9u=w1000" alt="Nevio Chat Logo" class="nav-logo-img">
+        
+        <div class="logo-container">
+            <img src="https://lh3.googleusercontent.com/u/0/d/1rc6nxRWmc_ETl_9vA7cKx38V9MoJSs9u=w1000" alt="Nevio Chat Logo" class="nav-logo-img">
+            <span class="nav-logo-text">نيفيو شات</span>
+        </div>
     </nav>
 
     <a href="https://wa.me/967773354434?text=مرحباً نيفيو شات" class="whatsapp-float" target="_blank">
@@ -277,7 +299,7 @@
                 </div>
 
                 <div class="solution-box" style="margin-top: 40px; border-right: none; border-left: 4px solid var(--cyan); text-align: right;">
-                    <p><b>كلمة المدير التنفيذي/سلمان علي :</b> "انطلقنا من عدن لنثبت للعالم أن الكوادر المحلية قادرة على تطويع أعقد تقنيات الأتمتة والذكاء الاصطناعي لخدمة قطاع الأعمال."</p>
+                    <p><b>كلمة المدير التنفيذي/سلمان علي :</b> "انطلقنا من عدن لنثبت للعالم أن الكوادر المحلية قادرة على تطوير أعقد تقنيات الأتمتة والرد الآلي الذكي لخدمة قطاع الأعمال."</p>
                 </div>
             </div>
         </div>
@@ -290,4 +312,4 @@
     </footer>
 
 </body>
-                    </html>
+</html>
