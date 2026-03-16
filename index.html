@@ -26,7 +26,7 @@
             object-fit: cover; filter: brightness(0.35) contrast(1.2);
         }
 
-        /* تنسيق البنرات البانورامية المشترك - متجاوب تماماً */
+        /* تنسيق البنرات البانورامية المشترك */
         .section-banner, .main-hero-banner {
             width: 100%; max-width: 900px; height: 300px; margin: 0 auto 30px;
             border-radius: 30px; overflow: hidden; border: 1px solid var(--border);
@@ -34,8 +34,8 @@
             display: flex; justify-content: center; align-items: center;
         }
         .section-banner img, .main-hero-banner img { 
-            max-width: 100%; 
-            height: auto; 
+            width: 100%; 
+            height: 100%; 
             object-fit: cover; 
             filter: brightness(0.8) contrast(1.1); 
         }
@@ -56,7 +56,7 @@
         .hero h1 { font-size: clamp(2.5rem, 10vw, 4.5rem); color: var(--gold); margin: 10px 0; font-weight: 900; }
         .hero p { color: var(--cyan); font-size: 1.3rem; max-width: 800px; margin: 20px auto; }
 
-        /* الأقسام والبطاقات الزجاجية */
+        /* الأقسام والبطاقات */
         section { padding: 80px 20px; max-width: 1200px; margin: auto; }
         h2 { text-align: center; color: var(--gold); font-size: 2.3rem; margin-bottom: 50px; }
         h2 span { color: var(--cyan); }
@@ -74,11 +74,6 @@
         .comp-box::after { content: 'قبل نيفيو'; position: absolute; top: -10px; right: 10px; background: #ff4d4d; padding: 2px 8px; border-radius: 5px; font-size: 0.75rem; color: #fff; }
         .comp-after::after { content: 'بعد نيفيو' !important; background: var(--gold) !important; color: #000 !important; font-weight: 900; }
 
-        /* تسميات "قسم من نحن" */
-        .about-box-site::after { content: 'موقع الشركة' !important; }
-        .about-box-date::after { content: 'تاريخ التأسيس' !important; }
-        .about-box-owner::after { content: 'المؤسس' !important; background: var(--gold) !important; color: #000 !important; font-weight: 900; }
-
         /* باقات الأسعار */
         .price-card { background: rgba(10, 15, 30, 0.8); padding: 50px 30px; border-radius: 40px; border: 1px solid rgba(26, 26, 26, 0.5); text-align: center; position: relative; backdrop-filter: blur(20px); }
         .price-card.featured { border: 2px solid var(--cyan); transform: scale(1.05); z-index: 5; }
@@ -95,11 +90,10 @@
         
         footer { padding: 80px 20px; text-align: center; border-top: 1px solid #111; backdrop-filter: blur(10px); }
         
-        /* التجاوب مع الجوال */
         @media (max-width: 768px) { 
             nav { padding: 10px 20px; } 
             .price-card.featured { transform: scale(1); } 
-            .section-banner, .main-hero-banner { height: auto; min-height: 200px; }
+            .section-banner, .main-hero-banner { height: 200px; }
         }
     </style>
 </head>
@@ -119,7 +113,6 @@
                 <a href="#hospitals">المستشفيات والعيادات</a>
                 <a href="#institutes">المعاهد والمراكز التعليمية</a>
                 <a href="#stores">المتاجر والمطاعم</a>
-                <a href="#banks">البنوك والصرافة</a>
                 <a href="#travel">وكالات السفر والسياحة</a>
                 <a href="#prices">باقات الأسعار</a>
             </div>
@@ -173,8 +166,8 @@
     </section>
 
     <section id="stores">
-        <div class="section-banner"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=1000" alt="Stores"></div>
-        <h2> المطاعم<span></span></h2>
+        <div class="section-banner"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=1000" alt="Professional Restaurant Dining"></div>
+        <h2> المطاعم والمتاجر<span></span></h2>
         <div class="activity-grid">
             <div class="card">
                 <h3>البيع المباشر والطلبات</h3>
@@ -189,7 +182,7 @@
     </section>
 
     <section id="travel">
-        <div class="section-banner"><img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&q=80&w=1000" alt="Travel Agency Airport"></div>
+        <div class="section-banner"><img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&q=80&w=1000" alt="Travel Agency"></div>
         <h2>وكالات السفر والسياحة<span> </span></h2>
         <div class="activity-grid">
             <div class="card">
@@ -205,8 +198,7 @@
     </section>
 
     <section id="prices">
-        <div class="section-banner"><img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&q=80&w=1000" alt="Pricing"></div>
-        <h2>💰باقات <span>نيفيو شات</span></h2>
+        <h2>💰 باقات <span>نيفيو شات</span></h2>
         <div class="activity-grid">
             <div class="price-card">
                 <h3>الباقة الأساسية</h3>
@@ -227,7 +219,7 @@
                 <p style="color: #888;">إعداد مبدئي: 250$ (مرة واحدة)</p>
                 <div class="sub-fee"><span>الاشتراك الشهري</span><b>85$ فقط</b></div>
                 <ul style="text-align: right; list-style: none; padding: 0; line-height: 2.5; color: #aaa;">
-                    <li>✓ نظام الحجوزات الآلي الكامل عبر البوت</li>
+                    <li>✓ نظام الحجوزات الآلي الكامل</li>
                     <li>✓ تحويل العميل للمختص مباشرة</li>
                     <li>✓ كل ميزات الباقة الأساسية</li>
                 </ul>
@@ -238,32 +230,18 @@
 
     <section id="about">
         <div class="section-banner">
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1000" alt="Nevio Chat Headquarters">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1000" alt="Nevio Chat HQ">
         </div>
         <h2> من نحن <span> </span></h2>
         <div class="activity-grid">
             <div class="card" style="grid-column: 1 / -1; text-align: center; border: 1px solid var(--gold);">
-                <h3 style="border-right: none; border-bottom: 3px solid var(--gold); display: inline-block; padding-bottom: 10px; margin-bottom: 30px;">رؤيتنا وقصتنا</h3>
                 <p style="font-size: 1.2rem; line-height: 1.8; color: #ccc; max-width: 900px; margin: 0 auto;">
-                    تأسست <b>نيفيو شات (Nevio Chat)</b> في قلب مدينة <b>عدن</b> لتكون الشرارة الأولى لثورة الذكاء الاصطناعي في المنطقة. نحن شريكك الاستراتيجي في التحول الرقمي.
+                    تأسست <b>نيفيو شات (Nevio Chat)</b> في قلب مدينة <b>عدن</b> لتكون الشرارة الأولى لثورة الذكاء الاصطناعي في المنطقة.
                 </p>
-                
                 <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 40px;">
-                    <div class="comp-box about-box-site" style="flex: 1; min-width: 250px; height: auto; padding: 25px; border-color: var(--cyan);">
-                        العاصمة عدن_المنصورة
-                        صنعاء _خدمة عن بعد
-                    </div>
-                    <div class="comp-box about-box-date" style="flex: 1; min-width: 250px; height: auto; padding: 25px; border-color: var(--gold);">
-                        1 يناير 2026
-                    </div>
-                    <div class="comp-box about-box-owner" style="flex: 1; min-width: 250px; height: auto; padding: 25px; border-color: var(--gold);">
-                        <b> سلمان علي الغويبي</b><br>
-                    وشريكة <b> عارف جمال</b>
-                    </div>
-                </div>
-
-                <div class="solution-box" style="margin-top: 40px; border-right: none; border-left: 4px solid var(--cyan); text-align: right;">
-                    <p><b>كلمة المدير التنفيذي/سلمان علي :</b> "انطلقنا من عدن لنثبت للعالم أن الكوادر المحلية قادرة على تطويع أعقد تقنيات الأتمتة والذكاء الاصطناعي لخدمة قطاع الأعمال."</p>
+                    <div class="comp-box" style="border-color: var(--cyan);">العاصمة عدن_المنصورة</div>
+                    <div class="comp-box" style="border-color: var(--gold);">1 يناير 2026</div>
+                    <div class="comp-box" style="border-color: var(--gold);">سلمان علي و عارف جمال</div>
                 </div>
             </div>
         </div>
