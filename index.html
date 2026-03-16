@@ -43,8 +43,24 @@
         /* شريط التنقل */
         nav { background: rgba(15, 20, 35, 0.9); padding: 5px 40px; position: fixed; width: 100%; top: 0; z-index: 2000; backdrop-filter: blur(25px); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
         
+        /* حاوية الشعار والاسم العائم الجديدة */
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            animation: floatLogo 3s infinite ease-in-out;
+        }
+
+        .nav-logo-text {
+            color: var(--gold);
+            font-weight: 900;
+            font-size: 1.4rem;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+            margin: 0;
+        }
+
         /* تنسيق الشعار في الهيدر */
-        .nav-logo-img { height: 60px; width: auto; animation: floatLogo 3s infinite ease-in-out; filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5)); }
+        .nav-logo-img { height: 60px; width: auto; filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5)); }
 
         .dropdown { position: relative; display: inline-block; }
         .dropbtn { background: rgba(212, 175, 55, 0.1); color: var(--gold); padding: 10px 20px; font-size: 1rem; font-weight: 900; border: 1px solid var(--gold); border-radius: 12px; cursor: pointer; display: flex; align-items: center; gap: 10px; }
@@ -76,6 +92,12 @@
         .comp-box::after { content: 'قبل نيفيو'; position: absolute; top: -10px; right: 10px; background: #ff4d4d; padding: 2px 8px; border-radius: 5px; font-size: 0.75rem; color: #fff; }
         .comp-after::after { content: 'بعد نيفيو' !important; background: var(--gold) !important; color: #000 !important; font-weight: 900; }
 
+        /* تنسيق صناديق المعلومات في قسم من نحن */
+        .info-box { flex: 1; min-width: 250px; height: auto; border-radius: 20px; background: rgba(5, 5, 5, 0.8); border: 1px solid rgba(34, 34, 34, 0.5); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; position: relative; text-align: center; padding: 25px; color: #aaa; backdrop-filter: blur(5px); }
+        .info-box-site::after { content: 'الموقع'; position: absolute; top: -10px; right: 10px; background: var(--cyan); padding: 2px 8px; border-radius: 5px; font-size: 0.75rem; color: #000; font-weight: 900; }
+        .info-box-date::after { content: 'تاريخ التأسيس'; position: absolute; top: -10px; right: 10px; background: var(--gold); padding: 2px 8px; border-radius: 5px; font-size: 0.75rem; color: #000; font-weight: 900; }
+        .info-box-owner::after { content: 'المؤسس'; position: absolute; top: -10px; right: 10px; background: var(--gold); padding: 2px 8px; border-radius: 5px; font-size: 0.75rem; color: #000; font-weight: 900; }
+
         /* باقات الأسعار */
         .price-card { background: rgba(10, 15, 30, 0.8); padding: 50px 30px; border-radius: 40px; border: 1px solid rgba(26, 26, 26, 0.5); text-align: center; position: relative; backdrop-filter: blur(20px); }
         .price-card.featured { border: 2px solid var(--cyan); transform: scale(1.05); z-index: 5; }
@@ -97,6 +119,8 @@
         @media (max-width: 768px) { 
             nav { padding: 10px 20px; } 
             .nav-logo-img { height: 45px; }
+            .nav-logo-text { font-size: 1.1rem; }
+            .brand-container { gap: 10px; }
             .price-card.featured { transform: scale(1); } 
             .section-banner, .main-hero-banner { height: auto; min-height: 200px; }
         }
@@ -123,11 +147,14 @@
                 <a href="#prices">باقات الأسعار</a>
             </div>
         </div>
-        <img src="https://lh3.googleusercontent.com/u/0/d/1rc6nxRWmc_ETl_9vA7cKx38V9MoJSs9u=w1000" alt="Nevio Chat Logo" class="nav-logo-img">
+        <div class="brand-container">
+            <p class="nav-logo-text">نيفيو شات</p>
+            <img src="https://lh3.googleusercontent.com/u/0/d/1rc6nxRWmc_ETl_9vA7cKx38V9MoJSs9u=w1000" alt="Nevio Chat Logo" class="nav-logo-img">
+        </div>
     </nav>
 
     <a href="https://wa.me/967773354434?text=مرحباً نيفيو شات" class="whatsapp-float" target="_blank">
-        <svg width="35" height="35" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217s.231.001.332.005c.109.004.258-.041.404.314l.542 1.317c.058.145.096.314.01.482l-.246.416c-.087.145-.177.303-.077.476.1.173.444.733.953 1.185.656.581 1.208.761 1.381.848.173.087.274.072.376-.043s.433-.506.548-.68c.116-.173.231-.145.39-.087l1.344.667c.158.08.261.12.3.188.04.067.04 1.139-.104 1.544z"/></svg>
+        <svg width="35" height="35" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217s.231.001.332.005c.109.004.258-.041.404.314l.542 1.317c.058.145.096.314.01.482l-.246.416c-.087.145-.177.303-.077.476.1.173.444.733.953 1.185.656.581 1.208.761 1.381.848.173.087.274.072.376-.043s.433-.506.548-.68.116-.173.231-.145.39-.087l1.344.667c.158.08.261.12.3.188.04.067.04 1.139-.104 1.544z"/></svg>
     </a>
 
     <section id="home" class="hero">
@@ -264,13 +291,13 @@
                 </p>
                 
                 <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 40px;">
-                    <div class="comp-box about-box-site" style="flex: 1; min-width: 250px; height: auto; padding: 25px; border-color: var(--cyan);">
+                    <div class="info-box info-box-site">
                         العاصمة عدن_المنصورة<br>صنعاء _خدمة عن بعد
                     </div>
-                    <div class="comp-box about-box-date" style="flex: 1; min-width: 250px; height: auto; padding: 25px; border-color: var(--gold);">
+                    <div class="info-box info-box-date">
                         1 يناير 2026
                     </div>
-                    <div class="comp-box about-box-owner" style="flex: 1; min-width: 250px; height: auto; padding: 25px; border-color: var(--gold);">
+                    <div class="info-box info-box-owner">
                         <b> سلمان علي الغويبي</b><br>
                     وشريكة <b> عارف جمال</b>
                     </div>
