@@ -14,7 +14,7 @@
         * { box-sizing: border-box; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
         body { background-color: var(--bg-dark); color: #fff; font-family: 'Cairo', sans-serif; margin: 0; overflow-x: hidden; scroll-behavior: smooth; }
 
-        /* الخلفية المتحركة للموقع */
+        /* الخلفية المتحركة */
         .video-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%; z-index: -2;
@@ -38,7 +38,7 @@
         /* شريط التنقل */
         nav { background: rgba(15, 20, 35, 0.9); padding: 5px 40px; position: fixed; width: 100%; top: 0; z-index: 2000; backdrop-filter: blur(25px); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
         
-        /* ميزة الشعار والاسم العائم بجواره */
+        /* ميزة الشعار والاسم العائم */
         .logo-container {
             display: flex;
             align-items: center;
@@ -78,7 +78,6 @@
         .solution-box { background: rgba(0, 242, 255, 0.08); padding: 15px; border-radius: 15px; margin: 15px 0; border-right: 4px solid var(--cyan); font-size: 0.95rem; }
 
         /* إطارات قبل وبعد */
-        .comparison { display: flex; gap: 15px; margin-top: 25px; }
         .comp-box { flex: 1; height: 110px; border-radius: 20px; background: rgba(5, 5, 5, 0.8); border: 1px solid rgba(34, 34, 34, 0.5); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; position: relative; text-align: center; padding: 10px; color: #aaa; backdrop-filter: blur(5px); }
         .comp-box::after { content: 'قبل نيفيو'; position: absolute; top: -10px; right: 10px; background: #ff4d4d; padding: 2px 8px; border-radius: 5px; font-size: 0.75rem; color: #fff; }
         .comp-after::after { content: 'بعد نيفيو' !important; background: var(--gold) !important; color: #000 !important; font-weight: 900; }
@@ -93,6 +92,8 @@
         .price-card { background: rgba(10, 15, 30, 0.8); padding: 50px 30px; border-radius: 40px; border: 1px solid rgba(26, 26, 26, 0.5); text-align: center; position: relative; backdrop-filter: blur(20px); }
         .price-card.featured { border: 2px solid var(--cyan); transform: scale(1.05); z-index: 5; }
         .amount { font-size: 3.5rem; font-weight: 900; color: var(--gold); margin: 5px 0; display: block; }
+        .sub-fee { margin: 20px 0; padding: 15px; background: rgba(0, 242, 255, 0.05); border-radius: 20px; border: 1px dashed var(--cyan); }
+        .sub-fee b { font-size: 1.5rem; color: var(--cyan); }
         .btn-order { background: linear-gradient(90deg, var(--gold), var(--gold-bright)); color: #000; padding: 18px 40px; border-radius: 100px; text-decoration: none; font-weight: 900; display: block; font-size: 1.1rem; }
 
         /* واتساب العائم */
@@ -132,7 +133,7 @@
             </div>
         </div>
         <div class="logo-container">
-            <img src="https://i.ibb.co/C3YFp0tB/retouch-1773451808234.jpg" alt="Nevio Chat Logo" class="nav-logo-img">
+            <img src="logo.png" alt="Nevio Chat Logo" class="nav-logo-img">
             <span class="nav-logo-text">نيفيو شات</span>
         </div>
     </nav>
@@ -158,7 +159,7 @@
                 <h3>أتمتة المواعيد الطبية</h3>
                 <div class="problem-box"><b>المشكلة:</b> ضغط اتصالات هائل وتداخل مواعيد.</div>
                 <div class="solution-box"><b>الحل:</b> نظام حجز آلي متكامل 24/7.</div>
-                <div class="comparison">
+                <div style="display: flex; gap: 15px; margin-top: 25px;">
                     <div class="comp-box">فوضى في الانتظار</div>
                     <div class="comp-box comp-after">جدول مواعيد دقيق</div>
                 </div>
@@ -174,7 +175,7 @@
                 <h3>إدارة التسجيل والطلاب</h3>
                 <div class="problem-box"><b>المشكلة:</b> ضغط تسجيل يدوي مجهد.</div>
                 <div class="solution-box"><b>الحل:</b> تسجيل آلي وتحويل البيانات لجداول منظمة.</div>
-                <div class="comparison">
+                <div style="display: flex; gap: 15px; margin-top: 25px;">
                     <div class="comp-box">بيانات مفقودة</div>
                     <div class="comp-box comp-after">قاعدة بيانات ذكية</div>
                 </div>
@@ -190,9 +191,41 @@
                 <h3>البيع والطلبات</h3>
                 <div class="problem-box"><b>المشكلة:</b> ضياع الطلبات بسبب تأخر الرد.</div>
                 <div class="solution-box"><b>الحل:</b> منيو تفاعلي واستقبال آلي للطلبات.</div>
-                <div class="comparison">
+                <div style="display: flex; gap: 15px; margin-top: 25px;">
                     <div class="comp-box">زبون يغادر</div>
                     <div class="comp-box comp-after">بيع مكتمل بلحظات</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="banks">
+        <div class="section-banner"><img src="https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?auto=format&fit=crop&q=80&w=1000" alt="Banks"></div>
+        <h2>البنوك والصرافة<span></span></h2>
+        <div class="activity-grid">
+            <div class="card">
+                <h3>خدمات العملاء المالية</h3>
+                <div class="problem-box"><b>المشكلة:</b> ازدحام الفروع لاستفسارات بسيطة.</div>
+                <div class="solution-box"><b>الحل:</b> استعلام آلي عن الحوالات وأسعار الصرف.</div>
+                <div style="display: flex; gap: 15px; margin-top: 25px;">
+                    <div class="comp-box">انتظار طويل</div>
+                    <div class="comp-box comp-after">خدمة ذاتية فورية</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="travel">
+        <div class="section-banner"><img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&q=80&w=1000" alt="Travel"></div>
+        <h2>وكالات السفر والسياحة<span> </span></h2>
+        <div class="activity-grid">
+            <div class="card">
+                <h3>حجز الرحلات</h3>
+                <div class="problem-box"><b>المشكلة:</b> تغير مواعيد الرحلات المستمر.</div>
+                <div class="solution-box"><b>الحل:</b> جداول حية وتنبيهات لحظية للمسافرين.</div>
+                <div style="display: flex; gap: 15px; margin-top: 25px;">
+                    <div class="comp-box">فوات مواعيد</div>
+                    <div class="comp-box comp-after">مسافر مطلع دائماً</div>
                 </div>
             </div>
         </div>
@@ -239,7 +272,7 @@
     </section>
 
     <footer>
-        <img src="https://i.ibb.co/C3YFp0tB/retouch-1773451808234.jpg" alt="Nevio Chat Footer Logo" class="footer-logo">
+        <img src="logo.png" alt="Nevio Chat Footer Logo" class="footer-logo">
         <div style="font-weight: 900; color: #fff; margin-bottom: 10px; font-size: 1.5rem;">شركة نيفيو شات</div>
         <p>جميع الحقوق محفوظة لشركة نيفيو شات © 2026</p>
     </footer>
