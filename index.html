@@ -26,7 +26,7 @@
             object-fit: cover; filter: brightness(0.35) contrast(1.2);
         }
 
-        /* تنسيق البنرات البانورامية المشترك - متجاوب تماماً */
+        /* تنسيق البنرات البانورامية المشترك */
         .section-banner, .main-hero-banner {
             width: 100%; max-width: 900px; height: 300px; margin: 0 auto 30px;
             border-radius: 30px; overflow: hidden; border: 1px solid var(--border);
@@ -34,8 +34,8 @@
             display: flex; justify-content: center; align-items: center;
         }
         .section-banner img, .main-hero-banner img { 
-            max-width: 100%; 
-            height: auto; 
+            width: 100%; 
+            height: 100%; 
             object-fit: cover; 
             filter: brightness(0.8) contrast(1.1); 
         }
@@ -95,7 +95,6 @@
         
         footer { padding: 80px 20px; text-align: center; border-top: 1px solid #111; backdrop-filter: blur(10px); }
         
-        /* التجاوب مع الجوال */
         @media (max-width: 768px) { 
             nav { padding: 10px 20px; } 
             .price-card.featured { transform: scale(1); } 
@@ -118,7 +117,7 @@
                 <a href="#about"> من نحن</a>
                 <a href="#hospitals">المستشفيات والعيادات</a>
                 <a href="#institutes">المعاهد والمراكز التعليمية</a>
-                <a href="#stores">المتاجر والمطاعم</a>
+                <a href="#stores">المطاعم والمتاجر</a>
                 <a href="#banks">البنوك والصرافة</a>
                 <a href="#travel">وكالات السفر والسياحة</a>
                 <a href="#prices">باقات الأسعار</a>
@@ -173,8 +172,8 @@
     </section>
 
     <section id="stores">
-        <div class="section-banner"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=1000" alt="Stores"></div>
-        <h2> المطاعم<span></span></h2>
+        <div class="section-banner"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=1000" alt="Professional Restaurant"></div>
+        <h2> المطاعم والمتاجر<span></span></h2>
         <div class="activity-grid">
             <div class="card">
                 <h3>البيع المباشر والطلبات</h3>
@@ -188,8 +187,24 @@
         </div>
     </section>
 
+    <section id="banks">
+        <div class="section-banner"><img src="https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?auto=format&fit=crop&q=80&w=1000" alt="Banking and Finance"></div>
+        <h2>البنوك والصرافة<span></span></h2>
+        <div class="activity-grid">
+            <div class="card">
+                <h3>خدمات العملاء المالية</h3>
+                <div class="problem-box"><b>المشكلة:</b> ازدحام الفروع بالاستفسارات المتكررة حول الحوالات وأسعار الصرف.</div>
+                <div class="solution-box"><b>الحل:</b> بوت تفاعلي للاستعلام عن الحوالات، عرض أسعار الصرف اللحظية، وتحديد مواقع الفروع.</div>
+                <div class="comparison">
+                    <div class="comp-box">انتظار طويل وتكرار استفسارات</div>
+                    <div class="comp-box comp-after">خدمة ذاتية فورية وآمنة 24/7</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="travel">
-        <div class="section-banner"><img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&q=80&w=1000" alt="Travel Agency Airport"></div>
+        <div class="section-banner"><img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&q=80&w=1000" alt="Travel Agency"></div>
         <h2>وكالات السفر والسياحة<span> </span></h2>
         <div class="activity-grid">
             <div class="card">
@@ -206,7 +221,7 @@
 
     <section id="prices">
         <div class="section-banner"><img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&q=80&w=1000" alt="Pricing"></div>
-        <h2>💰باقات <span>نيفيو شات</span></h2>
+        <h2>💰 باقات <span>نيفيو شات</span></h2>
         <div class="activity-grid">
             <div class="price-card">
                 <h3>الباقة الأساسية</h3>
@@ -227,7 +242,7 @@
                 <p style="color: #888;">إعداد مبدئي: 250$ (مرة واحدة)</p>
                 <div class="sub-fee"><span>الاشتراك الشهري</span><b>85$ فقط</b></div>
                 <ul style="text-align: right; list-style: none; padding: 0; line-height: 2.5; color: #aaa;">
-                    <li>✓ نظام الحجوزات الآلي الكامل عبر البوت</li>
+                    <li>✓ نظام الحجوزات الآلي الكامل</li>
                     <li>✓ تحويل العميل للمختص مباشرة</li>
                     <li>✓ كل ميزات الباقة الأساسية</li>
                 </ul>
@@ -275,4 +290,4 @@
     </footer>
 
 </body>
-                                                                                                              </html>
+</html>
