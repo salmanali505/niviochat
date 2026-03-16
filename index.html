@@ -14,7 +14,7 @@
         * { box-sizing: border-box; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
         body { background-color: var(--bg-dark); color: #fff; font-family: 'Cairo', sans-serif; margin: 0; overflow-x: hidden; scroll-behavior: smooth; }
 
-        /* الخلفية المتحركة */
+        /* الخلفية المتحركة للموقع */
         .video-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%; z-index: -2;
@@ -26,19 +26,21 @@
             object-fit: cover; filter: brightness(0.35) contrast(1.2);
         }
 
-        /* تنسيق البنرات */
+        /* تنسيق البنرات البانورامية المشترك */
         .section-banner, .main-hero-banner {
             width: 100%; max-width: 900px; height: 300px; margin: 0 auto 30px;
             border-radius: 30px; overflow: hidden; border: 1px solid var(--border);
             box-shadow: 0 10px 30px rgba(0,0,0,0.5); backdrop-filter: blur(10px);
             display: flex; justify-content: center; align-items: center;
         }
-        .section-banner img, .main-hero-banner img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.8) contrast(1.1); }
+        .section-banner img, .main-hero-banner img { 
+            width: 100%; height: 100%; object-fit: cover; filter: brightness(0.8) contrast(1.1); 
+        }
 
         /* شريط التنقل */
         nav { background: rgba(15, 20, 35, 0.9); padding: 5px 40px; position: fixed; width: 100%; top: 0; z-index: 2000; backdrop-filter: blur(25px); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
         
-        /* ميزة الشعار والاسم العائم */
+        /* حاوية الشعار والاسم مع ميزة العائم */
         .logo-container {
             display: flex;
             align-items: center;
@@ -61,11 +63,12 @@
         .dropdown-content a:hover { background: rgba(0, 242, 255, 0.1); color: var(--cyan); }
         .dropdown:hover .dropdown-content { display: block; }
 
-        /* الواجهة الرئيسية والأقسام */
+        /* الواجهة الرئيسية */
         .hero { padding: 180px 20px 100px; text-align: center; }
         .hero h1 { font-size: clamp(2.5rem, 10vw, 4.5rem); color: var(--gold); margin: 10px 0; font-weight: 900; }
         .hero p { color: var(--cyan); font-size: 1.3rem; max-width: 800px; margin: 20px auto; }
 
+        /* الأقسام والبطاقات الزجاجية */
         section { padding: 80px 20px; max-width: 1200px; margin: auto; }
         h2 { text-align: center; color: var(--gold); font-size: 2.3rem; margin-bottom: 50px; }
         h2 span { color: var(--cyan); }
@@ -139,7 +142,7 @@
     </nav>
 
     <a href="https://wa.me/967773354434?text=مرحباً نيفيو شات" class="whatsapp-float" target="_blank">
-        <svg width="35" height="35" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217s.231.001.332.005c.109.004.258-.041.404.314l.542 1.317c.058.145.096.314.01.482l-.246.416c-.087.145-.177.303-.077.476.1.173.444.733.953 1.185.656.581 1.208.761 1.381.848.173.087.274.072.376-.043s.433-.506.548-.68.116-.173.231-.145.39-.087l1.344.667c.158.08.261.12.3.188.04.067.04 1.139-.104 1.544z"/></svg>
+        <svg width="35" height="35" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217s.231.001.332.005c.109.004.258-.041.404.314l.542 1.317c.058.145.096.314.01.482l-.246.416c-.087.145-.177.303-.077.476.1.173.444.733.953 1.185.656.581 1.208.761 1.381.848.173.087.274.072.376-.043s.433-.506.548-.68c.116-.173.231-.145.39-.087l1.344.667c.158.08.261.12.3.188.04.067.04 1.139-.104 1.544z"/></svg>
     </a>
 
     <section id="home" class="hero">
@@ -199,38 +202,6 @@
         </div>
     </section>
 
-    <section id="banks">
-        <div class="section-banner"><img src="https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?auto=format&fit=crop&q=80&w=1000" alt="Banks"></div>
-        <h2>البنوك والصرافة<span></span></h2>
-        <div class="activity-grid">
-            <div class="card">
-                <h3>خدمات العملاء المالية</h3>
-                <div class="problem-box"><b>المشكلة:</b> ازدحام الفروع لاستفسارات بسيطة.</div>
-                <div class="solution-box"><b>الحل:</b> استعلام آلي عن الحوالات وأسعار الصرف.</div>
-                <div style="display: flex; gap: 15px; margin-top: 25px;">
-                    <div class="comp-box">انتظار طويل</div>
-                    <div class="comp-box comp-after">خدمة ذاتية فورية</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="travel">
-        <div class="section-banner"><img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&q=80&w=1000" alt="Travel"></div>
-        <h2>وكالات السفر والسياحة<span> </span></h2>
-        <div class="activity-grid">
-            <div class="card">
-                <h3>حجز الرحلات</h3>
-                <div class="problem-box"><b>المشكلة:</b> تغير مواعيد الرحلات المستمر.</div>
-                <div class="solution-box"><b>الحل:</b> جداول حية وتنبيهات لحظية للمسافرين.</div>
-                <div style="display: flex; gap: 15px; margin-top: 25px;">
-                    <div class="comp-box">فوات مواعيد</div>
-                    <div class="comp-box comp-after">مسافر مطلع دائماً</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section id="prices">
         <h2>💰 باقات <span>نيفيو شات</span></h2>
         <div class="activity-grid">
@@ -252,10 +223,15 @@
     </section>
 
     <section id="about">
-        <h2> من نحن <span></span></h2>
+        <div class="section-banner">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1000" alt="Nevio Chat Headquarters">
+        </div>
+        <h2> من نحن <span> </span></h2>
         <div class="card" style="grid-column: 1 / -1; text-align: center; border: 1px solid var(--gold);">
-            <h3>رؤيتنا وقصتنا</h3>
-            <p style="font-size: 1.2rem; line-height: 1.8; color: #ccc;">تأسست <b>نيفيو شات (Nevio Chat)</b> في قلب مدينة <b>عدن</b> لتكون الرائدة في التحول الرقمي.</p>
+            <h3 style="border-bottom: 3px solid var(--gold); display: inline-block; padding-bottom: 10px; margin-bottom: 30px;">رؤيتنا وقصتنا</h3>
+            <p style="font-size: 1.2rem; line-height: 1.8; color: #ccc; max-width: 900px; margin: 0 auto;">
+                تأسست <b>نيفيو شات (Nevio Chat)</b> في قلب مدينة <b>عدن</b> لتكون الشرارة الأولى لثورة الذكاء الاصطناعي في المنطقة. نحن شريكك الاستراتيجي في التحول الرقمي.
+            </p>
             
             <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 40px;">
                 <div class="about-box about-box-site">
@@ -267,6 +243,10 @@
                 <div class="about-box about-box-owner">
                     <b> سلمان علي الغويبي</b><br>وشريكة <b> عارف جمال</b>
                 </div>
+            </div>
+
+            <div class="solution-box" style="margin-top: 40px; border-right: none; border-left: 4px solid var(--cyan); text-align: right;">
+                <p><b>كلمة المدير التنفيذي/سلمان علي :</b> "انطلقنا من عدن لنثبت للعالم أن الكوادر المحلية قادرة على تطويع أعقد تقنيات الأتمتة والذكاء الاصطناعي لخدمة قطاع الأعمال."</p>
             </div>
         </div>
     </section>
