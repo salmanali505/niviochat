@@ -41,8 +41,10 @@
         }
 
         /* شريط التنقل */
-        nav { background: rgba(15, 20, 35, 0.9); padding: 12px 40px; position: fixed; width: 100%; top: 0; z-index: 2000; backdrop-filter: blur(25px); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
-        .nav-logo { font-weight: 900; color: var(--gold); font-size: 1.4rem; letter-spacing: 1px; animation: floatName 3s infinite ease-in-out; }
+        nav { background: rgba(15, 20, 35, 0.9); padding: 5px 40px; position: fixed; width: 100%; top: 0; z-index: 2000; backdrop-filter: blur(25px); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+        
+        /* تنسيق الشعار في الهيدر */
+        .nav-logo-img { height: 60px; width: auto; animation: floatLogo 3s infinite ease-in-out; filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5)); }
 
         .dropdown { position: relative; display: inline-block; }
         .dropbtn { background: rgba(212, 175, 55, 0.1); color: var(--gold); padding: 10px 20px; font-size: 1rem; font-weight: 900; border: 1px solid var(--gold); border-radius: 12px; cursor: pointer; display: flex; align-items: center; gap: 10px; }
@@ -74,11 +76,6 @@
         .comp-box::after { content: 'قبل نيفيو'; position: absolute; top: -10px; right: 10px; background: #ff4d4d; padding: 2px 8px; border-radius: 5px; font-size: 0.75rem; color: #fff; }
         .comp-after::after { content: 'بعد نيفيو' !important; background: var(--gold) !important; color: #000 !important; font-weight: 900; }
 
-        /* تسميات "قسم من نحن" */
-        .about-box-site::after { content: 'موقع الشركة' !important; }
-        .about-box-date::after { content: 'تاريخ التأسيس' !important; }
-        .about-box-owner::after { content: 'المؤسس' !important; background: var(--gold) !important; color: #000 !important; font-weight: 900; }
-
         /* باقات الأسعار */
         .price-card { background: rgba(10, 15, 30, 0.8); padding: 50px 30px; border-radius: 40px; border: 1px solid rgba(26, 26, 26, 0.5); text-align: center; position: relative; backdrop-filter: blur(20px); }
         .price-card.featured { border: 2px solid var(--cyan); transform: scale(1.05); z-index: 5; }
@@ -91,12 +88,15 @@
         /* واتساب العائم */
         .whatsapp-float { position: fixed; bottom: 30px; left: 30px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; width: 65px; height: 65px; display: flex; align-items: center; justify-content: center; box-shadow: 2px 2px 20px rgba(0,0,0,0.5); z-index: 2500; text-decoration: none; }
 
-        @keyframes floatName { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+        @keyframes floatLogo { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
         
-        footer { padding: 80px 20px; text-align: center; border-top: 1px solid #111; backdrop-filter: blur(10px); }
+        /* تذييل الصفحة المطور بالشعار */
+        footer { padding: 60px 20px; text-align: center; border-top: 1px solid var(--border); backdrop-filter: blur(15px); background: rgba(10, 15, 30, 0.5); }
+        .footer-logo { height: 80px; width: auto; margin-bottom: 20px; filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.3)); }
         
         @media (max-width: 768px) { 
             nav { padding: 10px 20px; } 
+            .nav-logo-img { height: 45px; }
             .price-card.featured { transform: scale(1); } 
             .section-banner, .main-hero-banner { height: auto; min-height: 200px; }
         }
@@ -123,7 +123,7 @@
                 <a href="#prices">باقات الأسعار</a>
             </div>
         </div>
-        <div class="nav-logo"> نيفيو شات</div>
+        <img src="https://i.ibb.co/C3YFp0tB/retouch-1773451808234.jpg" alt="Nevio Chat Logo" class="nav-logo-img">
     </nav>
 
     <a href="https://wa.me/967773354434?text=مرحباً نيفيو شات" class="whatsapp-float" target="_blank">
@@ -285,9 +285,10 @@
     </section>
 
     <footer>
+        <img src="https://i.ibb.co/C3YFp0tB/retouch-1773451808234.jpg" alt="Nevio Chat Footer Logo" class="footer-logo">
         <div style="font-weight: 900; color: #fff; margin-bottom: 10px; font-size: 1.5rem;">شركة نيفيو شات</div>
         <p>جميع الحقوق محفوظة لشركة نيفيو شات © 2026</p>
     </footer>
 
 </body>
-</html>
+    </html>
