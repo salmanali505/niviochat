@@ -26,7 +26,7 @@
             object-fit: cover; filter: brightness(0.35) contrast(1.2);
         }
 
-        /* تنسيق البنرات البانورامية المشترك */
+        /* تنسيق البنرات البانورامية */
         .section-banner, .main-hero-banner {
             width: 100%; max-width: 900px; height: 300px; margin: 0 auto 30px;
             border-radius: 30px; overflow: hidden; border: 1px solid var(--border);
@@ -40,19 +40,8 @@
         /* شريط التنقل */
         nav { background: rgba(15, 20, 35, 0.9); padding: 5px 40px; position: fixed; width: 100%; top: 0; z-index: 2000; backdrop-filter: blur(25px); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
         
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            animation: floatLogo 3s infinite ease-in-out;
-        }
-        .nav-logo-text {
-            color: var(--gold);
-            font-weight: 900;
-            font-size: 1.5rem;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
-            margin: 0;
-        }
+        .logo-container { display: flex; align-items: center; gap: 15px; animation: floatLogo 3s infinite ease-in-out; }
+        .nav-logo-text { color: var(--gold); font-weight: 900; font-size: 1.5rem; text-shadow: 0 0 10px rgba(212, 175, 55, 0.5); margin: 0; }
         .nav-logo-img { height: 60px; width: auto; filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5)); }
 
         .dropdown { position: relative; display: inline-block; }
@@ -64,6 +53,10 @@
 
         /* الواجهة الرئيسية */
         .hero { padding: 180px 20px 100px; text-align: center; }
+        .hero-top-img {
+            width: 180px; height: 180px; border-radius: 30px; border: 2px solid var(--gold);
+            margin-bottom: 25px; object-fit: cover; box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
+        }
         .hero h1 { font-size: clamp(2.5rem, 10vw, 4.5rem); color: var(--gold); margin: 10px 0; font-weight: 900; }
         .hero p { color: var(--cyan); font-size: 1.3rem; max-width: 800px; margin: 20px auto; }
 
@@ -92,26 +85,20 @@
         .sub-fee b { font-size: 1.5rem; color: var(--cyan); }
         .btn-order { background: linear-gradient(90deg, var(--gold), var(--gold-bright)); color: #000; padding: 18px 40px; border-radius: 100px; text-decoration: none; font-weight: 900; display: block; font-size: 1.1rem; }
 
-        /* إطارات قسم من نحن المحدثة */
+        /* إطارات قسم من نحن */
         .about-box { flex: 1; min-width: 250px; height: auto; padding: 25px; border-radius: 20px; background: rgba(5, 5, 5, 0.8); border: 1px solid rgba(34, 34, 34, 0.5); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; position: relative; text-align: center; color: #aaa; backdrop-filter: blur(5px); }
         .about-box-site::after { content: 'الموقع'; position: absolute; top: -10px; right: 10px; background: var(--cyan); padding: 2px 8px; border-radius: 5px; font-size: 0.75rem; color: #000; font-weight: bold; }
-        .about-box-date::after { content: 'تاريخ التأسيس'; position: absolute; top: -10px; right: 10px; background: var(--gold); padding: 2px 8px; border-radius: 5px; font-size: 0.75rem; color: #000; font-weight: bold; }
+        .about-box-date::after { content: 'التأسيس'; position: absolute; top: -10px; right: 10px; background: var(--gold); padding: 2px 8px; border-radius: 5px; font-size: 0.75rem; color: #000; font-weight: bold; }
         .about-box-owner::after { content: 'المؤسس'; position: absolute; top: -10px; right: 10px; background: var(--gold); padding: 2px 8px; border-radius: 5px; font-size: 0.75rem; color: #000; font-weight: bold; }
 
         /* واتساب العائم */
         .whatsapp-float { position: fixed; bottom: 30px; left: 30px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; width: 65px; height: 65px; display: flex; align-items: center; justify-content: center; box-shadow: 2px 2px 20px rgba(0,0,0,0.5); z-index: 2500; text-decoration: none; }
 
         @keyframes floatLogo { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
-        
         footer { padding: 60px 20px; text-align: center; border-top: 1px solid var(--border); backdrop-filter: blur(15px); background: rgba(10, 15, 30, 0.5); }
         .footer-logo { height: 80px; width: auto; margin-bottom: 20px; filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.3)); }
         
-        @media (max-width: 768px) { 
-            nav { padding: 10px 20px; } 
-            .nav-logo-img { height: 45px; }
-            .nav-logo-text { font-size: 1.1rem; }
-            .price-card.featured { transform: scale(1); }
-        }
+        @media (max-width: 768px) { nav { padding: 10px 20px; } .nav-logo-img { height: 45px; } .nav-logo-text { font-size: 1.1rem; } .price-card.featured { transform: scale(1); } }
     </style>
 </head>
 <body>
@@ -142,14 +129,17 @@
         </div>
     </nav>
 
-    <a href="https://wa.me/967773354434?text=مرحباً نيفيو شات" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/967773354434" class="whatsapp-float" target="_blank">
         <svg width="35" height="35" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217s.231.001.332.005c.109.004.258-.041.404.314l.542 1.317c.058.145.096.314.01.482l-.246.416c-.087.145-.177.303-.077.476.1.173.444.733.953 1.185.656.581 1.208.761 1.381.848.173.087.274.072.376-.043s.433-.506.548-.68.116-.173.231-.145.39-.087l1.344.667c.158.08.261.12.3.188.04.067.04 1.139-.104 1.544z"/></svg>
     </a>
 
     <section id="home" class="hero">
         <div class="main-hero-banner">
-            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1000" alt="Nevio Chat Tech City">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1000" alt="Tech">
         </div>
+        
+        <img src="retouch_1773444811743.jpg" alt="Nevio Brand" class="hero-top-img">
+        
         <h1>شركة نيفيو شات</h1>
         <p>الذكاء الذي يقود مؤسستك للقمة. أتمتة شاملة لخدمة العملاء والبيع المباشر عبر الواتساب في اليمن.</p>
         <a href="#prices" class="btn-order" style="width: auto; padding: 18px 60px; margin: 0 auto;">ابدأ الآن</a>
@@ -179,160 +169,67 @@
                 <h3>إدارة التسجيل والطلاب</h3>
                 <div class="problem-box"><b>المشكلة:</b> ضغط تسجيل يدوي مجهد.</div>
                 <div class="solution-box"><b>الحل:</b> تسجيل آلي وتحويل البيانات لجداول منظمة.</div>
-                <div style="display: flex; gap: 15px; margin-top: 25px;">
-                    <div class="comp-box">بيانات مفقودة</div>
-                    <div class="comp-box comp-after">قاعدة بيانات ذكية</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="stores">
-        <div class="section-banner"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=1000" alt="Stores"></div>
-        <h2> المطاعم <span></span></h2>
-        <div class="activity-grid">
-            <div class="card">
-                <h3>البيع والطلبات</h3>
-                <div class="problem-box"><b>المشكلة:</b> ضياع الطلبات بسبب تأخر الرد.</div>
-                <div class="solution-box"><b>الحل:</b> منيو تفاعلي واستقبال آلي للطلبات.</div>
-                <div style="display: flex; gap: 15px; margin-top: 25px;">
-                    <div class="comp-box">زبون يغادر</div>
-                    <div class="comp-box comp-after">بيع مكتمل بلحظات</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="banks">
-        <div class="section-banner"><img src="https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?auto=format&fit=crop&q=80&w=1000" alt="Banks"></div>
-        <h2>البنوك والصرافة<span></span></h2>
-        <div class="activity-grid">
-            <div class="card">
-                <h3>خدمات العملاء المالية</h3>
-                <div class="problem-box"><b>المشكلة:</b> ازدحام الفروع لاستفسارات بسيطة.</div>
-                <div class="solution-box"><b>الحل:</b> استعلام آلي عن الحوالات وأسعار الصرف.</div>
-                <div style="display: flex; gap: 15px; margin-top: 25px;">
-                    <div class="comp-box">انتظار طويل</div>
-                    <div class="comp-box comp-after">خدمة ذاتية فورية</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="travel">
-        <div class="section-banner"><img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&q=80&w=1000" alt="Travel"></div>
-        <h2>وكالات السفر <span> </span></h2>
-        <div class="activity-grid">
-            <div class="card">
-                <h3>حجز الرحلات</h3>
-                <div class="problem-box"><b>المشكلة:</b> تغير مواعيد الرحلات المستمر.</div>
-                <div class="solution-box"><b>الحل:</b> جداول حية وتنبيهات لحظية للمسافرين.</div>
-                <div style="display: flex; gap: 15px; margin-top: 25px;">
-                    <div class="comp-box">فوات مواعيد</div>
-                    <div class="comp-box comp-after">مسافر مطلع دائماً</div>
-                </div>
             </div>
         </div>
     </section>
 
     <section id="portfolio">
-        <div class="section-banner">
-            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000" alt="Our Works">
-        </div>
+        <div class="section-banner"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000" alt="Works"></div>
         <h2>ملف أعمالنا <span></span></h2>
         <div class="activity-grid">
             <div class="card" style="text-align: center; border: 1px solid var(--cyan);">
                 <div style="font-size: 3rem; margin-bottom: 10px;">🏥</div>
                 <h3>مستشفى الأمل الحديث</h3>
-                <div class="solution-box" style="text-align: center; border-right: none; border-bottom: 3px solid var(--cyan);">نموذج أتمتة المواعيد الطبية</div>
-                <p style="color: #aaa; margin: 20px 0;"> اختبار كفاءةالرد الآلي الذكي على الاستفسارات المتكررة و معرفة متى دوام الأطباء وأسعار الفحوصات.</p>
-                <a href="https://wa.me/967773450926?text=تجربة بوت مستشفى الأمل" class="btn-order" style="padding: 12px 20px; font-size: 0.9rem; background: rgba(0, 242, 255, 0.1); border: 1px solid var(--cyan); color: var(--cyan);">اضغط للتجربة الآن</a>
+                <a href="https://wa.me/967773450926" class="btn-order" style="background: rgba(0, 242, 255, 0.1); border: 1px solid var(--cyan); color: var(--cyan);">تجربة الآن</a>
             </div>
-
             <div class="card" style="text-align: center; border: 1px solid var(--gold);">
                 <div style="font-size: 3rem; margin-bottom: 10px;">🎓</div>
                 <h3>معهد آفاق المستقبل</h3>
-                <div class="solution-box" style="text-align: center; border-right: none; border-bottom: 3px solid var(--gold);">نموذج إدارة شؤون الطلاب</div>
-                <p style="color: #aaa; margin: 20px 0;">استعلم عن الدورات والاستعلام عن الاسعار و اوقات بدأ الدورات بشكل احترافي  تماماً.</p>
-                <a href="https://wa.me/+967773426694?text=تجربة بوت معهد آفاق" class="btn-order" style="padding: 12px 20px; font-size: 0.9rem; background: rgba(212, 175, 55, 0.1); border: 1px solid var(--gold); color: var(--gold);">اضغط للتجربة الآن</a>
-            </div>
-
-            <div class="card" style="text-align: center; border: 1px solid #ff4d4d;">
-                <div style="font-size: 3rem; margin-bottom: 10px;">✈️</div>
-                <h3>وكالة النسر للسفريات</h3>
-                <div class="solution-box" style="text-align: center; border-right: none; border-bottom: 3px solid #ff4d4d;">نموذج حجز الرحلات السياحية</div>
-                <p style="color: #aaa; margin: 20px 0;">الإجابة على الاستفسارات المتكررة معرفة مواعيد الرحلات واحجز تذكرتك عبر الواتساب.</p>
-                <a href="https://wa.me/967780215450?text=تجربة بوت وكالة النسر" class="btn-order" style="padding: 12px 20px; font-size: 0.9rem; background: rgba(255, 77, 77, 0.1); border: 1px solid #ff4d4d; color: #ff4d4d;">اضغط للتجربة الآن</a>
+                <a href="https://wa.me/+967773426694" class="btn-order" style="background: rgba(212, 175, 55, 0.1); border: 1px solid var(--gold); color: var(--gold);">تجربة الآن</a>
             </div>
         </div>
     </section>
 
     <section id="prices">
-        <div class="section-banner"><img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&q=80&w=1000" alt="Pricing"></div>
-        <h2> باقات تركيب النظام<span> </span></h2>
+        <h2> باقات تركيب النظام <span></span></h2>
         <div class="activity-grid">
             <div class="price-card">
                 <h3>الباقة الأساسية</h3>
                 <span class="amount">100$</span>
-                <p style="color: #888;">إعداد مبدئي: 100$ (مرة واحدة)</p>
-                <div class="sub-fee"><span>الاشتراك الشهري</span><b>40$ فقط</b></div>
-                <ul style="text-align: right; list-style: none; padding: 0; line-height: 2.5; color: #aaa;">
-                    <li>✓ الرد الآلي على الاستفسارات</li>
-                    <li>✓ عرض معلومات الخدمات</li>
-                    <li>✓ إدارة وحملات الإعلانات</li>
-                </ul>
-                <a href="https://wa.me/967782483336" class="btn-order">اطلب الباقة الآن</a>
+                <div class="sub-fee">الاشتراك: <b>40$ شهرياً</b></div>
+                <a href="https://wa.me/967782483336" class="btn-order">اطلب الآن</a>
             </div>
             <div class="price-card featured">
                 <div class="featured-tag">الأكثر طلباً</div>
                 <h3>الباقة الاحترافية</h3>
                 <span class="amount">250$</span>
-                <p style="color: #888;">إعداد مبدئي: 250$ (مرة واحدة)</p>
-                <div class="sub-fee"><span>الاشتراك الشهري</span><b>85$ فقط</b></div>
-                <ul style="text-align: right; list-style: none; padding: 0; line-height: 2.5; color: #aaa;">
-                    <li>✓ نظام الحجوزات الآلي الكامل</li>
-                    <li>✓ تحويل العميل للمختص مباشرة</li>
-                    <li>✓ كل ميزات الباقة الأساسية</li>
-                </ul>
-                <a href="https://wa.me/967782483336" class="btn-order">اطلب الباقة الآن</a>
+                <div class="sub-fee">الاشتراك: <b>85$ شهرياً</b></div>
+                <a href="https://wa.me/967782483336" class="btn-order">اطلب الآن</a>
             </div>
         </div>
     </section>
 
     <section id="about">
-        <div class="section-banner">
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1000" alt="Nevio Chat Headquarters">
-        </div>
-        <h2> من نحن <span> </span></h2>
+        <div class="section-banner"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1000" alt="About"></div>
+        <h2> من نحن <span></span></h2>
         <div class="card" style="grid-column: 1 / -1; text-align: center; border: 1px solid var(--gold);">
-            <h3 style="border-bottom: 3px solid var(--gold); display: inline-block; padding-bottom: 10px; margin-bottom: 30px;">رؤيتنا وقصتنا</h3>
-            <p style="font-size: 1.2rem; line-height: 1.8; color: #ccc; max-width: 900px; margin: 0 auto;">
-                تأسست شركة <b>نيفيو شات (Nevio Chat)</b> في قلب مدينة <b>عدن</b> لتكون الشرارة الأولى لثورة أنظمة الأتمتة  روبوتات الرد الآلي الذكية على واتساب  في محافظةعدن +صنعاء+مأرب. نحن شريكك الاستراتيجي في التحول الرقمي.
-            </p>
+            <p style="font-size: 1.2rem; line-height: 1.8; color: #ccc;">تأسست <b>نيفيو شات</b> في عدن لتكون الرائدة في أتمتة الأعمال في اليمن.</p>
             
-            <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 40px;">
-                <div class="about-box about-box-site">
-                    العاصمة عدن_المنصورة<br>صنعاء _خدمة عن بعد
-                </div>
-                <div class="about-box about-box-date">
-                    1 يناير 2026
-                </div>
-                <div class="about-box about-box-owner">
-                    <b> سلمان علي الغويبي</b><br>وشريكة <b> عارف جمال</b>
-                </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin: 40px 0;">
+                <div class="about-box about-box-site">عدن - المنصورة</div>
+                <div class="about-box about-box-date">1 يناير 2026</div>
+                <div class="about-box about-box-owner">سلمان علي & عارف جمال</div>
             </div>
 
-            <div class="solution-box" style="margin-top: 40px; border-right: none; border-left: 4px solid var(--cyan); text-align: right; display: flex; align-items: center; gap: 15px;">
-                <img src="7nr48j.jpg" alt="المدير التنفيذي" style="width: 60px; height: 60px; border-radius: 12px; border: 2px solid var(--cyan); object-fit: cover; box-shadow: 0 0 10px var(--cyan);">
-                
-                <p style="margin: 0;"><b>كلمة المدير التنفيذي/سلمان علي :</b> "انطلقنا من عدن لنثبت للعالم أن الكوادر المحلية قادرة على تطويع أعقد تقنيات الأتمتة وبوتات الرد الآلي الذكي على واتساب لخدمة قطاع الأعمال."</p>
+            <div class="solution-box" style="display: flex; align-items: center; gap: 15px; border-left: 4px solid var(--cyan); text-align: right;">
+                <img src="7nr48j.jpg" alt="CEO" style="width: 70px; height: 70px; border-radius: 15px; border: 2px solid var(--cyan); object-fit: cover;">
+                <p style="margin: 0;"><b>كلمة المدير التنفيذي/سلمان علي:</b> "انطلقنا لنثبت أن الكوادر المحلية قادرة على تطويع أعقد تقنيات الذكاء الاصطناعي."</p>
             </div>
         </div>
     </section>
 
     <footer>
-        <img src="logo.png" alt="Nevio Chat Footer Logo" class="footer-logo">
-        <div style="font-weight: 900; color: #fff; margin-bottom: 10px; font-size: 1.5rem;">شركة نيفيو شات</div>
+        <img src="logo.png" alt="Footer Logo" class="footer-logo">
         <p>جميع الحقوق محفوظة لشركة نيفيو شات © 2026</p>
     </footer>
 
