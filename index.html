@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شركة نيفيو شات | Nevio Chat -رائد الأتمتة روبوتات الرد الآلي الذكية</title>
+    <title>شركة نيفيو شات | Nevio Chat - الرائد في أتمتة الواتساب</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
         :root { 
@@ -11,91 +11,84 @@
             --bg-dark: #02050a; --glass: rgba(15, 20, 35, 0.7); --border: rgba(212, 175, 55, 0.3);
         }
 
-        * { box-sizing: border-box; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        * { box-sizing: border-box; transition: all 0.3s ease; }
         body { background-color: var(--bg-dark); color: #fff; font-family: 'Cairo', sans-serif; margin: 0; overflow-x: hidden; scroll-behavior: smooth; }
 
         /* الخلفية */
-        .video-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; overflow: hidden; background-color: var(--bg-dark); }
-        .video-bg video { min-width: 100%; min-height: 100%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); object-fit: cover; filter: brightness(0.35) contrast(1.2); }
+        .video-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; overflow: hidden; }
+        .video-bg video { min-width: 100%; min-height: 100%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); object-fit: cover; filter: brightness(0.3); }
 
-        /* شريط التنقل - تقليل الارتفاع */
-        nav { background: rgba(15, 20, 35, 0.9); padding: 5px 25px; position: fixed; width: 100%; top: 0; z-index: 2000; backdrop-filter: blur(25px); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
-        .nav-logo-img { height: 50px; width: auto; filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5)); }
-        .nav-logo-text { color: var(--gold); font-weight: 900; font-size: 1.3rem; margin: 0; }
+        /* نافبار مضغوط */
+        nav { background: rgba(15, 20, 35, 0.9); padding: 5px 20px; position: fixed; width: 100%; top: 0; z-index: 2000; backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; height: 60px; }
+        .nav-logo-img { height: 45px; width: auto; }
+        .nav-logo-text { color: var(--gold); font-weight: 900; font-size: 1.2rem; margin: 0; }
 
-        .dropdown { position: relative; display: inline-block; }
-        .dropbtn { background: rgba(212, 175, 55, 0.1); color: var(--gold); padding: 8px 15px; font-size: 0.9rem; font-weight: 900; border: 1px solid var(--gold); border-radius: 10px; cursor: pointer; }
-        .dropdown-content { display: none; position: absolute; right: 0; top: 45px; background: rgba(15, 20, 35, 0.95); min-width: 220px; border-radius: 12px; border: 1px solid var(--border); overflow: hidden; backdrop-filter: blur(25px); }
+        .dropbtn { background: rgba(212, 175, 55, 0.1); color: var(--gold); padding: 6px 12px; font-size: 0.85rem; font-weight: 700; border: 1px solid var(--gold); border-radius: 8px; cursor: pointer; }
+        .dropdown { position: relative; }
+        .dropdown-content { display: none; position: absolute; right: 0; top: 40px; background: rgba(15, 20, 35, 0.98); min-width: 200px; border-radius: 10px; border: 1px solid var(--border); overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         .dropdown-content a { color: #ccc; padding: 10px 15px; text-decoration: none; display: block; font-size: 0.85rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .dropdown-content a:hover { background: rgba(0, 242, 255, 0.1); color: var(--cyan); }
         .dropdown:hover .dropdown-content { display: block; }
 
         /* تقليل الفراغات بين الأقسام */
-        section { padding: 40px 15px; max-width: 1100px; margin: auto; }
-        h2 { text-align: center; color: var(--gold); font-size: 2.1rem; margin-bottom: 30px; margin-top: 0; }
+        section { padding: 30px 15px; max-width: 1100px; margin: auto; }
+        h2 { text-align: center; color: var(--gold); font-size: 1.8rem; margin: 0 0 20px 0; }
         h2 span { color: var(--cyan); }
 
-        /* الواجهة الرئيسية - تقليل الهوامش */
-        .hero { padding: 110px 15px 50px; text-align: center; }
-        .hero h1 { font-size: clamp(2.2rem, 8vw, 3.8rem); color: var(--gold); margin: 5px 0; font-weight: 900; }
-        .hero p { color: var(--cyan); font-size: 1.15rem; max-width: 750px; margin: 15px auto 25px; }
+        /* الهيرو */
+        .hero { padding: 90px 15px 30px; text-align: center; }
+        .hero h1 { font-size: clamp(1.8rem, 6vw, 3rem); color: var(--gold); margin: 10px 0; font-weight: 900; }
+        .hero p { color: var(--cyan); font-size: 1rem; max-width: 600px; margin: 10px auto 20px; }
 
-        /* البنرات - تحسين الحجم لتقليل الفراغ */
-        .section-banner { width: 100%; max-width: 850px; height: 240px; margin: 0 auto 25px; border-radius: 25px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
-        .section-banner img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85); }
-
-        /* السلايدر التفاعلي */
-        .scroll-wrapper { position: relative; padding: 0; width: 100%; }
-        .scroll-container { display: flex; gap: 15px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 10px 5px 25px; scrollbar-width: none; cursor: grab; }
+        /* سلايدر الصور */
+        .scroll-wrapper { position: relative; width: 100%; margin-bottom: 15px; }
+        .scroll-container { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 10px; scrollbar-width: none; }
         .scroll-container::-webkit-scrollbar { display: none; }
-        
-        .hero-img-card { min-width: 100%; flex: 0 0 100%; height: 330px; border-radius: 25px; border: 1px solid var(--border); overflow: hidden; scroll-snap-align: center; position: relative; box-shadow: 0 8px 20px rgba(0,0,0,0.4); }
+        .hero-img-card { min-width: 100%; flex: 0 0 100%; height: 280px; border-radius: 20px; border: 1px solid var(--border); overflow: hidden; scroll-snap-align: center; }
         .hero-img-card img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* البطاقات - تقليل الحشو والمسافات */
-        .activity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
-        .card { background: var(--glass); padding: 30px; border-radius: 30px; border: 1px solid var(--border); text-align: right; backdrop-filter: blur(15px); }
-        .card h3 { color: var(--cyan); font-size: 1.5rem; margin: 0 0 18px; border-right: 4px solid var(--gold); padding-right: 15px; }
+        /* البنرات */
+        .section-banner { width: 100%; height: 180px; margin-bottom: 20px; border-radius: 20px; overflow: hidden; border: 1px solid var(--border); }
+        .section-banner img { width: 100%; height: 100%; object-fit: cover; }
 
-        .problem-box, .solution-box { padding: 12px; border-radius: 12px; margin: 12px 0; font-size: 0.95rem; }
-        .problem-box { background: rgba(255, 77, 77, 0.08); border-right: 4px solid #ff4d4d; }
-        .solution-box { background: rgba(0, 242, 255, 0.08); border-right: 4px solid var(--cyan); }
+        /* كروت الخدمات */
+        .activity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
+        .card { background: var(--glass); padding: 20px; border-radius: 20px; border: 1px solid var(--border); backdrop-filter: blur(10px); }
+        .card h3 { color: var(--cyan); font-size: 1.2rem; margin: 0 0 12px; border-right: 3px solid var(--gold); padding-right: 10px; }
 
-        /* إطارات قبل وبعد - مضغوطة */
-        .comp-box { flex: 1; height: 100px; border-radius: 18px; background: rgba(5, 5, 5, 0.8); border: 1px solid rgba(34, 34, 34, 0.5); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; position: relative; text-align: center; padding: 10px; color: #aaa; }
-        .comp-box::after { content: 'قبل نيفيو'; position: absolute; top: -8px; right: 10px; background: #ff4d4d; padding: 2px 7px; border-radius: 5px; font-size: 0.75rem; color: #fff; }
-        .comp-after::after { content: 'بعد نيفيو' !important; background: var(--gold) !important; color: #000 !important; font-weight: 900; }
+        .problem-box, .solution-box { padding: 10px; border-radius: 10px; margin: 8px 0; font-size: 0.85rem; line-height: 1.5; }
+        .problem-box { background: rgba(255, 77, 77, 0.1); border-right: 3px solid #ff4d4d; }
+        .solution-box { background: rgba(0, 242, 255, 0.1); border-right: 3px solid var(--cyan); }
 
-        /* باقات الأسعار - تقارب أكثر */
-        .price-card { background: rgba(10, 15, 30, 0.8); padding: 35px 25px; border-radius: 35px; border: 1px solid rgba(26, 26, 26, 0.5); text-align: center; position: relative; backdrop-filter: blur(20px); }
-        .price-card.featured { border: 2px solid var(--cyan); transform: scale(1.02); }
-        .amount { font-size: 3.2rem; font-weight: 900; color: var(--gold); margin: 5px 0; display: block; }
-        .sub-fee { margin: 15px 0; padding: 12px; background: rgba(0, 242, 255, 0.05); border-radius: 18px; border: 1px dashed var(--cyan); }
-        .sub-fee b { font-size: 1.4rem; color: var(--cyan); }
-        .btn-order { background: linear-gradient(90deg, var(--gold), var(--gold-bright)); color: #000; padding: 15px 35px; border-radius: 100px; text-decoration: none; font-weight: 900; display: inline-block; font-size: 1.05rem; transition: 0.3s; }
-        .btn-order:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4); }
+        /* قبل وبعد */
+        .comp-wrapper { display: flex; gap: 8px; margin-top: 10px; }
+        .comp-box { flex: 1; padding: 10px; border-radius: 12px; background: rgba(0,0,0,0.5); border: 1px solid #333; font-size: 0.75rem; text-align: center; position: relative; }
+        .comp-box::after { content: 'قبل نيفيو'; position: absolute; top: -8px; right: 5px; background: #ff4d4d; padding: 1px 5px; border-radius: 4px; font-size: 0.65rem; }
+        .comp-after::after { content: 'بعد نيفيو' !important; background: var(--gold) !important; color: #000; font-weight: bold; }
 
-        /* من نحن - معلومات مكثفة */
-        .about-box { flex: 1; min-width: 180px; padding: 20px; border-radius: 18px; background: rgba(5, 5, 5, 0.8); border: 1px solid var(--border); font-size: 0.85rem; position: relative; text-align: center; }
-        .about-box::after { position: absolute; top: -10px; right: 10px; padding: 2px 8px; border-radius: 5px; font-size: 0.75rem; font-weight: bold; color: #000; }
-        .about-box-site::after { content: 'الموقع'; background: var(--cyan); }
-        .about-box-date::after { content: 'تاريخ التأسيس'; background: var(--gold); }
-        .about-box-owner::after { content: 'المؤسس'; background: var(--gold); }
+        /* الأسعار */
+        .price-card { background: rgba(10, 15, 30, 0.9); padding: 25px; border-radius: 25px; border: 1px solid var(--border); text-align: center; }
+        .price-card.featured { border: 2px solid var(--cyan); transform: scale(1.03); }
+        .amount { font-size: 2.5rem; font-weight: 900; color: var(--gold); margin: 5px 0; display: block; }
+        .sub-fee { margin: 10px 0; padding: 8px; background: rgba(0, 242, 255, 0.05); border-radius: 12px; border: 1px dashed var(--cyan); font-size: 0.9rem; }
+        .sub-fee b { color: var(--cyan); font-size: 1.1rem; }
 
-        .testimonial-card { min-width: 300px; flex: 0 0 300px; background: var(--glass); padding: 30px; border-radius: 30px; border: 1px solid var(--border); scroll-snap-align: center; text-align: center; }
+        /* أزرار */
+        .btn-order { background: linear-gradient(90deg, var(--gold), var(--gold-bright)); color: #000; padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: 900; display: inline-block; font-size: 0.9rem; margin-top: 10px; }
 
-        /* واتساب العائم */
-        .whatsapp-float { position: fixed; bottom: 25px; left: 25px; background-color: #25d366; color: #FFF; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; box-shadow: 2px 4px 15px rgba(0,0,0,0.4); z-index: 2500; text-decoration: none; }
+        /* من نحن */
+        .about-stats { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 15px; }
+        .about-box { flex: 1; min-width: 120px; padding: 12px; border-radius: 12px; background: rgba(5,5,5,0.8); border: 1px solid var(--border); font-size: 0.75rem; text-align: center; }
+        
+        /* واتساب */
+        .whatsapp-float { position: fixed; bottom: 20px; left: 20px; background: #25d366; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 3000; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
 
-        footer { padding: 40px 20px; text-align: center; border-top: 1px solid var(--border); background: rgba(10, 15, 30, 0.5); }
-        .footer-logo { height: 70px; margin-bottom: 15px; }
+        footer { padding: 25px; text-align: center; border-top: 1px solid var(--border); background: rgba(0,0,0,0.6); }
+        .footer-logo { height: 50px; margin-bottom: 10px; }
 
-        @media (max-width: 768px) { 
-            section { padding: 30px 10px; }
-            .hero-img-card { height: 240px; }
-            .section-banner { height: 200px; }
-            nav { padding: 5px 15px; }
-            .nav-logo-text { font-size: 1.1rem; }
+        @media (max-width: 768px) {
+            h2 { font-size: 1.5rem; }
+            .hero-img-card { height: 200px; }
+            .section-banner { height: 140px; }
             .price-card.featured { transform: scale(1); }
         }
     </style>
@@ -103,135 +96,190 @@
 <body>
 
     <div class="video-bg">
-        <video autoplay loop muted playsinline>
-            <source src="https://cdn.pixabay.com/video/2021/08/17/85376-589710323_large.mp4" type="video/mp4">
-        </video>
+        <video autoplay loop muted playsinline><source src="https://cdn.pixabay.com/video/2021/08/17/85376-589710323_large.mp4" type="video/mp4"></video>
     </div>
 
     <nav>
         <div class="dropdown">
-            <button class="dropbtn">☰ الأقسام والخدمات</button>
+            <button class="dropbtn">☰ الخدمات</button>
             <div class="dropdown-content">
-                <a href="#about"> من نحن</a>
-                <a href="#portfolio">ملف أعمالنا</a>
-                <a href="#hospitals">المستشفيات والعيادات</a>
-                <a href="#institutes">المعاهد والمدارس</a>
+                <a href="#about">من نحن</a>
+                <a href="#hospitals">المستشفيات</a>
+                <a href="#institutes">المعاهد</a>
                 <a href="#stores">المطاعم والمتاجر</a>
-                <a href="#banks">البنوك والصرافة</a>
-                <a href="#travel">وكالات السفر والسياحة</a>
-                <a href="#prices">باقات الأسعار</a>
+                <a href="#banks">البنوك</a>
+                <a href="#travel">السياحة والسفر</a>
+                <a href="#prices">الأسعار</a>
             </div>
         </div>
-        <div class="logo-container" style="display: flex; align-items: center; gap: 12px;">
-            <img src="logo.png" alt="Nevio Logo" class="nav-logo-img">
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <img src="logo.png" class="nav-logo-img">
             <span class="nav-logo-text">نيفيو شات</span>
         </div>
     </nav>
 
     <a href="https://wa.me/967773354434" class="whatsapp-float" target="_blank">
-        <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217s.231.001.332.005c.109.004.258-.041.404.314l.542 1.317c.058.145.096.314.01.482l-.246.416c-.087.145-.177.303-.077.476.1.173.444.733.953 1.185.656.581 1.208.761 1.381.848.173.087.274.072.376-.043s.433-.506.548-.68.116-.173.231-.145.39-.087l1.344.667c.158.08.261.12.3.188.04.067.04 1.139-.104 1.544z"/></svg>
+        <svg width="25" height="25" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217s.231.001.332.005c.109.004.258-.041.404.314l.542 1.317c.058.145.096.314.01.482l-.246.416c-.087.145-.177.303-.077.476.1.173.444.733.953 1.185.656.581 1.208.761 1.381.848.173.087.274.072.376-.043s.433-.506.548-.68.116-.173.231-.145.39-.087l1.344.667c.158.08.261.12.3.188.04.067.04 1.139-.104 1.544z"/></svg>
     </a>
 
-    <section id="home" class="hero">
+    <section class="hero">
         <div class="scroll-wrapper">
             <div class="scroll-container" id="heroSlider">
-                <div class="hero-img-card"><img src="top2.jpg" alt="Banner 1"></div>
-                <div class="hero-img-card"><img src="top3.jpg" alt="Banner 2"></div>
-                <div class="hero-img-card"><img src="top4.jpg" alt="Banner 3"></div>
+                <div class="hero-img-card"><img src="top2.jpg"></div>
+                <div class="hero-img-card"><img src="top3.jpg"></div>
+                <div class="hero-img-card"><img src="top4.jpg"></div>
             </div>
         </div>
         <h1>شركة نيفيو شات</h1>
-        <p>النظام الذي يقود مؤسستك للقمة. أتمتة شاملة لخدمة العملاء والبيع المباشر عبر الواتساب في اليمن.</p>
-        <a href="#prices" class="btn-order">ابدأ الآن</a>
+        <p>نظام ذكي لأتمتة خدمة العملاء والمبيعات عبر الواتساب في اليمن.</p>
+        <a href="#prices" class="btn-order">استكشف الباقات</a>
     </section>
 
     <section id="hospitals">
-        <div class="section-banner"><img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=1000" alt="Hospitals"></div>
-        <h2>المستشفيات <span></span></h2>
+        <div class="section-banner"><img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=1000"></div>
+        <h2>قطاع <span>المستشفيات</span></h2>
         <div class="activity-grid">
             <div class="card">
-                <h3>أتمتة المواعيد الطبية</h3>
-                <div class="problem-box"><b>المشكلة:</b> ضغط اتصالات هائل وتداخل مواعيد.</div>
-                <div class="solution-box"><b>الحل:</b> نظام حجز آلي متكامل 24/7.</div>
-                <div style="display: flex; gap: 10px; margin-top: 15px;">
-                    <div class="comp-box">فوضى في الانتظار</div>
-                    <div class="comp-box comp-after">جدول مواعيد دقيق</div>
+                <h3>حجز المواعيد الآلي</h3>
+                <div class="problem-box"><b>المشكلة:</b> ضغط هائل على الاستقبال وتداخل المواعيد يدوياً.</div>
+                <div class="solution-box"><b>الحل:</b> بوت يحجز الموعد، يرسل التذكير، ويؤكد الحجز فوراً.</div>
+                <div class="comp-wrapper">
+                    <div class="comp-box">ازدحام وفوضى</div>
+                    <div class="comp-box comp-after">تنظيم رقمي</div>
                 </div>
             </div>
         </div>
     </section>
 
+    <section id="institutes">
+        <div class="section-banner"><img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=1000"></div>
+        <h2>المعاهد <span>والمدارس</span></h2>
+        <div class="activity-grid">
+            <div class="card">
+                <h3>استعلام وتسجيل آلي</h3>
+                <div class="problem-box"><b>المشكلة:</b> تكرار السؤال عن الأسعار والدورات المتاحة.</div>
+                <div class="solution-box"><b>الحل:</b> عرض جدول الدورات والتسجيل المباشر عبر البوت.</div>
+                <div class="comp-wrapper">
+                    <div class="comp-box">تأخر الرد</div>
+                    <div class="comp-box comp-after">رد لحظي 24/7</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="stores">
+        <div class="section-banner"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=1000"></div>
+        <h2>المطاعم <span>والمتاجر</span></h2>
+        <div class="activity-grid">
+            <div class="card">
+                <h3>نظام الطلبات الذكي</h3>
+                <div class="problem-box"><b>المشكلة:</b> ضياع الطلبات في محادثات الواتساب الطويلة.</div>
+                <div class="solution-box"><b>الحل:</b> سلة تسوق كاملة داخل الواتساب مع تحديد الموقع.</div>
+                <div class="comp-wrapper">
+                    <div class="comp-box">طلبات عشوائية</div>
+                    <div class="comp-box comp-after">فواتير منظمة</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="banks">
+        <h2>البنوك <span>والصرافة</span></h2>
+        <div class="activity-grid">
+            <div class="card">
+                <h3>أسعار الصرف والخدمات</h3>
+                <div class="problem-box"><b>المشكلة:</b> استفسارات دائمة عن أسعار الصرف ومواقع الفروع.</div>
+                <div class="solution-box"><b>الحل:</b> تحديث آلي لأسعار الصرف وتحديد أقرب فرع/صراف آلي.</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="travel">
+        <h2>السياحة <span>والسفر</span></h2>
+        <div class="activity-grid">
+            <div class="card">
+                <h3>استعلام الرحلات</h3>
+                <div class="problem-box"><b>المشكلة:</b> صعوبة تتبع مواعيد الرحلات والأسعار المتغيرة.</div>
+                <div class="solution-box"><b>الحل:</b> بوت يعرض الرحلات المتاحة وحجز التذاكر المبدئي.</div>
+            </div>
+        </div>
+    </section>
+
     <section id="portfolio">
-        <h2>ملف أعمالنا <span></span></h2>
+        <h2>نماذج من <span>أعمالنا</span></h2>
         <div class="activity-grid">
             <div class="card" style="text-align: center; border-color: var(--cyan);">
-                <div style="font-size: 2.5rem; margin-bottom: 5px;">🏥</div>
                 <h3>مستشفى الأمل الحديث</h3>
-                <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 15px;">اختبار كفاءة الرد الآلي الذكي على الاستفسارات المتكررة.</p>
-                <a href="https://wa.me/967773450926" class="btn-order" style="padding: 10px 20px; font-size: 0.9rem;">اضغط للتجربة</a>
+                <p style="font-size: 0.8rem; color: #aaa;">نظام رد آلي وحجز مواعيد طبي متطور.</p>
+                <a href="https://wa.me/967773450926" class="btn-order">تجربة البوت</a>
             </div>
             <div class="card" style="text-align: center; border-color: var(--gold);">
-                <div style="font-size: 2.5rem; margin-bottom: 5px;">🎓</div>
                 <h3>معهد آفاق المستقبل</h3>
-                <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 15px;">استعلم عن الدورات والأسعار بشكل احترافي تماماً.</p>
-                <a href="https://wa.me/+967773426694" class="btn-order" style="padding: 10px 20px; font-size: 0.9rem;">اضغط للتجربة</a>
+                <p style="font-size: 0.8rem; color: #aaa;">استعلام عن الدورات والأسعار والتسجيل.</p>
+                <a href="https://wa.me/+967773426694" class="btn-order">تجربة البوت</a>
             </div>
         </div>
     </section>
 
     <section id="prices">
-        <h2> باقات تركيب النظام<span> </span></h2>
+        <h2>باقات <span>الاشتراك</span></h2>
         <div class="activity-grid">
             <div class="price-card">
                 <h3>الباقة الأساسية</h3>
                 <span class="amount">100$</span>
-                <div class="sub-fee">الاشتراك الشهري <b>40$ فقط</b></div>
-                <a href="https://wa.me/967782483336" class="btn-order">اطلب الباقة</a>
+                <div class="sub-fee">الشهري <b>40$</b></div>
+                <a href="https://wa.me/967782483336" class="btn-order">اطلب الآن</a>
             </div>
             <div class="price-card featured">
                 <h3>الباقة الاحترافية</h3>
                 <span class="amount">250$</span>
-                <div class="sub-fee">الاشتراك الشهري <b>85$ فقط</b></div>
-                <a href="https://wa.me/967782483336" class="btn-order">اطلب الباقة</a>
+                <div class="sub-fee">الشهري <b>85$</b></div>
+                <a href="https://wa.me/967782483336" class="btn-order">اطلب الآن</a>
             </div>
         </div>
     </section>
 
     <section id="about">
-        <h2> من نحن <span> </span></h2>
-        <div class="card" style="text-align: center; border: 1px solid var(--gold);">
-            <p style="font-size: 1.1rem; color: #ccc; margin-bottom: 25px;">تأسست نيفيو شات في قلب <b>عدن</b> لتكون الرائدة في أنظمة الأتمتة وروبوتات الواتساب الذكية.</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
-                <div class="about-box about-box-site">عدن - المنصورة<br>صنعاء - خدمة عن بعد</div>
-                <div class="about-box about-box-date">1 يناير 2026</div>
-                <div class="about-box about-box-owner">سلمان علي الغويبي</div>
+        <h2>من <span>نحن</span></h2>
+        <div class="card" style="text-align: center;">
+            <p style="font-size: 0.95rem; color: #ccc;">نيفيو شات: القوة التقنية التي تحول الواتساب من مجرد تطبيق دردشة إلى موظف ذكي يعمل لصالحك.</p>
+            <div class="about-stats">
+                <div class="about-box"><b>الموقع:</b> عدن - المنصورة</div>
+                <div class="about-box"><b>التأسيس:</b> 2026</div>
+                <div class="about-box"><b>المؤسس:</b> سلمان الغويبي</div>
             </div>
-            <div class="solution-box" style="margin-top: 30px; text-align: right; display: flex; align-items: center; gap: 15px;">
-                <img src="7nr48j.jpg" style="width: 55px; height: 55px; border-radius: 12px; border: 2px solid var(--cyan); object-fit: cover;">
-                <p style="margin: 0; font-size: 0.9rem;"><b>سلمان علي:</b> "انطلقنا لنقدم أفضل تقنيات الأتمتة وبوتات الرد الآلي لخدمة قطاع الأعمال."</p>
+            <div class="solution-box" style="margin-top: 20px; text-align: right; display: flex; align-items: center; gap: 10px;">
+                <img src="7nr48j.jpg" style="width: 45px; height: 45px; border-radius: 8px; object-fit: cover;">
+                <p style="margin: 0; font-size: 0.8rem;"><b>كلمة المؤسس:</b> "رؤيتنا هي رقمنة قطاع الأعمال اليمني بأحدث التقنيات."</p>
             </div>
         </div>
     </section>
 
     <footer>
-        <img src="logo.png" alt="Footer Logo" class="footer-logo">
-        <div style="font-weight: 900; color: #fff; margin-bottom: 8px;">شركة نيفيو شات</div>
-        <p style="font-size: 0.85rem; opacity: 0.8;">جميع الحقوق محفوظة © 2026</p>
+        <img src="logo.png" class="footer-logo">
+        <p style="font-size: 0.75rem; opacity: 0.6;">جميع الحقوق محفوظة لشركة نيفيو شات © 2026</p>
     </footer>
 
     <script>
-        function enableDragScroll(sliderId) {
-            const slider = document.getElementById(sliderId);
-            let isDown = false, startX, scrollLeft;
-            slider.addEventListener('mousedown', (e) => { isDown = true; startX = e.pageX - slider.offsetLeft; scrollLeft = slider.scrollLeft; });
-            slider.addEventListener('mouseleave', () => isDown = false);
-            slider.addEventListener('mouseup', () => isDown = false);
-            slider.addEventListener('mousemove', (e) => { if (!isDown) return; e.preventDefault(); const walk = (e.pageX - slider.offsetLeft - startX) * 2; slider.scrollLeft = scrollLeft - walk; });
-            slider.addEventListener('touchstart', (e) => { isDown = true; startX = e.touches[0].pageX - slider.offsetLeft; scrollLeft = slider.scrollLeft; });
-            slider.addEventListener('touchend', () => isDown = false);
-            slider.addEventListener('touchmove', (e) => { if (!isDown) return; const walk = (e.touches[0].pageX - slider.offsetLeft - startX) * 2; slider.scrollLeft = scrollLeft - walk; });
-        }
-        enableDragScroll('heroSlider');
+        const slider = document.getElementById('heroSlider');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+        slider.addEventListener('mouseleave', () => isDown = false);
+        slider.addEventListener('mouseup', () => isDown = false);
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2;
+            slider.scrollLeft = scrollLeft - walk;
+        });
     </script>
 </body>
 </html>
