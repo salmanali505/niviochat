@@ -92,13 +92,21 @@
         .sub-fee b { font-size: 1.5rem; color: var(--cyan); }
         .btn-order { background: linear-gradient(90deg, var(--gold), var(--gold-bright)); color: #000; padding: 18px 40px; border-radius: 100px; text-decoration: none; font-weight: 900; display: block; font-size: 1.1rem; }
 
-        /* قسم آراء العملاء (التفاعلي) */
-        .testimonials-wrapper { position: relative; padding: 20px 0; }
-        .testimonials-container { 
+        /* سلايدر الصور والآراء (المميزة التفاعلية) */
+        .scroll-wrapper { position: relative; padding: 20px 0; width: 100%; }
+        .scroll-container { 
             display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; 
-            padding: 20px 10px 50px; scrollbar-width: none; cursor: grab;
+            padding: 20px 10px 40px; scrollbar-width: none; cursor: grab;
         }
-        .testimonials-container::-webkit-scrollbar { display: none; }
+        .scroll-container::-webkit-scrollbar { display: none; }
+        
+        .hero-img-card { 
+            min-width: 100%; flex: 0 0 100%; height: 350px; 
+            border-radius: 30px; border: 1px solid var(--border); overflow: hidden;
+            scroll-snap-align: center; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .hero-img-card img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.9); }
+
         .testimonial-card { 
             min-width: 320px; flex: 0 0 320px; background: var(--glass); padding: 35px; 
             border-radius: 30px; border: 1px solid var(--border); scroll-snap-align: center; 
@@ -129,6 +137,7 @@
             .nav-logo-img { height: 45px; }
             .nav-logo-text { font-size: 1.1rem; }
             .price-card.featured { transform: scale(1); }
+            .hero-img-card { height: 250px; }
         }
     </style>
 </head>
@@ -165,8 +174,19 @@
     </a>
 
     <section id="home" class="hero">
-        <div class="main-hero-banner">
-            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1000" alt="Nevio Chat Tech City">
+        <div class="scroll-wrapper">
+            <div class="scroll-container" id="heroSlider">
+                <div class="hero-img-card">
+                    <img src="top2.jpg" alt="Nevio Chat Banner 1">
+                </div>
+                <div class="hero-img-card">
+                    <img src="top3.jpg" alt="Nevio Chat Banner 2">
+                </div>
+                <div class="hero-img-card">
+                    <img src="top4.jpg" alt="Nevio Chat Banner 3">
+                </div>
+            </div>
+            <p style="text-align: center; color: var(--cyan); font-size: 0.8rem; margin-top: 10px; opacity: 0.8;">← اسحب الصور لليمين أو اليسار للمزيد →</p>
         </div>
         <h1>شركة نيفيو شات</h1>
         <p>النظام الذي يقود مؤسستك للقمة. أتمتة شاملة لخدمة العملاء والبيع المباشر عبر الواتساب في اليمن.</p>
@@ -319,8 +339,8 @@
 
     <section id="testimonials">
         <h2> آراء عملائنا<span> </span></h2>
-        <div class="testimonials-wrapper">
-            <div class="testimonials-container" id="slider">
+        <div class="scroll-wrapper">
+            <div class="scroll-container" id="slider">
                 
                 <div class="testimonial-card">
                     <div class="stars">★★★★★</div>
@@ -393,39 +413,46 @@
     </footer>
 
     <script>
-        const slider = document.getElementById('slider');
-        let isDown = false;
-        let startX;
-        let scrollLeft;
+        // وظيفة عامة لتفعيل السحب التفاعلي على أي عنصر
+        function enableDragScroll(sliderId) {
+            const slider = document.getElementById(sliderId);
+            let isDown = false;
+            let startX;
+            let scrollLeft;
 
-        slider.addEventListener('mousedown', (e) => {
-            isDown = true;
-            slider.style.cursor = 'grabbing';
-            startX = e.pageX - slider.offsetLeft;
-            scrollLeft = slider.scrollLeft;
-        });
-        slider.addEventListener('mouseleave', () => { isDown = false; slider.style.cursor = 'grab'; });
-        slider.addEventListener('mouseup', () => { isDown = false; slider.style.cursor = 'grab'; });
-        slider.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - slider.offsetLeft;
-            const walk = (x - startX) * 2; 
-            slider.scrollLeft = scrollLeft - walk;
-        });
+            slider.addEventListener('mousedown', (e) => {
+                isDown = true;
+                slider.style.cursor = 'grabbing';
+                startX = e.pageX - slider.offsetLeft;
+                scrollLeft = slider.scrollLeft;
+            });
+            slider.addEventListener('mouseleave', () => { isDown = false; slider.style.cursor = 'grab'; });
+            slider.addEventListener('mouseup', () => { isDown = false; slider.style.cursor = 'grab'; });
+            slider.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - slider.offsetLeft;
+                const walk = (x - startX) * 2; 
+                slider.scrollLeft = scrollLeft - walk;
+            });
 
-        slider.addEventListener('touchstart', (e) => {
-            isDown = true;
-            startX = e.touches[0].pageX - slider.offsetLeft;
-            scrollLeft = slider.scrollLeft;
-        });
-        slider.addEventListener('touchend', () => isDown = false);
-        slider.addEventListener('touchmove', (e) => {
-            if (!isDown) return;
-            const x = e.touches[0].pageX - slider.offsetLeft;
-            const walk = (x - startX) * 2;
-            slider.scrollLeft = scrollLeft - walk;
-        });
+            slider.addEventListener('touchstart', (e) => {
+                isDown = true;
+                startX = e.touches[0].pageX - slider.offsetLeft;
+                scrollLeft = slider.scrollLeft;
+            });
+            slider.addEventListener('touchend', () => isDown = false);
+            slider.addEventListener('touchmove', (e) => {
+                if (!isDown) return;
+                const x = e.touches[0].pageX - slider.offsetLeft;
+                const walk = (x - startX) * 2;
+                slider.scrollLeft = scrollLeft - walk;
+            });
+        }
+
+        // تفعيل السحب لقسم الآراء وقسم صور الواجهة الرئيسية
+        enableDragScroll('slider');
+        enableDragScroll('heroSlider');
     </script>
 </body>
 </html>
