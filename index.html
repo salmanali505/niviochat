@@ -23,81 +23,89 @@
         .nav-logo-img { height: 50px; width: auto; filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5)); }
         .nav-logo-text { color: var(--gold); font-weight: 900; font-size: 1.3rem; margin: 0; }
 
+        .dropdown { position: relative; display: inline-block; }
         .dropbtn { background: rgba(212, 175, 55, 0.1); color: var(--gold); padding: 8px 15px; font-size: 0.9rem; font-weight: 900; border: 1px solid var(--gold); border-radius: 10px; cursor: pointer; }
-        .dropdown-content { display: none; position: absolute; right: 0; top: 45px; background: rgba(15, 20, 35, 0.95); min-width: 220px; border-radius: 12px; border: 1px solid var(--border); overflow: hidden; }
+        .dropdown-content { display: none; position: absolute; right: 0; top: 45px; background: rgba(15, 20, 35, 0.95); min-width: 220px; border-radius: 12px; border: 1px solid var(--border); overflow: hidden; backdrop-filter: blur(25px); }
         .dropdown-content a { color: #ccc; padding: 10px 15px; text-decoration: none; display: block; font-size: 0.85rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .dropdown-content a:hover { background: rgba(0, 242, 255, 0.1); color: var(--cyan); }
         .dropdown:hover .dropdown-content { display: block; }
 
         /* تقليل الفراغات بين الأقسام */
-        section { padding: 30px 15px; max-width: 1100px; margin: auto; }
-        h2 { text-align: center; color: var(--gold); font-size: 2rem; margin-bottom: 25px; margin-top: 0; }
+        section { padding: 40px 15px; max-width: 1100px; margin: auto; }
+        h2 { text-align: center; color: var(--gold); font-size: 2.1rem; margin-bottom: 30px; margin-top: 0; }
         h2 span { color: var(--cyan); }
 
         /* الواجهة الرئيسية - تقليل الهوامش */
-        .hero { padding: 100px 15px 40px; text-align: center; }
-        .hero h1 { font-size: clamp(2rem, 8vw, 3.5rem); color: var(--gold); margin: 5px 0; font-weight: 900; }
-        .hero p { color: var(--cyan); font-size: 1.1rem; max-width: 700px; margin: 10px auto 20px; }
+        .hero { padding: 110px 15px 50px; text-align: center; }
+        .hero h1 { font-size: clamp(2.2rem, 8vw, 3.8rem); color: var(--gold); margin: 5px 0; font-weight: 900; }
+        .hero p { color: var(--cyan); font-size: 1.15rem; max-width: 750px; margin: 15px auto 25px; }
 
-        /* البنرات - تقليل الحجم لتقليل الفراغ البصري */
-        .section-banner { width: 100%; max-width: 850px; height: 220px; margin: 0 auto 20px; border-radius: 20px; overflow: hidden; border: 1px solid var(--border); }
-        .section-banner img { width: 100%; height: 100%; object-fit: cover; }
+        /* البنرات - تحسين الحجم لتقليل الفراغ */
+        .section-banner { width: 100%; max-width: 850px; height: 240px; margin: 0 auto 25px; border-radius: 25px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+        .section-banner img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85); }
 
-        /* السلايدر - تقليل المسافات */
+        /* السلايدر التفاعلي */
         .scroll-wrapper { position: relative; padding: 0; width: 100%; }
-        .scroll-container { display: flex; gap: 15px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 10px 5px 20px; scrollbar-width: none; cursor: grab; }
+        .scroll-container { display: flex; gap: 15px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 10px 5px 25px; scrollbar-width: none; cursor: grab; }
         .scroll-container::-webkit-scrollbar { display: none; }
         
-        .hero-img-card { min-width: 100%; flex: 0 0 100%; height: 320px; border-radius: 25px; border: 1px solid var(--border); overflow: hidden; scroll-snap-align: center; position: relative; }
+        .hero-img-card { min-width: 100%; flex: 0 0 100%; height: 330px; border-radius: 25px; border: 1px solid var(--border); overflow: hidden; scroll-snap-align: center; position: relative; box-shadow: 0 8px 20px rgba(0,0,0,0.4); }
         .hero-img-card img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* البطاقات - تقليل الحشو الداخلي */
-        .activity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .card { background: var(--glass); padding: 25px; border-radius: 25px; border: 1px solid var(--border); text-align: right; backdrop-filter: blur(10px); }
-        .card h3 { color: var(--cyan); font-size: 1.4rem; margin: 0 0 15px; border-right: 4px solid var(--gold); padding-right: 12px; }
+        /* البطاقات - تقليل الحشو والمسافات */
+        .activity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
+        .card { background: var(--glass); padding: 30px; border-radius: 30px; border: 1px solid var(--border); text-align: right; backdrop-filter: blur(15px); }
+        .card h3 { color: var(--cyan); font-size: 1.5rem; margin: 0 0 18px; border-right: 4px solid var(--gold); padding-right: 15px; }
 
-        .problem-box, .solution-box { padding: 12px; border-radius: 12px; margin: 10px 0; font-size: 0.9rem; }
+        .problem-box, .solution-box { padding: 12px; border-radius: 12px; margin: 12px 0; font-size: 0.95rem; }
         .problem-box { background: rgba(255, 77, 77, 0.08); border-right: 4px solid #ff4d4d; }
         .solution-box { background: rgba(0, 242, 255, 0.08); border-right: 4px solid var(--cyan); }
 
-        /* إطارات قبل وبعد - تصغير بسيط */
-        .comp-box { flex: 1; height: 90px; border-radius: 15px; background: rgba(5, 5, 5, 0.8); border: 1px solid rgba(34, 34, 34, 0.5); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; position: relative; text-align: center; padding: 8px; color: #aaa; }
-        .comp-box::after { content: 'قبل نيفيو'; position: absolute; top: -8px; right: 8px; background: #ff4d4d; padding: 1px 6px; border-radius: 4px; font-size: 0.7rem; color: #fff; }
-        .comp-after::after { content: 'بعد نيفيو' !important; background: var(--gold) !important; color: #000 !important; font-weight: bold; }
+        /* إطارات قبل وبعد - مضغوطة */
+        .comp-box { flex: 1; height: 100px; border-radius: 18px; background: rgba(5, 5, 5, 0.8); border: 1px solid rgba(34, 34, 34, 0.5); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; position: relative; text-align: center; padding: 10px; color: #aaa; }
+        .comp-box::after { content: 'قبل نيفيو'; position: absolute; top: -8px; right: 10px; background: #ff4d4d; padding: 2px 7px; border-radius: 5px; font-size: 0.75rem; color: #fff; }
+        .comp-after::after { content: 'بعد نيفيو' !important; background: var(--gold) !important; color: #000 !important; font-weight: 900; }
 
-        /* الأسعار - تقليل الفراغات */
-        .price-card { background: rgba(10, 15, 30, 0.8); padding: 30px 20px; border-radius: 30px; border: 1px solid rgba(26, 26, 26, 0.5); text-align: center; position: relative; }
-        .price-card.featured { border: 2px solid var(--cyan); }
-        .amount { font-size: 3rem; font-weight: 900; color: var(--gold); margin: 0; }
-        .sub-fee { margin: 15px 0; padding: 10px; background: rgba(0, 242, 255, 0.05); border-radius: 15px; border: 1px dashed var(--cyan); }
-        .sub-fee b { color: var(--cyan); font-size: 1.3rem; }
-        .btn-order { background: linear-gradient(90deg, var(--gold), var(--gold-bright)); color: #000; padding: 14px 30px; border-radius: 50px; text-decoration: none; font-weight: 900; display: inline-block; font-size: 1rem; margin-top: 10px; }
+        /* باقات الأسعار - تقارب أكثر */
+        .price-card { background: rgba(10, 15, 30, 0.8); padding: 35px 25px; border-radius: 35px; border: 1px solid rgba(26, 26, 26, 0.5); text-align: center; position: relative; backdrop-filter: blur(20px); }
+        .price-card.featured { border: 2px solid var(--cyan); transform: scale(1.02); }
+        .amount { font-size: 3.2rem; font-weight: 900; color: var(--gold); margin: 5px 0; display: block; }
+        .sub-fee { margin: 15px 0; padding: 12px; background: rgba(0, 242, 255, 0.05); border-radius: 18px; border: 1px dashed var(--cyan); }
+        .sub-fee b { font-size: 1.4rem; color: var(--cyan); }
+        .btn-order { background: linear-gradient(90deg, var(--gold), var(--gold-bright)); color: #000; padding: 15px 35px; border-radius: 100px; text-decoration: none; font-weight: 900; display: inline-block; font-size: 1.05rem; transition: 0.3s; }
+        .btn-order:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4); }
 
-        /* من نحن - تقارب أكثر */
-        .about-box { flex: 1; min-width: 150px; padding: 15px; border-radius: 15px; background: rgba(5, 5, 5, 0.8); border: 1px solid var(--border); font-size: 0.8rem; position: relative; text-align: center; }
-        .about-box::after { position: absolute; top: -8px; right: 8px; padding: 1px 6px; border-radius: 4px; font-size: 0.7rem; font-weight: bold; color: #000; }
+        /* من نحن - معلومات مكثفة */
+        .about-box { flex: 1; min-width: 180px; padding: 20px; border-radius: 18px; background: rgba(5, 5, 5, 0.8); border: 1px solid var(--border); font-size: 0.85rem; position: relative; text-align: center; }
+        .about-box::after { position: absolute; top: -10px; right: 10px; padding: 2px 8px; border-radius: 5px; font-size: 0.75rem; font-weight: bold; color: #000; }
         .about-box-site::after { content: 'الموقع'; background: var(--cyan); }
-        .about-box-date::after { content: 'التأسيس'; background: var(--gold); }
+        .about-box-date::after { content: 'تاريخ التأسيس'; background: var(--gold); }
         .about-box-owner::after { content: 'المؤسس'; background: var(--gold); }
 
-        .testimonial-card { min-width: 290px; flex: 0 0 290px; background: var(--glass); padding: 25px; border-radius: 25px; border: 1px solid var(--border); scroll-snap-align: center; text-align: center; }
+        .testimonial-card { min-width: 300px; flex: 0 0 300px; background: var(--glass); padding: 30px; border-radius: 30px; border: 1px solid var(--border); scroll-snap-align: center; text-align: center; }
 
-        .whatsapp-float { position: fixed; bottom: 20px; left: 20px; background-color: #25d366; color: #FFF; border-radius: 50%; width: 55px; height: 55px; display: flex; align-items: center; justify-content: center; z-index: 2500; box-shadow: 0 4px 15px rgba(0,0,0,0.4); text-decoration: none; }
-        
-        footer { padding: 30px 15px; text-align: center; border-top: 1px solid var(--border); background: rgba(10, 15, 30, 0.5); }
-        .footer-logo { height: 60px; margin-bottom: 10px; }
+        /* واتساب العائم */
+        .whatsapp-float { position: fixed; bottom: 25px; left: 25px; background-color: #25d366; color: #FFF; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; box-shadow: 2px 4px 15px rgba(0,0,0,0.4); z-index: 2500; text-decoration: none; }
+
+        footer { padding: 40px 20px; text-align: center; border-top: 1px solid var(--border); background: rgba(10, 15, 30, 0.5); }
+        .footer-logo { height: 70px; margin-bottom: 15px; }
 
         @media (max-width: 768px) { 
-            section { padding: 25px 10px; }
-            .hero-img-card { height: 220px; }
-            .section-banner { height: 180px; }
+            section { padding: 30px 10px; }
+            .hero-img-card { height: 240px; }
+            .section-banner { height: 200px; }
             nav { padding: 5px 15px; }
+            .nav-logo-text { font-size: 1.1rem; }
+            .price-card.featured { transform: scale(1); }
         }
     </style>
 </head>
 <body>
 
     <div class="video-bg">
-        <video autoplay loop muted playsinline><source src="https://cdn.pixabay.com/video/2021/08/17/85376-589710323_large.mp4" type="video/mp4"></video>
+        <video autoplay loop muted playsinline>
+            <source src="https://cdn.pixabay.com/video/2021/08/17/85376-589710323_large.mp4" type="video/mp4">
+        </video>
     </div>
 
     <nav>
@@ -114,14 +122,14 @@
                 <a href="#prices">باقات الأسعار</a>
             </div>
         </div>
-        <div class="logo-container">
-            <img src="logo.png" alt="Logo" class="nav-logo-img">
+        <div class="logo-container" style="display: flex; align-items: center; gap: 12px;">
+            <img src="logo.png" alt="Nevio Logo" class="nav-logo-img">
             <span class="nav-logo-text">نيفيو شات</span>
         </div>
     </nav>
 
     <a href="https://wa.me/967773354434" class="whatsapp-float" target="_blank">
-        <svg width="30" height="30" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217s.231.001.332.005c.109.004.258-.041.404.314l.542 1.317c.058.145.096.314.01.482l-.246.416c-.087.145-.177.303-.077.476.1.173.444.733.953 1.185.656.581 1.208.761 1.381.848.173.087.274.072.376-.043s.433-.506.548-.68.116-.173.231-.145.39-.087l1.344.667c.158.08.261.12.3.188.04.067.04 1.139-.104 1.544z"/></svg>
+        <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217s.231.001.332.005c.109.004.258-.041.404.314l.542 1.317c.058.145.096.314.01.482l-.246.416c-.087.145-.177.303-.077.476.1.173.444.733.953 1.185.656.581 1.208.761 1.381.848.173.087.274.072.376-.043s.433-.506.548-.68.116-.173.231-.145.39-.087l1.344.667c.158.08.261.12.3.188.04.067.04 1.139-.104 1.544z"/></svg>
     </a>
 
     <section id="home" class="hero">
@@ -133,7 +141,7 @@
             </div>
         </div>
         <h1>شركة نيفيو شات</h1>
-        <p>أتمتة شاملة لخدمة العملاء والبيع المباشر عبر الواتساب في اليمن.</p>
+        <p>النظام الذي يقود مؤسستك للقمة. أتمتة شاملة لخدمة العملاء والبيع المباشر عبر الواتساب في اليمن.</p>
         <a href="#prices" class="btn-order">ابدأ الآن</a>
     </section>
 
@@ -147,7 +155,7 @@
                 <div class="solution-box"><b>الحل:</b> نظام حجز آلي متكامل 24/7.</div>
                 <div style="display: flex; gap: 10px; margin-top: 15px;">
                     <div class="comp-box">فوضى في الانتظار</div>
-                    <div class="comp-box comp-after">جدول دقيق</div>
+                    <div class="comp-box comp-after">جدول مواعيد دقيق</div>
                 </div>
             </div>
         </div>
@@ -157,68 +165,71 @@
         <h2>ملف أعمالنا <span></span></h2>
         <div class="activity-grid">
             <div class="card" style="text-align: center; border-color: var(--cyan);">
+                <div style="font-size: 2.5rem; margin-bottom: 5px;">🏥</div>
                 <h3>مستشفى الأمل الحديث</h3>
-                <p style="color: #aaa; font-size: 0.85rem; margin-bottom: 15px;">اختبار كفاءة الرد الآلي الذكي على الاستفسارات المتكررة.</p>
-                <a href="https://wa.me/967773450926" class="btn-order" style="padding: 10px 20px; font-size: 0.85rem;">تجربة البوت</a>
+                <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 15px;">اختبار كفاءة الرد الآلي الذكي على الاستفسارات المتكررة.</p>
+                <a href="https://wa.me/967773450926" class="btn-order" style="padding: 10px 20px; font-size: 0.9rem;">اضغط للتجربة</a>
             </div>
             <div class="card" style="text-align: center; border-color: var(--gold);">
+                <div style="font-size: 2.5rem; margin-bottom: 5px;">🎓</div>
                 <h3>معهد آفاق المستقبل</h3>
-                <p style="color: #aaa; font-size: 0.85rem; margin-bottom: 15px;">استعلام عن الدورات والأسعار بشكل احترافي.</p>
-                <a href="https://wa.me/+967773426694" class="btn-order" style="padding: 10px 20px; font-size: 0.85rem;">تجربة البوت</a>
+                <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 15px;">استعلم عن الدورات والأسعار بشكل احترافي تماماً.</p>
+                <a href="https://wa.me/+967773426694" class="btn-order" style="padding: 10px 20px; font-size: 0.9rem;">اضغط للتجربة</a>
             </div>
         </div>
     </section>
 
     <section id="prices">
-        <h2> باقات الاشتراك<span> </span></h2>
+        <h2> باقات تركيب النظام<span> </span></h2>
         <div class="activity-grid">
             <div class="price-card">
-                <h3>الأساسية</h3>
+                <h3>الباقة الأساسية</h3>
                 <span class="amount">100$</span>
-                <div class="sub-fee">الشهري <b>40$</b></div>
-                <a href="https://wa.me/967782483336" class="btn-order">اطلب الآن</a>
+                <div class="sub-fee">الاشتراك الشهري <b>40$ فقط</b></div>
+                <a href="https://wa.me/967782483336" class="btn-order">اطلب الباقة</a>
             </div>
             <div class="price-card featured">
-                <h3>الاحترافية</h3>
+                <h3>الباقة الاحترافية</h3>
                 <span class="amount">250$</span>
-                <div class="sub-fee">الشهري <b>85$</b></div>
-                <a href="https://wa.me/967782483336" class="btn-order">اطلب الآن</a>
+                <div class="sub-fee">الاشتراك الشهري <b>85$ فقط</b></div>
+                <a href="https://wa.me/967782483336" class="btn-order">اطلب الباقة</a>
             </div>
         </div>
     </section>
 
     <section id="about">
         <h2> من نحن <span> </span></h2>
-        <div class="card" style="text-align: center;">
-            <p style="font-size: 1rem; color: #ccc; margin-bottom: 20px;">تأسست نيفيو شات في <b>عدن</b> لتكون الرائدة في أنظمة الأتمتة وروبوتات الواتساب.</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-                <div class="about-box about-box-site">عدن - المنصورة</div>
+        <div class="card" style="text-align: center; border: 1px solid var(--gold);">
+            <p style="font-size: 1.1rem; color: #ccc; margin-bottom: 25px;">تأسست نيفيو شات في قلب <b>عدن</b> لتكون الرائدة في أنظمة الأتمتة وروبوتات الواتساب الذكية.</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
+                <div class="about-box about-box-site">عدن - المنصورة<br>صنعاء - خدمة عن بعد</div>
                 <div class="about-box about-box-date">1 يناير 2026</div>
                 <div class="about-box about-box-owner">سلمان علي الغويبي</div>
             </div>
-            <div class="solution-box" style="margin-top: 25px; text-align: right; display: flex; align-items: center; gap: 12px;">
-                <img src="7nr48j.jpg" style="width: 50px; height: 50px; border-radius: 10px; object-fit: cover; border: 1px solid var(--cyan);">
-                <p style="margin: 0; font-size: 0.85rem;"><b>سلمان علي:</b> "انطلقنا من عدن لنقدم أفضل تقنيات الأتمتة المحلية."</p>
+            <div class="solution-box" style="margin-top: 30px; text-align: right; display: flex; align-items: center; gap: 15px;">
+                <img src="7nr48j.jpg" style="width: 55px; height: 55px; border-radius: 12px; border: 2px solid var(--cyan); object-fit: cover;">
+                <p style="margin: 0; font-size: 0.9rem;"><b>سلمان علي:</b> "انطلقنا لنقدم أفضل تقنيات الأتمتة وبوتات الرد الآلي لخدمة قطاع الأعمال."</p>
             </div>
         </div>
     </section>
 
     <footer>
-        <img src="logo.png" class="footer-logo">
-        <p style="font-size: 0.8rem; opacity: 0.7;">جميع الحقوق محفوظة لشركة نيفيو شات © 2026</p>
+        <img src="logo.png" alt="Footer Logo" class="footer-logo">
+        <div style="font-weight: 900; color: #fff; margin-bottom: 8px;">شركة نيفيو شات</div>
+        <p style="font-size: 0.85rem; opacity: 0.8;">جميع الحقوق محفوظة © 2026</p>
     </footer>
 
     <script>
-        function enableDragScroll(id) {
-            const el = document.getElementById(id);
+        function enableDragScroll(sliderId) {
+            const slider = document.getElementById(sliderId);
             let isDown = false, startX, scrollLeft;
-            el.addEventListener('mousedown', (e) => { isDown = true; startX = e.pageX - el.offsetLeft; scrollLeft = el.scrollLeft; });
-            el.addEventListener('mouseleave', () => isDown = false);
-            el.addEventListener('mouseup', () => isDown = false);
-            el.addEventListener('mousemove', (e) => { if (!isDown) return; e.preventDefault(); const walk = (e.pageX - el.offsetLeft - startX) * 2; el.scrollLeft = scrollLeft - walk; });
-            el.addEventListener('touchstart', (e) => { isDown = true; startX = e.touches[0].pageX - el.offsetLeft; scrollLeft = el.scrollLeft; });
-            el.addEventListener('touchend', () => isDown = false);
-            el.addEventListener('touchmove', (e) => { if (!isDown) return; const walk = (e.touches[0].pageX - el.offsetLeft - startX) * 2; el.scrollLeft = scrollLeft - walk; });
+            slider.addEventListener('mousedown', (e) => { isDown = true; startX = e.pageX - slider.offsetLeft; scrollLeft = slider.scrollLeft; });
+            slider.addEventListener('mouseleave', () => isDown = false);
+            slider.addEventListener('mouseup', () => isDown = false);
+            slider.addEventListener('mousemove', (e) => { if (!isDown) return; e.preventDefault(); const walk = (e.pageX - slider.offsetLeft - startX) * 2; slider.scrollLeft = scrollLeft - walk; });
+            slider.addEventListener('touchstart', (e) => { isDown = true; startX = e.touches[0].pageX - slider.offsetLeft; scrollLeft = slider.scrollLeft; });
+            slider.addEventListener('touchend', () => isDown = false);
+            slider.addEventListener('touchmove', (e) => { if (!isDown) return; const walk = (e.touches[0].pageX - slider.offsetLeft - startX) * 2; slider.scrollLeft = scrollLeft - walk; });
         }
         enableDragScroll('heroSlider');
     </script>
