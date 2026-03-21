@@ -147,6 +147,13 @@
             display: flex; align-items: center; justify-content: center; box-shadow: 2px 2px 20px rgba(0,0,0,0.5); text-decoration: none; 
         }
 
+        /* تنسيق أيقونة البوت الذكي لضمان عدم التداخل */
+        #aichatbot-launcher-container {
+            bottom: 180px !important; /* رفعه ليكون فوق الواتساب والفيسبوك */
+            left: 30px !important;
+            right: auto !important;
+        }
+
         @keyframes floatLogo { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
         
         footer { padding: 40px 20px; text-align: center; border-top: 1px solid var(--border); backdrop-filter: blur(15px); background: rgba(10, 15, 30, 0.5); }
@@ -457,6 +464,12 @@
     </footer>
 
     <script>
+        window.aichatbotApiKey="73ead6e2-68b1-4c5a-97bc-4b3fb689b7a3"; 
+        window.aichatbotProviderId="f9e9c5e4-6d1a-4b8c-8d3f-3f9e9c5e46d1";
+    </script>
+    <script src="https://script.chatlab.com/aichatbot.js" id="73ead6e2-68b1-4c5a-97bc-4b3fb689b7a3" defer></script>
+
+    <script>
         function enableDragScroll(sliderId) {
             const slider = document.getElementById(sliderId);
             let isDown = false;
@@ -497,4 +510,4 @@
         enableDragScroll('heroSlider');
     </script>
 </body>
-                             </html>
+</html>
