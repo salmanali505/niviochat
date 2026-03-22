@@ -1,0 +1,51 @@
+:root { 
+    --gold: #D4AF37; --gold-bright: #FFD700; --cyan: #00F2FF; 
+    --bg-dark: #02050a; --glass: rgba(15, 20, 35, 0.7); --border: rgba(212, 175, 55, 0.3);
+}
+
+* { box-sizing: border-box; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+body { background-color: var(--bg-dark); color: #fff; font-family: 'Cairo', sans-serif; margin: 0; overflow-x: hidden; scroll-behavior: smooth; }
+
+/* الخلفية المتحركة */
+.video-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; overflow: hidden; background-color: var(--bg-dark); }
+.video-bg video { min-width: 100%; min-height: 100%; width: auto; height: auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); object-fit: cover; filter: brightness(0.35) contrast(1.2); }
+
+/* شريط التنقل المعدل */
+nav { background: rgba(15, 20, 35, 0.9); padding: 5px 40px; position: fixed; width: 100%; top: 0; z-index: 2000; backdrop-filter: blur(25px); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+.logo-container { display: flex; align-items: center; gap: 15px; animation: floatLogo 3s infinite ease-in-out; text-decoration: none; }
+.nav-logo-text { color: var(--gold); font-weight: 900; font-size: 1.5rem; text-shadow: 0 0 10px rgba(212, 175, 55, 0.5); margin: 0; }
+.nav-logo-img { height: 60px; width: auto; }
+
+/* القائمة المنسدلة */
+.dropdown { position: relative; display: inline-block; }
+.dropbtn { background: rgba(212, 175, 55, 0.1); color: var(--gold); padding: 10px 20px; font-size: 1rem; font-weight: 900; border: 1px solid var(--gold); border-radius: 12px; cursor: pointer; display: flex; align-items: center; gap: 10px; }
+.dropdown-content { display: none; position: absolute; right: 0; top: 50px; background: rgba(15, 20, 35, 0.95); min-width: 220px; border-radius: 15px; border: 1px solid var(--border); box-shadow: 0 15px 35px rgba(0,0,0,0.8); overflow: hidden; backdrop-filter: blur(25px); }
+.dropdown-content a { color: #ccc; padding: 12px 20px; text-decoration: none; display: block; font-size: 1rem; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: right; }
+.dropdown-content a:hover { background: rgba(0, 242, 255, 0.1); color: var(--cyan); }
+.dropdown:hover .dropdown-content { display: block; }
+
+/* باقي التنسيقات (البنرات، الكروت، السلايدر) */
+.section-banner { width: 100%; max-width: 900px; height: 300px; margin: 0 auto 30px; border-radius: 30px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+.section-banner img { width: 100%; height: 100%; object-fit: cover; }
+section { padding: 120px 20px 60px; max-width: 1200px; margin: auto; }
+h2 { text-align: center; color: var(--gold); font-size: 2.3rem; margin-bottom: 40px; }
+h2 span { color: var(--cyan); }
+.activity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+.card { background: var(--glass); padding: 40px; border-radius: 35px; border: 1px solid var(--border); text-align: right; backdrop-filter: blur(15px); }
+.problem-box { background: rgba(255, 77, 77, 0.08); padding: 15px; border-radius: 15px; margin: 15px 0; border-right: 4px solid #ff4d4d; }
+.solution-box { background: rgba(0, 242, 255, 0.08); padding: 15px; border-radius: 15px; margin: 15px 0; border-right: 4px solid var(--cyan); }
+.comp-box { flex: 1; height: 110px; border-radius: 20px; background: rgba(5, 5, 5, 0.8); border: 1px solid rgba(34, 34, 34, 0.5); display: flex; align-items: center; justify-content: center; position: relative; text-align: center; padding: 10px; color: #aaa; }
+.comp-after::after { content: 'بعد نيفيو'; background: var(--gold); color: #000; position: absolute; top: -10px; right: 10px; padding: 2px 8px; border-radius: 5px; font-size: 0.75rem; }
+
+/* السلايدر والباقات */
+.scroll-wrapper { position: relative; padding: 20px 0; width: 100%; }
+.scroll-container { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 20px 10px 40px; scrollbar-width: none; cursor: grab; }
+.price-card { min-width: 320px; flex: 0 0 320px; background: rgba(10, 15, 30, 0.8); padding: 50px 30px; border-radius: 40px; border: 1px solid rgba(26, 26, 26, 0.5); text-align: center; position: relative; scroll-snap-align: center; }
+.amount { font-size: 3.5rem; font-weight: 900; color: var(--gold); }
+.btn-order { background: linear-gradient(90deg, var(--gold), var(--gold-bright)); color: #000; padding: 18px 40px; border-radius: 100px; text-decoration: none; font-weight: 900; display: block; }
+
+/* الأيقونات العائمة */
+.floating-icons { position: fixed; bottom: 30px; left: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 2500; }
+.whatsapp-float { background-color: #25d366; color: #FFF; border-radius: 50px; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; text-decoration: none; }
+
+footer { padding: 40px 20px; text-align: center; border-top: 1px solid var(--border); background: rgba(10, 15, 30, 0.5); }
