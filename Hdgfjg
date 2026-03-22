@@ -1,4 +1,4 @@
-:root { 
+3:root { 
     --gold: #D4AF37; --gold-bright: #FFD700; --cyan: #00F2FF; 
     --bg-dark: #02050a; --glass: rgba(15, 20, 35, 0.7); --border: rgba(212, 175, 55, 0.3);
 }
