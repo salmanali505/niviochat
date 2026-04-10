@@ -16,10 +16,8 @@
 
         * { box-sizing: border-box; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
         
-        /* التعديل الجديد للخلفية */
         body { 
             background-color: var(--bg-dark);
-            /* صورة خلفية تقنية احترافية */
             background-image: linear-gradient(rgba(2, 5, 10, 0.85), rgba(2, 5, 10, 0.85)), 
                               url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop');
             background-attachment: fixed;
@@ -32,7 +30,6 @@
             scroll-behavior: smooth; 
         }
 
-        /* تنسيق البنرات البانورامية المشترك */
         .section-banner, .main-hero-banner {
             width: 100%; max-width: 900px; height: 300px; margin: 0 auto 30px;
             border-radius: 30px; overflow: hidden; border: 1px solid var(--border);
@@ -43,7 +40,6 @@
             width: 100%; height: 100%; object-fit: cover; filter: brightness(0.8) contrast(1.1); 
         }
 
-        /* شريط التنقل */
         nav { background: rgba(15, 20, 35, 0.9); padding: 5px 40px; position: fixed; width: 100%; top: 0; z-index: 2000; backdrop-filter: blur(25px); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
         
         .logo-container {
@@ -68,15 +64,12 @@
         .dropdown-content a:hover { background: rgba(0, 242, 255, 0.1); color: var(--cyan); }
         .dropdown:hover .dropdown-content { display: block; }
 
-        /* الواجهة الرئيسية */
         .hero { padding: 140px 20px 60px; text-align: center; }
         .hero h1 { font-size: clamp(2.5rem, 10vw, 4.5rem); color: var(--gold); margin: 10px 0; font-weight: 900; }
         .hero p { color: var(--cyan); font-size: 1.3rem; max-width: 800px; margin: 20px auto; }
 
-        /* تعديل المسافات بين الأقسام */
-        section { padding: 40px 20px; max-width: 1200px; margin: auto; }
+        section { padding: 40px 20px; max-width: 1200px; margin: auto; position: relative; }
         
-        /* الخط الفاصل الاحترافي */
         .section-divider {
             max-width: 800px;
             height: 1px;
@@ -88,6 +81,19 @@
         h2 { text-align: center; color: var(--gold); font-size: 2.3rem; margin-bottom: 40px; }
         h2 span { color: var(--cyan); }
 
+        /* ستايل كلمة قريباً للأقسام */
+        .coming-soon-badge {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            padding: 5px 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            margin-right: 10px;
+            vertical-align: middle;
+            font-weight: bold;
+        }
+
         .activity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
         .card { background: var(--glass); padding: 40px; border-radius: 35px; border: 1px solid var(--border); text-align: right; backdrop-filter: blur(15px); }
         .card h3 { color: var(--cyan); font-size: 1.6rem; margin-bottom: 20px; border-right: 4px solid var(--gold); padding-right: 15px; }
@@ -95,12 +101,10 @@
         .problem-box { background: rgba(255, 77, 77, 0.08); padding: 15px; border-radius: 15px; margin: 15px 0; border-right: 4px solid #ff4d4d; font-size: 0.95rem; }
         .solution-box { background: rgba(0, 242, 255, 0.08); padding: 15px; border-radius: 15px; margin: 15px 0; border-right: 4px solid var(--cyan); font-size: 0.95rem; }
 
-        /* إطارات قبل وبعد */
         .comp-box { flex: 1; height: 110px; border-radius: 20px; background: rgba(5, 5, 5, 0.8); border: 1px solid rgba(34, 34, 34, 0.5); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; position: relative; text-align: center; padding: 10px; color: #aaa; backdrop-filter: blur(5px); }
         .comp-box::after { content: 'قبل نيفيو'; position: absolute; top: -10px; right: 10px; background: #ff4d4d; padding: 2px 8px; border-radius: 5px; font-size: 0.75rem; color: #fff; }
         .comp-after::after { content: 'بعد نيفيو' !important; background: var(--gold) !important; color: #000 !important; font-weight: 900; }
 
-        /* باقات الأسعار */
         .price-card { 
             min-width: 320px; flex: 0 0 320px;
             background: rgba(10, 15, 30, 0.8); padding: 50px 30px; border-radius: 40px; 
@@ -109,12 +113,14 @@
         }
         .price-card.featured { border: 2px solid var(--cyan); z-index: 5; }
         .featured-tag { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--cyan); color: #000; padding: 5px 20px; border-radius: 20px; font-weight: 900; font-size: 0.8rem; }
+        
+        .coming-tag { position: absolute; top: 15px; right: 15px; background: #ff4d4d; color: #fff; padding: 4px 12px; border-radius: 10px; font-weight: 900; font-size: 0.75rem; transform: rotate(5deg); box-shadow: 0 5px 15px rgba(255,77,77,0.3); }
+
         .amount { font-size: 3.5rem; font-weight: 900; color: var(--gold); margin: 5px 0; display: block; }
         .sub-fee { margin: 20px 0; padding: 15px; background: rgba(0, 242, 255, 0.05); border-radius: 20px; border: 1px dashed var(--cyan); }
         .sub-fee b { font-size: 1.5rem; color: var(--cyan); }
         .btn-order { background: linear-gradient(90deg, var(--gold), var(--gold-bright)); color: #000; padding: 18px 40px; border-radius: 100px; text-decoration: none; font-weight: 900; display: block; font-size: 1.1rem; }
 
-        /* سلايدر الصور والآراء وملف الأعمال والباقات */
         .scroll-wrapper { position: relative; padding: 20px 0; width: 100%; }
         .scroll-container { 
             display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; 
@@ -144,13 +150,11 @@
         .client-role { color: var(--cyan); font-size: 0.9rem; margin-bottom: 15px; display: block; }
         .feedback { font-size: 1rem; color: #eee; line-height: 1.7; font-style: italic; }
 
-        /* إطارات قسم من نحن */
         .about-box { flex: 1; min-width: 250px; height: auto; padding: 25px; border-radius: 20px; background: rgba(5, 5, 5, 0.8); border: 1px solid rgba(34, 34, 34, 0.5); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; position: relative; text-align: center; color: #aaa; backdrop-filter: blur(5px); }
         .about-box-site::after { content: 'الموقع'; position: absolute; top: -10px; right: 10px; background: var(--cyan); padding: 2px 8px; border-radius: 5px; font-size: 0.75rem; color: #000; font-weight: bold; }
         .about-box-date::after { content: 'تاريخ التأسيس'; position: absolute; top: -10px; right: 10px; background: var(--gold); padding: 2px 8px; border-radius: 5px; font-size: 0.75rem; color: #000; font-weight: bold; }
         .about-box-owner::after { content: 'المؤسس'; position: absolute; top: -10px; right: 10px; background: var(--gold); padding: 2px 8px; border-radius: 5px; font-size: 0.75rem; color: #000; font-weight: bold; }
 
-        /* الأيقونات العائمة */
         .floating-icons { position: fixed; bottom: 30px; left: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 2500; }
         
         .whatsapp-float { 
@@ -269,7 +273,7 @@
 
     <section id="stores">
         <div class="section-banner"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=1000" alt="Stores"></div>
-        <h2> المطاعم <span></span></h2>
+        <h2> المطاعم <span class="coming-soon-badge">قريباً</span></h2>
         <div class="activity-grid">
             <div class="card">
                 <h3>البيع والطلبات</h3>
@@ -287,7 +291,7 @@
 
     <section id="banks">
         <div class="section-banner"><img src="https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?auto=format&fit=crop&q=80&w=1000" alt="Banks"></div>
-        <h2>البنوك والصرافة<span></span></h2>
+        <h2>البنوك والصرافة <span class="coming-soon-badge">قريباً</span></h2>
         <div class="activity-grid">
             <div class="card">
                 <h3>خدمات العملاء المالية</h3>
@@ -305,7 +309,7 @@
 
     <section id="travel">
         <div class="section-banner"><img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&q=80&w=1000" alt="Travel"></div>
-        <h2>وكالات السفر <span> </span></h2>
+        <h2>وكالات السفر <span class="coming-soon-badge">قريباً</span></h2>
         <div class="activity-grid">
             <div class="card">
                 <h3>حجز الرحلات</h3>
@@ -366,6 +370,7 @@
                 </div>
                 <div class="price-card featured">
                     <div class="featured-tag">الأكثر طلباً</div>
+                    <div class="coming-tag">قريباً</div>
                     <h3>الباقة الاحترافية</h3>
                     <span class="amount">250$</span>
                     <p style="color: #888;">إعداد مبدئي: 250$ (مرة واحدة)</p>
