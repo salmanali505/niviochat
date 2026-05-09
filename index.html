@@ -3,204 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بوابة نيفيو شات الذكية | Nevio Chat Quantum UI</title>
+    <title>لوحة تحكم نظام نيفيوشات | Nevio Chat Dashboard</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     
     <style>
         :root { 
             --gold: #D4AF37; 
-            --gold-light: #FFD700;
+            --gold-glow: rgba(212, 175, 55, 0.5);
             --cyan: #00F2FF; 
             --bg-dark: #02050a;
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(212, 175, 55, 0.2);
+            --glass: rgba(15, 20, 35, 0.8);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; cursor: default; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         
         body, html { 
             height: 100%; 
             background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(0, 242, 255, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
             color: #fff; 
             font-family: 'Cairo', sans-serif; 
             overflow: hidden;
-        }
-
-        /* خلفية جزيئات متحركة (Simulation) */
-        .bg-animate {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at center, #0a101f 0%, #02050a 100%);
-            z-index: -1;
-        }
-
-        .bg-animate::after {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: 
-                linear-gradient(var(--glass-border) 1px, transparent 1px),
-                linear-gradient(90deg, var(--glass-border) 1px, transparent 1px);
-            background-size: 50px 50px;
-            opacity: 0.1;
-            mask-image: radial-gradient(circle, black, transparent 80%);
-        }
-
-        /* الحاوية الرئيسية */
-        .quantum-container {
-            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            perspective: 1000px;
         }
 
-        /* الكارت الزجاجي الاحترافي */
-        .glass-card {
+        /* الإطار الاحترافي المضيء */
+        .main-frame {
             position: relative;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
+            background: var(--glass);
+            border: 1px solid rgba(212, 175, 55, 0.3);
             padding: 60px 40px;
             border-radius: 40px;
             text-align: center;
-            backdrop-filter: blur(25px);
+            backdrop-filter: blur(20px);
             max-width: 550px;
             width: 90%;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.6), inset 0 0 20px rgba(212, 175, 55, 0.05);
-            animation: cardEntrance 1.2s ease-out forwards;
-            transform-style: preserve-3d;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(212, 175, 55, 0.1);
+            animation: fadeIn 1.5s ease-in-out;
         }
 
-        @keyframes cardEntrance {
-            from { opacity: 0; transform: translateY(50px) rotateX(-10deg); }
-            to { opacity: 1; transform: translateY(0) rotateX(0deg); }
-        }
-
-        /* الشعار والتأثيرات الضوئية */
-        .logo-glow {
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: var(--gold);
-            text-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-        }
-
-        .system-status {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(0, 242, 255, 0.05);
-            padding: 6px 16px;
-            border-radius: 100px;
-            border: 1px solid rgba(0, 242, 255, 0.2);
-            color: var(--cyan);
-            font-size: 0.75rem;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-        }
-
-        .status-pulse {
-            width: 6px; height: 6px; background: var(--cyan); border-radius: 50%;
-            box-shadow: 0 0 10px var(--cyan); animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-
-        h2 { font-size: 1.5rem; margin-bottom: 20px; font-weight: 700; color: #f0f0f0; }
-        p { color: #8892b0; line-height: 1.8; margin-bottom: 40px; font-size: 1rem; }
-
-        /* زر الانتقال المتقدم */
-        .neon-btn {
-            position: relative;
-            padding: 20px 50px;
-            background: transparent;
-            border: 2px solid var(--gold);
-            color: var(--gold);
-            font-family: 'Cairo', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 900;
-            text-decoration: none;
-            border-radius: 15px;
-            overflow: hidden;
-            display: inline-block;
-            transition: 0.4s;
-            cursor: pointer;
-            z-index: 1;
-        }
-
-        .neon-btn::before {
+        /* لمسة احترافية: زوايا مضيئة */
+        .main-frame::before, .main-frame::after {
             content: "";
             position: absolute;
-            top: 0; left: -100%; width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
-            transition: 0.5s;
-            z-index: -1;
+            width: 50px;
+            height: 50px;
+            border: 2px solid var(--gold);
+            border-radius: 15px;
+        }
+        .main-frame::before { top: -10px; right: -10px; border-bottom: none; border-left: none; }
+        .main-frame::after { bottom: -10px; left: -10px; border-top: none; border-right: none; }
+
+        .brand-title {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--gold);
+            text-shadow: 0 0 20px var(--gold-glow);
+            margin-bottom: 5px;
         }
 
-        .neon-btn:hover::before { left: 100%; }
-        .neon-btn:hover {
-            background: var(--gold);
+        .sub-title {
+            font-size: 1.2rem;
+            color: var(--cyan);
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            font-weight: 700;
+            border-bottom: 1px solid rgba(0, 242, 255, 0.2);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .welcome-msg {
+            color: #ccc;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        /* الزر الاحترافي */
+        .nevio-btn {
+            position: relative;
+            padding: 18px 50px;
+            background: linear-gradient(135deg, var(--gold), #b38f2d);
             color: #000;
-            box-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
-            transform: scale(1.05);
+            font-size: 1.2rem;
+            font-weight: 900;
+            text-decoration: none;
+            border-radius: 100px;
+            display: inline-block;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: none;
+            cursor: pointer;
         }
 
-        /* الفوتر التقني */
-        .footer-info {
+        .nevio-btn:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.6);
+            background: linear-gradient(135deg, #FFD700, var(--gold));
+        }
+
+        .nevio-btn::after {
+            content: " 💬";
+            font-size: 1.2rem;
+        }
+
+        /* الفوتر الاحترافي */
+        .footer-text {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .rights {
+            color: var(--gold);
+            font-weight: bold;
+            display: block;
+            margin-top: 5px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* تأثير النبض للخلفية */
+        .pulse-orb {
             position: absolute;
-            bottom: 40px;
-            width: 100%;
-            text-align: center;
-            font-size: 0.7rem;
-            color: #444;
-            letter-spacing: 1px;
+            width: 200px; height: 200px;
+            background: var(--gold);
+            filter: blur(100px);
+            opacity: 0.1;
+            z-index: -1;
+            animation: moveOrb 10s infinite alternate;
         }
 
-        .brand-footer { color: var(--gold); font-weight: bold; }
-
-        /* تأثير المسح الضوئي */
-        .scanline {
-            width: 100%; height: 100px; z-index: 10;
-            background: linear-gradient(0deg, rgba(0, 242, 255, 0.05) 0%, transparent 100%);
-            position: absolute; bottom: 100%; animation: scan 4s linear infinite;
+        @keyframes moveOrb {
+            from { transform: translate(-50%, -50%); }
+            to { transform: translate(50%, 50%); }
         }
-
-        @keyframes scan { from { bottom: 100%; } to { bottom: -100px; } }
-
     </style>
 </head>
 <body>
 
-    <div class="bg-animate"></div>
+    <div class="pulse-orb"></div>
 
-    <div class="quantum-container">
-        <div class="glass-card">
-            <div class="scanline"></div>
-            
-            <div class="logo-glow">NEVIO</div>
-            
-            <div class="system-status">
-                <div class="status-pulse"></div>
-                <span>Nevio Cloud Core: Connected</span>
-            </div>
+    <div class="main-frame">
+        <h1 class="brand-title">شركة نيفيوشات</h1>
+        <div class="sub-title">لوحة تحكم النظام</div>
+        
+        <p class="welcome-msg">
+            أهلاً بكم.. <br> 
+            الرجاء للدخول إلى لوحة التحكم الخاصة بكم الضغط على الزر أدناه
+        </p>
 
-            <h2>لوحة إدارة الأتمتة السحابية</h2>
-            <p>أهلاً بك يا <b>سلمان</b>. النظام جاهز لبدء عمليات الأتمتة وإدارة المحادثات المباشرة لعملاء نيفيوشات.</p>
+        <a href="https://botsailor.com/all/livechat" target="_blank" class="nevio-btn">
+            دخول النظام الآمن
+        </a>
 
-            <a href="https://botsailor.com/all/livechat" target="_blank" class="neon-btn">
-                دخول النظام المباشر 🛡️
-            </a>
-
-            <div style="margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px;">
-                <span style="color: #444; font-size: 0.7rem;">IP: Encrypted | Protocol: Secure | Access: Admin</span>
-            </div>
+        <div class="footer-text">
+            جميع الحقوق محفوظة لدى <span class="rights">شركة نيفيوشات © 2026</span>
+            <div style="font-size: 0.7rem; opacity: 0.5; margin-top: 10px;">بواسطة المطور سلمان علي الغويبي</div>
         </div>
-    </div>
-
-    <div class="footer-info">
-        DEVELOPED BY <span class="brand-footer">SALMAN ALGHUWAIBI</span> | POWERED BY NEVIO TECH 2026
     </div>
 
 </body>
