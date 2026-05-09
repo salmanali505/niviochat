@@ -3,18 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="لوحة تحكم نيفيو شات لإدارة أتمتة الواتساب - تطوير سلمان علي الغويبي">
-    <meta name="author" content="Salman Alghuwaibi">
     <title>لوحة تحكم نيفيو شات | Nevio Chat Dashboard</title>
     
-    <!-- الروابط الخارجية -->
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     
     <style>
         :root { 
-            --gold: #D4AF37; --gold-bright: #FFD700; --cyan: #00F2FF; 
-            --bg-dark: #02050a; --glass: rgba(15, 20, 35, 0.85); --border: rgba(212, 175, 55, 0.3);
+            --gold: #D4AF37; --cyan: #00F2FF; 
+            --bg-dark: #02050a; --glass: rgba(15, 20, 35, 0.9); --border: rgba(212, 175, 55, 0.3);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -23,174 +19,87 @@
             background-color: var(--bg-dark);
             background-image: linear-gradient(rgba(2, 5, 10, 0.9), rgba(2, 5, 10, 0.9)), 
                               url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop');
-            background-attachment: fixed;
             background-size: cover;
             color: #fff; 
             font-family: 'Cairo', sans-serif; 
             height: 100vh;
-            overflow: hidden;
-        }
-
-        /* الهيدر العلوي */
-        header { 
-            background: var(--glass); 
-            padding: 10px 30px; 
-            height: 70px;
-            position: fixed; 
-            width: 100%; 
-            top: 0; 
-            z-index: 2000; 
-            backdrop-filter: blur(25px); 
-            border-bottom: 1px solid var(--border); 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-        }
-        
-        .logo-container { display: flex; align-items: center; gap: 15px; }
-        .nav-logo-text { color: var(--gold); font-weight: 900; font-size: 1.3rem; text-shadow: 0 0 10px rgba(212, 175, 55, 0.5); }
-        .nav-logo-img { height: 50px; width: auto; filter: drop-shadow(0 0 8px var(--gold)); }
-
-        .dashboard-status {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(0, 242, 255, 0.1);
-            padding: 5px 15px;
-            border-radius: 20px;
-            border: 1px solid var(--cyan);
-            color: var(--cyan);
-            font-size: 0.85rem;
-        }
-        .status-dot { width: 8px; height: 8px; background: var(--cyan); border-radius: 50%; box-shadow: 0 0 10px var(--cyan); animation: pulse 1.5s infinite; }
-
-        /* منطقة المحتوى */
-        .app-layout {
-            display: flex;
-            height: calc(100vh - 70px);
-            margin-top: 70px;
-        }
-
-        /* القائمة الجانبية */
-        .sidebar {
-            width: 260px;
-            background: rgba(15, 20, 35, 0.95);
-            border-left: 1px solid var(--border);
-            padding: 20px 10px;
             display: flex;
             flex-direction: column;
-            gap: 8px;
-            backdrop-filter: blur(20px);
-            transition: width 0.3s ease;
         }
 
-        .menu-item {
-            padding: 14px 20px;
-            border-radius: 12px;
-            text-decoration: none;
-            color: #ccc;
-            font-size: 0.95rem;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            border: 1px solid transparent;
+        header { 
+            background: var(--glass); padding: 15px 30px; height: 75px;
+            backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); 
+            display: flex; justify-content: space-between; align-items: center; 
         }
 
-        .menu-item:hover, .menu-item.active {
-            background: rgba(212, 175, 55, 0.1);
-            border-color: var(--gold);
-            color: var(--gold);
-        }
+        .logo-text { color: var(--gold); font-weight: 900; font-size: 1.4rem; }
 
-        .iframe-view {
+        .main-content {
             flex: 1;
-            background: #f9f9f9;
-            position: relative;
-        }
-
-        iframe { width: 100%; height: 100%; border: none; }
-
-        /* واجهة التحميل */
-        .loader-overlay {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: var(--bg-dark);
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 100;
-            transition: opacity 0.5s;
+            padding: 20px;
         }
 
-        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
-
-        @media (max-width: 768px) {
-            .sidebar { width: 75px; }
-            .menu-item span { display: none; }
-            .nav-logo-text { display: none; }
+        .control-card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            padding: 50px;
+            border-radius: 30px;
+            text-align: center;
+            max-width: 600px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
+
+        .control-card h1 { color: var(--gold); margin-bottom: 20px; font-size: 2rem; }
+        .control-card p { color: #ccc; margin-bottom: 35px; line-height: 1.8; }
+
+        .btn-link {
+            background: linear-gradient(90deg, var(--gold), #FFD700);
+            color: #000;
+            padding: 18px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 900;
+            display: inline-block;
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+            transition: 0.3s;
+        }
+
+        .btn-link:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(212, 175, 55, 0.5); }
+
+        footer { padding: 20px; text-align: center; font-size: 0.8rem; color: #666; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo-container">
-            <img src="logo.png" alt="Nevio Chat Logo" class="nav-logo-img">
-            <span class="nav-logo-text">لوحة تحكم نيفيو</span>
-        </div>
-        
-        <div class="dashboard-status">
-            <div class="status-dot"></div>
-            <span>Bot Engine: Online</span>
-        </div>
+        <div class="logo-text">NEVIO CHAT | نيفيو شات</div>
+        <div style="color: var(--cyan); font-size: 0.8rem;">لوحة التحكم السحابية</div>
     </header>
 
-    <div class="app-layout">
-        <aside class="sidebar">
-            <a href="https://botsailor.com/all/livechat" target="controlFrame" class="menu-item active">
-                <span>💬</span> <span>الدردشة المباشرة</span>
+    <div class="main-content">
+        <div class="control-card">
+            <h1>مرحباً بك في نظام نيفيو</h1>
+            <p>لإدارة المحادثات المباشرة وأتمتة الردود عبر BotSailor، يرجى الضغط على الزر أدناه للدخول إلى لوحة التحكم الآمنة.</p>
+            
+            <a href="https://botsailor.com/all/livechat" target="_blank" class="btn-link">
+                فتح نظام الدردشة المباشرة 💬
             </a>
-            <a href="https://botsailor.com/all/subscriber" target="controlFrame" class="menu-item">
-                <span>👥</span> <span>المشتركين</span>
-            </a>
-            <a href="https://botsailor.com/all/bot_settings" target="controlFrame" class="menu-item">
-                <span>⚙️</span> <span>الإعدادات</span>
-            </a>
-            <div style="margin-top: auto; padding: 15px; text-align: center;">
-                <p style="color: var(--gold); font-size: 0.75rem; font-weight: bold;">Nevio Tech © 2026</p>
-                <p style="color: #666; font-size: 0.65rem;">Developer: Salman Alghuwaibi</p>
+            
+            <div style="margin-top: 30px; display: flex; gap: 10px; justify-content: center;">
+                <span style="color: var(--cyan); font-size: 0.7rem;">● نظام مشفر</span>
+                <span style="color: var(--cyan); font-size: 0.7rem;">● ربط مباشر</span>
             </div>
-        </aside>
-
-        <main class="iframe-view">
-            <div class="loader-overlay" id="loader">
-                <div style="text-align: center;">
-                    <div style="font-size: 2rem; color: var(--gold); margin-bottom: 15px;">NEVIO CHAT</div>
-                    <p style="color: var(--cyan); letter-spacing: 2px;">CONNECTING TO SYSTEM...</p>
-                </div>
-            </div>
-            <iframe name="controlFrame" src="https://botsailor.com/all/livechat" onload="hideLoader()"></iframe>
-        </main>
+        </div>
     </div>
 
-    <script>
-        function hideLoader() {
-            const loader = document.getElementById('loader');
-            loader.style.opacity = '0';
-            setTimeout(() => { loader.style.display = 'none'; }, 500);
-        }
+    <footer>
+        تم التطوير بواسطة سلمان علي الغويبي | جميع الحقوق محفوظة لشركة نيفيو شات 2026
+    </footer>
 
-        const menuItems = document.querySelectorAll('.menu-item');
-        menuItems.forEach(item => {
-            item.addEventListener('click', function() {
-                menuItems.forEach(i => i.classList.remove('active'));
-                this.classList.add('active');
-                const loader = document.getElementById('loader');
-                loader.style.display = 'flex';
-                loader.style.opacity = '1';
-            });
-        });
-    </script>
 </body>
 </html>
