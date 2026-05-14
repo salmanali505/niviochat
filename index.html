@@ -37,7 +37,6 @@
             display: flex; justify-content: center; align-items: center;
         }
         
-        /* التعديل الجديد: العرض 700px والطول 1024px وصورة واحدة ثابتة */
         .hero-single-container {
             width: 100%;
             display: flex;
@@ -147,7 +146,7 @@
         .testimonial-card { 
             min-width: 320px; flex: 0 0 320px; background: var(--glass); padding: 35px; 
             border-radius: 30px; border: 1px solid var(--border); scroll-snap-align: center; 
-            text-align: center; transition: 0.5s ease;
+            text-align: center; transition: 0.5s ease; margin: 0 auto;
         }
         .testimonial-card:hover { border-color: var(--cyan); transform: translateY(-10px); }
         .stars { color: var(--gold-bright); font-size: 1.2rem; margin-bottom: 15px; }
@@ -225,7 +224,6 @@
     </div>
 
     <section id="home" class="hero">
-        <!-- التعديل: صورة واحدة فقط بدون سحب -->
         <div class="hero-single-container">
             <div class="hero-img-card-fixed">
                 <img src="top2.jpg" alt="Nevio Chat Banner">
@@ -391,19 +389,13 @@
     <section id="testimonials">
         <h2> آراء عملائنا<span> </span></h2>
         <div class="scroll-wrapper">
-            <div class="scroll-container" id="slider">
+            <div class="scroll-container" id="slider" style="justify-content: center;">
                 <div class="testimonial-card">
                     <div class="stars">★★★★★</div>
-                    <span class="client-name">مستشفى الأمل الحديث</span>
-                    <p class="feedback">"بفضل نظام نيفيو شات، تمكنا من تنظيم حجز المواعيد آلياً وزادت كفاءة العمل بنسبة 80%."</p>
-                </div>
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <span class="client-name">معهد آفاق المستقبل</span>
-                    <p class="feedback">"أصبح استعلام الطلاب عن الدورات يتم فوراً عبر الواتساب. نيفيو شات وفر علينا فريقاً كاملاً."</p>
+                    <span class="client-name">سماء للعبايات</span>
+                    <p class="feedback">"بفضل نيفيو شات، أصبحت عملية تصفح الموديلات والطلب تتم بشكل آلي تماماً، مما ساعدنا على زيادة المبيعات وتوفير الوقت للرد على الزبائن."</p>
                 </div>
             </div>
-            <p style="text-align: center; color: var(--cyan); font-size: 0.85rem; margin-top: 10px; opacity: 0.8;">← اسحب البطاقات لليمين أو اليسار للمزيد →</p>
         </div>
     </section>
 
@@ -476,7 +468,6 @@
             });
         }
 
-        // تم تعطيل تفعيل السحب للقسم العلوي (heroSlider)
         enableDragScroll('slider');
         enableDragScroll('portfolioSlider');
         enableDragScroll('pricingSlider');
