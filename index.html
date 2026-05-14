@@ -37,7 +37,7 @@
             display: flex; justify-content: center; align-items: center;
         }
         
-        /* التعديل الجديد: العرض 700px والطول 1024px وصورة واحدة ثابتة */
+        /* التنسيق المطلوب: العرض 700 والارتفاع 1024 */
         .hero-single-container {
             width: 100%;
             display: flex;
@@ -171,12 +171,6 @@
             display: flex; align-items: center; justify-content: center; box-shadow: 2px 2px 20px rgba(0,0,0,0.5); text-decoration: none; 
         }
 
-        #aichatbot-launcher-container {
-            bottom: 180px !important; 
-            left: 30px !important;
-            right: auto !important;
-        }
-
         @keyframes floatLogo { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
         
         footer { padding: 40px 20px; text-align: center; border-top: 1px solid var(--border); backdrop-filter: blur(15px); background: rgba(10, 15, 30, 0.5); }
@@ -225,10 +219,10 @@
     </div>
 
     <section id="home" class="hero">
-        <!-- التعديل: صورة واحدة فقط بدون سحب -->
+        <!-- إضافة صورة 7nr48j.jpg كصورة رئيسية بالمقاس المطلوب -->
         <div class="hero-single-container">
             <div class="hero-img-card-fixed">
-                <img src="top2.jpg" alt="Nevio Chat Banner">
+                <img src="7nr48j.jpg" alt="Nevio Chat Banner Main">
             </div>
         </div>
         
@@ -476,10 +470,9 @@
             });
         }
 
-        // تم تعطيل تفعيل السحب للقسم العلوي (heroSlider)
         enableDragScroll('slider');
         enableDragScroll('portfolioSlider');
         enableDragScroll('pricingSlider');
     </script>
 </body>
-</html>
+    </html>
