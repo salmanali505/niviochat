@@ -30,7 +30,6 @@
             scroll-behavior: smooth; 
         }
 
-        /* تعديل قسم البانر العلوي ليتناسب مع الأبعاد المطلوبة */
         .section-banner {
             width: 100%; max-width: 900px; height: 300px; margin: 0 auto 30px;
             border-radius: 30px; overflow: hidden; border: 1px solid var(--border);
@@ -38,14 +37,21 @@
             display: flex; justify-content: center; align-items: center;
         }
         
-        .hero-img-card { 
-            min-width: 520px; flex: 0 0 520px; height: 1024px; 
-            border-radius: 40px; border: 2px solid var(--border); overflow: hidden;
-            scroll-snap-align: center; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-            margin: 0 auto;
+        /* التعديل الجديد: العرض 700px والطول 1024px وصورة واحدة ثابتة */
+        .hero-single-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
         }
 
-        .section-banner img, .hero-img-card img { 
+        .hero-img-card-fixed { 
+            width: 700px; height: 1024px; 
+            border-radius: 40px; border: 2px solid var(--border); overflow: hidden;
+            position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+        }
+
+        .section-banner img, .hero-img-card-fixed img { 
             width: 100%; height: 100%; object-fit: cover; filter: brightness(0.9) contrast(1.1); 
         }
 
@@ -180,7 +186,7 @@
             nav { padding: 10px 20px; } 
             .nav-logo-img { height: 45px; }
             .nav-logo-text { font-size: 1.1rem; }
-            .hero-img-card { min-width: 280px; flex: 0 0 280px; height: 550px; }
+            .hero-img-card-fixed { width: 90%; height: auto; aspect-ratio: 700 / 1024; }
             section { padding: 30px 15px; }
             .portfolio-card { min-width: 300px; flex: 0 0 300px; }
             .price-card { min-width: 290px; flex: 0 0 290px; }
@@ -219,14 +225,13 @@
     </div>
 
     <section id="home" class="hero">
-        <div class="scroll-wrapper">
-            <div class="scroll-container" id="heroSlider">
-                <div class="hero-img-card"><img src="top2.jpg" alt="Banner 1"></div>
-                <div class="hero-img-card"><img src="top3.jpg" alt="Banner 2"></div>
-                <div class="hero-img-card"><img src="top4.jpg" alt="Banner 3"></div>
+        <!-- التعديل: صورة واحدة فقط بدون سحب -->
+        <div class="hero-single-container">
+            <div class="hero-img-card-fixed">
+                <img src="top2.jpg" alt="Nevio Chat Banner">
             </div>
-            <p style="text-align: center; color: var(--cyan); font-size: 0.9rem; margin-top: 20px; opacity: 0.8;">← اسحب الصور لليمين أو اليسار للمزيد من العروض →</p>
         </div>
+        
         <h1>شركة نيفيو شات</h1>
         <p>النظام الذي يقود مؤسستك للقمة. أتمتة شاملة لخدمة العملاء والبيع المباشر عبر الواتساب في اليمن.</p>
         <a href="#prices" class="btn-order" style="width: auto; padding: 18px 60px; margin: 0 auto; text-align: center;">ابدأ الآن</a>
@@ -471,8 +476,8 @@
             });
         }
 
+        // تم تعطيل تفعيل السحب للقسم العلوي (heroSlider)
         enableDragScroll('slider');
-        enableDragScroll('heroSlider');
         enableDragScroll('portfolioSlider');
         enableDragScroll('pricingSlider');
     </script>
