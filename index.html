@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شركة نيفيو شات | Nevio Chat - رائد الأتمتة روبوتات الرد الآلي الذكية على واتساب بازرار وقوائم تفاعلية</title>
+    <title>شركة نيفيو شات | Nevio Chat - رائد الأتمتة روبوتات الرد الآلي الذكية</title>
     
     <link rel="icon" type="image/png" href="favicon.png">
-    
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
         :root { 
@@ -112,13 +111,11 @@
         }
         .price-card.featured { border: 2px solid var(--cyan); z-index: 5; }
         .featured-tag { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--cyan); color: #000; padding: 5px 20px; border-radius: 20px; font-weight: 900; font-size: 0.8rem; }
-        
-        .coming-tag { position: absolute; top: 15px; right: 15px; background: #ff4d4d; color: #fff; padding: 4px 12px; border-radius: 10px; font-weight: 900; font-size: 0.75rem; transform: rotate(5deg); box-shadow: 0 5px 15px rgba(255,77,77,0.3); }
 
         .amount { font-size: 3.5rem; font-weight: 900; color: var(--gold); margin: 5px 0; display: block; }
         .sub-fee { margin: 20px 0; padding: 15px; background: rgba(0, 242, 255, 0.05); border-radius: 20px; border: 1px dashed var(--cyan); }
         .sub-fee b { font-size: 1.5rem; color: var(--cyan); }
-        .btn-order { background: linear-gradient(90deg, var(--gold), var(--gold-bright)); color: #000; padding: 18px 40px; border-radius: 100px; text-decoration: none; font-weight: 900; display: block; font-size: 1.1rem; }
+        .btn-order { background: linear-gradient(90deg, var(--gold), var(--gold-bright)); color: #000; padding: 18px 40px; border-radius: 100px; text-decoration: none; font-weight: 900; display: block; font-size: 1.1rem; text-align: center; }
 
         .scroll-wrapper { position: relative; padding: 20px 0; width: 100%; }
         .scroll-container { 
@@ -134,56 +131,36 @@
         }
         .hero-img-card img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.9); }
 
-        .portfolio-card {
-            min-width: 350px; flex: 0 0 350px; scroll-snap-align: center;
-        }
+        .portfolio-card { min-width: 350px; flex: 0 0 350px; scroll-snap-align: center; }
 
         .testimonial-card { 
             min-width: 320px; flex: 0 0 320px; background: var(--glass); padding: 35px; 
             border-radius: 30px; border: 1px solid var(--border); scroll-snap-align: center; 
-            text-align: center; transition: 0.5s ease;
+            text-align: center;
         }
-        .testimonial-card:hover { border-color: var(--cyan); transform: translateY(-10px); }
         .stars { color: var(--gold-bright); font-size: 1.2rem; margin-bottom: 15px; }
         .client-name { color: var(--gold); font-weight: 900; display: block; font-size: 1.25rem; margin-bottom: 5px; }
-        .client-role { color: var(--cyan); font-size: 0.9rem; margin-bottom: 15px; display: block; }
         .feedback { font-size: 1rem; color: #eee; line-height: 1.7; font-style: italic; }
 
-        .about-box { flex: 1; min-width: 250px; height: auto; padding: 25px; border-radius: 20px; background: rgba(5, 5, 5, 0.8); border: 1px solid rgba(34, 34, 34, 0.5); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; position: relative; text-align: center; color: #aaa; backdrop-filter: blur(5px); }
-        .about-box-site::after { content: 'الموقع'; position: absolute; top: -10px; right: 10px; background: var(--cyan); padding: 2px 8px; border-radius: 5px; font-size: 0.75rem; color: #000; font-weight: bold; }
-        .about-box-date::after { content: 'تاريخ التأسيس'; position: absolute; top: -10px; right: 10px; background: var(--gold); padding: 2px 8px; border-radius: 5px; font-size: 0.75rem; color: #000; font-weight: bold; }
-        .about-box-owner::after { content: 'المؤسس'; position: absolute; top: -10px; right: 10px; background: var(--gold); padding: 2px 8px; border-radius: 5px; font-size: 0.75rem; color: #000; font-weight: bold; }
+        .about-box { flex: 1; min-width: 250px; padding: 25px; border-radius: 20px; background: rgba(5, 5, 5, 0.8); border: 1px solid rgba(34, 34, 34, 0.5); position: relative; text-align: center; color: #aaa; backdrop-filter: blur(5px); }
+        .about-box::after { position: absolute; top: -10px; right: 10px; padding: 2px 8px; border-radius: 5px; font-size: 0.75rem; color: #000; font-weight: bold; }
+        .about-box-site::after { content: 'الموقع'; background: var(--cyan); }
+        .about-box-date::after { content: 'تاريخ التأسيس'; background: var(--gold); }
+        .about-box-owner::after { content: 'المؤسس'; background: var(--gold); }
 
         .floating-icons { position: fixed; bottom: 30px; left: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 2500; }
-        
-        .whatsapp-float { 
-            background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; width: 60px; height: 60px; 
-            display: flex; align-items: center; justify-content: center; box-shadow: 2px 2px 20px rgba(0,0,0,0.5); text-decoration: none; 
-        }
-        .facebook-float { 
-            background-color: #1877F2; color: #FFF; border-radius: 50px; text-align: center; width: 60px; height: 60px; 
-            display: flex; align-items: center; justify-content: center; box-shadow: 2px 2px 20px rgba(0,0,0,0.5); text-decoration: none; 
-        }
-
-        #aichatbot-launcher-container {
-            bottom: 180px !important; 
-            left: 30px !important;
-            right: auto !important;
-        }
+        .whatsapp-float { background-color: #25d366; color: #FFF; border-radius: 50px; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; box-shadow: 2px 2px 20px rgba(0,0,0,0.5); text-decoration: none; }
+        .facebook-float { background-color: #1877F2; color: #FFF; border-radius: 50px; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; box-shadow: 2px 2px 20px rgba(0,0,0,0.5); text-decoration: none; }
 
         @keyframes floatLogo { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
         
-        footer { padding: 40px 20px; text-align: center; border-top: 1px solid var(--border); backdrop-filter: blur(15px); background: rgba(10, 15, 30, 0.5); }
+        footer { padding: 40px 20px; text-align: center; border-top: 1px solid var(--border); background: rgba(10, 15, 30, 0.5); }
         .footer-logo { height: 80px; width: auto; margin-bottom: 20px; filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.3)); }
-        
+
         @media (max-width: 768px) { 
-            nav { padding: 10px 20px; } 
-            .nav-logo-img { height: 45px; }
-            .nav-logo-text { font-size: 1.1rem; }
-            .hero-img-card { height: 250px; }
-            section { padding: 30px 15px; }
-            .portfolio-card { min-width: 300px; flex: 0 0 300px; }
-            .price-card { min-width: 290px; flex: 0 0 290px; }
+            nav { padding: 10px 20px; } .nav-logo-img { height: 45px; } .nav-logo-text { font-size: 1.1rem; }
+            .hero-img-card { height: 250px; } section { padding: 30px 15px; }
+            .portfolio-card, .price-card { min-width: 290px; flex: 0 0 290px; }
         }
     </style>
 </head>
@@ -197,10 +174,8 @@
                 <a href="#portfolio">ملف أعمالنا</a>
                 <a href="#hospitals">المستشفيات والعيادات</a>
                 <a href="#institutes">المعاهد والمدارس</a>
-                <a href="#stores">المطاعم والمتاجر</a>
-                <a href="#banks">البنوك والصرافة</a>
-                <a href="#travel">وكالات السفر والسياحة</a>
                 <a href="#prices">باقات الأسعار</a>
+                <a href="#partnership-contract" style="color: var(--gold); font-weight: bold;">📜 عقد الشراكة الإلكتروني</a>
             </div>
         </div>
         <div class="logo-container">
@@ -210,10 +185,10 @@
     </nav>
 
     <div class="floating-icons">
-        <a href="https://wa.me/967773354434?text=مرحباً نيفيو شات" class="whatsapp-float" target="_blank" title="تواصل عبر واتساب">
+        <a href="https://wa.me/967773354434?text=مرحباً نيفيو شات" class="whatsapp-float" target="_blank">
             <svg width="30" height="30" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217s.231.001.332.005c.109.004.258-.041.404.314l.542 1.317c.058.145.096.314.01.482l-.246.416c-.087.145-.177.303-.077.476.1.173.444.733.953 1.185.656.581 1.208.761 1.381.848.173.087.274.072.376-.043s.433-.506.548-.68.116-.173.231-.145.39-.087l1.344.667c.158.08.261.12.3.188.04.067.04 1.139-.104 1.544z"/></svg>
         </a>
-        <a href="https://www.facebook.com/neviomedia?mibextid=ZbWKwL" class="facebook-float" target="_blank" title="تابعنا على فيسبوك">
+        <a href="https://www.facebook.com/neviomedia" class="facebook-float" target="_blank">
             <svg width="30" height="30" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
         </a>
     </div>
@@ -225,210 +200,114 @@
                 <div class="hero-img-card"><img src="top3.jpg" alt="Banner 2"></div>
                 <div class="hero-img-card"><img src="top4.jpg" alt="Banner 3"></div>
             </div>
-            <p style="text-align: center; color: var(--cyan); font-size: 0.8rem; margin-top: 10px; opacity: 0.8;">← اسحب الصور لليمين أو اليسار للمزيد →</p>
         </div>
         <h1>شركة نيفيو شات</h1>
         <p>النظام الذي يقود مؤسستك للقمة. أتمتة شاملة لخدمة العملاء والبيع المباشر عبر الواتساب في اليمن.</p>
-        <a href="#prices" class="btn-order" style="width: auto; padding: 18px 60px; margin: 0 auto; text-align: center;">ابدأ الآن</a>
+        <a href="#prices" class="btn-order" style="display: inline-block; padding: 18px 60px;">ابدأ الآن</a>
     </section>
 
-    <div class="section-divider"></div>
-
     <section id="hospitals">
-        <div class="section-banner"><img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=1000" alt="Hospitals"></div>
+        <div class="section-banner"><img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=1000"></div>
         <h2>المستشفيات <span></span></h2>
         <div class="activity-grid">
             <div class="card">
                 <h3>أتمتة المواعيد الطبية</h3>
                 <div class="problem-box"><b>المشكلة:</b> ضغط اتصالات هائل وتداخل مواعيد.</div>
                 <div class="solution-box"><b>الحل:</b> نظام حجز آلي متكامل 24/7.</div>
-                <div style="display: flex; gap: 15px; margin-top: 25px;">
-                    <div class="comp-box">فوضى في الانتظار</div>
-                    <div class="comp-box comp-after">جدول مواعيد دقيق</div>
-                </div>
             </div>
         </div>
     </section>
 
-    <div class="section-divider"></div>
-
     <section id="institutes">
-        <div class="section-banner"><img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=1000" alt="Education"></div>
+        <div class="section-banner"><img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=1000"></div>
         <h2>المعاهد والمدارس <span></span></h2>
         <div class="activity-grid">
             <div class="card">
                 <h3>إدارة التسجيل والطلاب</h3>
                 <div class="problem-box"><b>المشكلة:</b> ضغط تسجيل يدوي مجهد.</div>
                 <div class="solution-box"><b>الحل:</b> تسجيل آلي وتحويل البيانات لجداول منظمة.</div>
-                <div style="display: flex; gap: 15px; margin-top: 25px;">
-                    <div class="comp-box">بيانات مفقودة</div>
-                    <div class="comp-box comp-after">قاعدة بيانات ذكية</div>
-                </div>
             </div>
         </div>
     </section>
-
-    <div class="section-divider"></div>
-
-    <section id="stores">
-        <div class="section-banner"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=1000" alt="Stores"></div>
-        <h2> المطاعم <span class="coming-soon-badge">قريباً</span></h2>
-        <div class="activity-grid">
-            <div class="card">
-                <h3>البيع والطلبات</h3>
-                <div class="problem-box"><b>المشكلة:</b> ضياع الطلبات بسبب تأخر الرد.</div>
-                <div class="solution-box"><b>الحل:</b> منيو تفاعلي واستقبال آلي للطلبات.</div>
-                <div style="display: flex; gap: 15px; margin-top: 25px;">
-                    <div class="comp-box">زبون يغادر</div>
-                    <div class="comp-box comp-after">بيع مكتمل بلحظات</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-divider"></div>
-
-    <section id="banks">
-        <div class="section-banner"><img src="https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?auto=format&fit=crop&q=80&w=1000" alt="Banks"></div>
-        <h2>البنوك والصرافة <span class="coming-soon-badge">قريباً</span></h2>
-        <div class="activity-grid">
-            <div class="card">
-                <h3>خدمات العملاء المالية</h3>
-                <div class="problem-box"><b>المشكلة:</b> ازدحام الفروع لاستفسارات بسيطة.</div>
-                <div class="solution-box"><b>الحل:</b> استعلام آلي عن الحوالات وأسعار الصرف.</div>
-                <div style="display: flex; gap: 15px; margin-top: 25px;">
-                    <div class="comp-box">انتظار طويل</div>
-                    <div class="comp-box comp-after">خدمة ذاتية فورية</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-divider"></div>
-
-    <section id="travel">
-        <div class="section-banner"><img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&q=80&w=1000" alt="Travel"></div>
-        <h2>وكالات السفر <span class="coming-soon-badge">قريباً</span></h2>
-        <div class="activity-grid">
-            <div class="card">
-                <h3>حجز الرحلات</h3>
-                <div class="problem-box"><b>المشكلة:</b> تغير مواعيد الرحلات المستمر.</div>
-                <div class="solution-box"><b>الحل:</b> جداول حية وتنبيهات لحظية للمسافرين.</div>
-                <div style="display: flex; gap: 20px; margin-top: 25px;">
-                    <div class="comp-box">فوات مواعيد</div>
-                    <div class="comp-box comp-after">مسافر مطلع دائماً</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-divider"></div>
 
     <section id="portfolio">
-        <div class="section-banner"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000" alt="Our Works"></div>
         <h2>ملف أعمالنا <span></span></h2>
         <div class="scroll-wrapper">
             <div class="scroll-container" id="portfolioSlider">
-                <div class="card portfolio-card" style="text-align: center; border: 1px solid var(--cyan);">
-                    <div style="font-size: 3rem; margin-bottom: 10px;">🏥</div>
+                <div class="card portfolio-card">
                     <h3>مستشفى الأمل الحديث</h3>
-                    <div class="solution-box" style="text-align: center; border-right: none; border-bottom: 3px solid var(--cyan);">نموذج أتمتة المواعيد الطبية</div>
-                    <p style="color: #aaa; margin: 20px 0;"> اختبار كفاءةالرد الآلي الذكي على الاستفسارات المتكررة و معرفة متى دوام الأطباء وأسعار الفحوصات.</p>
-                    <a href="https://wa.me/967773450926" class="btn-order" style="padding: 12px 20px; font-size: 0.9rem; background: rgba(0, 242, 255, 0.1); border: 1px solid var(--cyan); color: var(--cyan);">اضغط للتجربة الآن</a>
+                    <p>نموذج أتمتة المواعيد الطبية والرد الذكي.</p>
+                    <a href="https://wa.me/967773450926" class="btn-order" style="padding: 12px 20px;">تجربة الآن</a>
                 </div>
-                <div class="card portfolio-card" style="text-align: center; border: 1px solid var(--gold);">
-                    <div style="font-size: 3rem; margin-bottom: 10px;">🎓</div>
+                <div class="card portfolio-card">
                     <h3>معهد آفاق المستقبل</h3>
-                    <div class="solution-box" style="text-align: center; border-right: none; border-bottom: 3px solid var(--gold);">نموذج إدارة شؤون الطلاب</div>
-                    <p style="color: #aaa; margin: 20px 0;">استعلم عن الدورات والاستعلام عن الاسعار و اوقات بدأ الدورات بشكل احترافي تماماً.</p>
-                    <a href="https://wa.me/+967773426694" class="btn-order" style="padding: 12px 20px; font-size: 0.9rem; background: rgba(212, 175, 55, 0.1); border: 1px solid var(--gold); color: var(--gold);">اضغط للتجربة الآن</a>
-                  </div>
+                    <p>إدارة شؤون الطلاب والاستعلام عن الدورات.</p>
+                    <a href="https://wa.me/+967773426694" class="btn-order" style="padding: 12px 20px;">تجربة الآن</a>
+                </div>
             </div>
-            <p style="text-align: center; color: var(--cyan); font-size: 0.85rem; margin-top: 10px; opacity: 0.8;">← اسحب البطاقات لليمين أو اليسار للمزيد →</p>
         </div>
     </section>
 
-    <div class="section-divider"></div>
-
     <section id="prices">
-        <div class="section-banner"><img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&q=80&w=1000" alt="Pricing"></div>
-        <h2> باقات تركيب النظام<span> </span></h2>
+        <h2> باقات تركيب النظام <span></span></h2>
         <div class="scroll-wrapper">
             <div class="scroll-container" id="pricingSlider">
                 <div class="price-card">
                     <h3>باقة نيفيو - أساس</h3>
                     <span class="amount">50$</span>
-                    <p style="color: #888;">إعداد وتأسيس: 50$ (مرة واحدة)</p>
-                    <div class="sub-fee"><span>الاشتراك الشهري</span><b>20$ فقط</b></div>
-                    <ul style="text-align: right; list-style: none; padding: 0; line-height: 2.5; color: #aaa;">
-                        <li>✓ الرد الآلي الذكي على الاستفسارات والأسعار</li>
-                        <li>✓ عرض الخدمات والموقع الإلكتروني</li>
-                        <li>✓ واجهة تحكم متكاملة لإدارة المحادثات</li>
-                        <li>✓ تحويل مباشر لخدمة العملاء (البشري)</li>
-                        <li>✓ تجربة مجانية لمدة 3 أيام</li>
-                    </ul>
-                    <a href="https://wa.me/967782483336" class="btn-order">اطلب الباقة الآن</a>
+                    <div class="sub-fee">الاشتراك الشهري <b>20$</b></div>
+                    <a href="https://wa.me/967782483336" class="btn-order">اطلب الآن</a>
                 </div>
                 <div class="price-card featured">
                     <div class="featured-tag">الأكثر طلباً</div>
                     <h3>باقة نيفيو - بلس</h3>
                     <span class="amount">100$</span>
-                    <p style="color: #888;">إعداد وتأسيس: 100$ (مرة واحدة)</p>
-                    <div class="sub-fee"><span>الاشتراك الشهري</span><b>45$ فقط</b></div>
-                    <ul style="text-align: right; list-style: none; padding: 0; line-height: 2.5; color: #aaa;">
-                        <li>✓ نظام حجز المواعيد الآلي بالكامل 24/7</li>
-                        <li>✓ ربط مباشر مع جداول جوجل (Google Sheets)</li>
-                        <li>✓ نقل بيانات الزبائن لملفات إكسل تلقائياً</li>
-                        <li>✓ إشعارات فورية عند كل طلب أو حجز جديد</li>
-                        <li>✓ كل ميزات الباقة الأساسية</li>
-                    </ul>
-                    <a href="https://wa.me/967782483336" class="btn-order">اطلب الباقة الآن</a>
+                    <div class="sub-fee">الاشتراك الشهري <b>45$</b></div>
+                    <a href="https://wa.me/967782483336" class="btn-order">اطلب الآن</a>
                 </div>
             </div>
-            <p style="text-align: center; color: var(--cyan); font-size: 0.85rem; margin-top: 10px; opacity: 0.8;">← اسحب الباقات لليمين أو اليسار للمقارنة →</p>
         </div>
     </section>
 
-    <div class="section-divider"></div>
-
-    <section id="testimonials">
-        <h2> آراء عملائنا<span> </span></h2>
-        <div class="scroll-wrapper">
-            <div class="scroll-container" id="slider">
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <span class="client-name">مستشفى الأمل الحديث</span>
-                    <p class="feedback">"بفضل نظام نيفيو شات، تمكنا من تنظيم حجز المواعيد آلياً وزادت كفاءة العمل بنسبة 80%."</p>
+    <section id="partnership-contract">
+        <h2>عقد الشراكة <span>الإلكتروني</span></h2>
+        <div class="card" style="max-width: 800px; margin: auto; transform: perspective(1000px) rotateX(2deg); box-shadow: 0 20px 50px rgba(0,0,0,0.5); border: 2px solid var(--gold);">
+            <p style="text-align: center; color: var(--gold); font-weight: bold;">أهلاً بك في عائلة نيفيو شات التقنية</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 30px;">
+                <input type="text" id="partnerNameInput" placeholder="أدخل اسمك الكامل هنا..." style="flex: 2; padding: 12px; border-radius: 10px; border: 1px solid var(--border); background: rgba(0,0,0,0.3); color: white;">
+                <select id="partnerRole" style="flex: 1; padding: 12px; border-radius: 10px; border: 1px solid var(--border); background: rgba(0,0,0,0.3); color: var(--cyan);">
+                    <option value="شريك تشغيلي">شريك تشغيلي</option>
+                    <option value="خبير بناء سيناريوهات">خبير بناء سيناريوهات</option>
+                    <option value="وكيل تسويق">وكيل تسويق</option>
+                </select>
+            </div>
+            <div id="contractPaper" style="background: white; color: #333; padding: 40px; border-radius: 5px; text-align: right; min-height: 500px; box-shadow: inset 0 0 20px rgba(0,0,0,0.1);">
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #D4AF37; padding-bottom: 10px; margin-bottom: 20px;">
+                    <img src="logo.png" style="height: 50px; filter: grayscale(1);">
+                    <h3 style="margin: 0; color: #D4AF37;">عقد شراكة عمل تقني</h3>
                 </div>
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <span class="client-name">معهد آفاق المستقبل</span>
-                    <p class="feedback">"أصبح استعلام الطلاب عن الدورات يتم فوراً عبر الواتساب. نيفيو شات وفر علينا فريقاً كاملاً."</p>
+                <p><b>الطرف الأول:</b> شركة نيفيوشات، يمثلها المؤسس سلمان علي محسن الغويبي.</p>
+                <p><b>الطرف الثاني:</b> <span id="displayPartnerName" style="color: blue; font-weight: bold; border-bottom: 1px dashed #333;">............................</span></p>
+                <p style="font-size: 0.9rem; line-height: 1.8;">
+                    ينضم الطرف الثاني للعمل بصفة (<span id="displayRole">شريك تشغيلي</span>). يلتزم الطرف الثاني بالحفاظ على أسرار بناء الأنظمة، وفي حال الإخلال يلتزم بدفع تعويض مقدر بـ (10,000 دولار). يستحق الطرف الثاني عمولة تنفيذ 15% وعمولة استدامة 5%، مع أرباح الأسهم سنوياً.
+                </p>
+                <div style="margin-top: 50px; display: flex; justify-content: space-between;">
+                    <div style="text-align: center;"><p>توقيع المؤسس</p><img src="7nr48j.jpg" style="height: 60px; border-radius: 50%;"><p>سلمان علي الغويبي</p></div>
+                    <div style="text-align: center;"><p>توقيع الشريك</p><div style="width: 150px; border-bottom: 1px solid #000; margin-top: 40px;"></div></div>
                 </div>
             </div>
-            <p style="text-align: center; color: var(--cyan); font-size: 0.85rem; margin-top: 10px; opacity: 0.8;">← اسحب البطاقات لليمين أو اليسار للمزيد →</p>
+            <button onclick="downloadContract()" class="btn-order" style="margin: 30px auto 0; width: 100%; cursor: pointer;">توليد العقد وحفظه</button>
         </div>
     </section>
-
-    <div class="section-divider"></div>
 
     <section id="about">
-        <div class="section-banner"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1000" alt="Nevio Chat Headquarters"></div>
-        <h2> من نحن <span> </span></h2>
+        <h2> من نحن <span></span></h2>
         <div class="card" style="text-align: center; border: 1px solid var(--gold);">
-            <p style="font-size: 1.2rem; line-height: 1.8; color: #ccc;">تأسست شركة <b>نيفيو شات</b> في قلب مدينة <b>عدن</b> لتكون الشرارة الأولى لثورة أنظمة الأتمتة في اليمن.</p>
+            <p>تأسست <b>نيفيو شات</b> في <b>عدن</b> لتقود ثورة الأتمتة في اليمن.</p>
             <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 40px;">
-                <div class="about-box about-box-site">العاصمة عدن_المنصورة</div>
+                <div class="about-box about-box-site">عدن_المنصورة</div>
                 <div class="about-box about-box-date">1 يناير 2026</div>
-                <div class="about-box about-box-owner"><b>  المؤسس:سلمان علي الغويبي</b></div>
-            </div>
-
-            <div class="solution-box" style="margin-top: 40px; border-right: none; border-left: 4px solid var(--cyan); text-align: right; display: flex; align-items: center; gap: 20px; padding: 25px;">
-                <img src="7nr48j.jpg" alt="المدير التنفيذي" style="width: 80px; height: 80px; border-radius: 15px; border: 2px solid var(--cyan); object-fit: cover; box-shadow: 0 5px 15px rgba(0,242,255,0.2);">
-                <p style="margin: 0; font-size: 1rem; line-height: 1.6;">
-                    <b style="color: var(--cyan); display: block; margin-bottom: 5px; font-size: 1.1rem;">كلمة المؤسس / سلمان علي:</b>
-                    "انطلقنا من عدن لنثبت للعالم أن الكوادر المحلية قادرة على تطوير أعقد تقنيات الأتمتة وبوتات الرد الآلي لخدمة قطاع الأعمال والارتقاء به لمستويات عالمية."
-                </p>
+                <div class="about-box about-box-owner">المؤسس: سلمان علي الغويبي</div>
             </div>
         </div>
     </section>
@@ -439,50 +318,26 @@
     </footer>
 
     <script>
-        window.aichatbotApiKey="73ead6e2-68b1-4c5a-97bc-4b3fb689b7a3"; 
-        window.aichatbotProviderId="f9e9c5e4-6d1a-4b8c-8d3f-3f9e9c5e46d1";
-    </script>
-    <script src="https://script.chatlab.com/aichatbot.js" id="73ead6e2-68b1-4c5a-97bc-4b3fb689b7a3" defer></script>
+        document.getElementById('partnerNameInput').addEventListener('input', function(e) {
+            document.getElementById('displayPartnerName').innerText = e.target.value || "............................";
+        });
+        document.getElementById('partnerRole').addEventListener('change', function(e) {
+            document.getElementById('displayRole').innerText = e.target.value;
+        });
+        function downloadContract() {
+            if(!document.getElementById('partnerNameInput').value) return alert("أدخل اسمك أولاً!");
+            window.print();
+        }
 
-    <script>
         function enableDragScroll(sliderId) {
             const slider = document.getElementById(sliderId);
             if (!slider) return;
             let isDown = false; let startX; let scrollLeft;
-
-            slider.addEventListener('mousedown', (e) => {
-                isDown = true; slider.style.cursor = 'grabbing';
-                startX = e.pageX - slider.offsetLeft;
-                scrollLeft = slider.scrollLeft;
-            });
-            slider.addEventListener('mouseleave', () => { isDown = false; slider.style.cursor = 'grab'; });
-            slider.addEventListener('mouseup', () => { isDown = false; slider.style.cursor = 'grab'; });
-            slider.addEventListener('mousemove', (e) => {
-                if (!isDown) return;
-                e.preventDefault();
-                const x = e.pageX - slider.offsetLeft;
-                const walk = (x - startX) * 2; 
-                slider.scrollLeft = scrollLeft - walk;
-            });
-
-            slider.addEventListener('touchstart', (e) => {
-                isDown = true;
-                startX = e.touches[0].pageX - slider.offsetLeft;
-                scrollLeft = slider.scrollLeft;
-            });
-            slider.addEventListener('touchend', () => isDown = false);
-            slider.addEventListener('touchmove', (e) => {
-                if (!isDown) return;
-                const x = e.touches[0].pageX - slider.offsetLeft;
-                const walk = (x - startX) * 2;
-                slider.scrollLeft = scrollLeft - walk;
-            });
+            slider.addEventListener('mousedown', (e) => { isDown = true; startX = e.pageX - slider.offsetLeft; scrollLeft = slider.scrollLeft; });
+            slider.addEventListener('mouseup', () => isDown = false);
+            slider.addEventListener('mousemove', (e) => { if (!isDown) return; e.preventDefault(); const x = e.pageX - slider.offsetLeft; const walk = (x - startX) * 2; slider.scrollLeft = scrollLeft - walk; });
         }
-
-        enableDragScroll('slider');
-        enableDragScroll('heroSlider');
-        enableDragScroll('portfolioSlider');
-        enableDragScroll('pricingSlider');
+        enableDragScroll('heroSlider'); enableDragScroll('portfolioSlider'); enableDragScroll('pricingSlider');
     </script>
 </body>
-    </html>
+</html>
