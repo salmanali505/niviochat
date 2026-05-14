@@ -30,14 +30,23 @@
             scroll-behavior: smooth; 
         }
 
-        .section-banner, .main-hero-banner {
+        /* تعديل قسم البانر العلوي ليتناسب مع الأبعاد المطلوبة */
+        .section-banner {
             width: 100%; max-width: 900px; height: 300px; margin: 0 auto 30px;
             border-radius: 30px; overflow: hidden; border: 1px solid var(--border);
             box-shadow: 0 10px 30px rgba(0,0,0,0.5); backdrop-filter: blur(10px);
             display: flex; justify-content: center; align-items: center;
         }
-        .section-banner img, .main-hero-banner img { 
-            width: 100%; height: 100%; object-fit: cover; filter: brightness(0.8) contrast(1.1); 
+        
+        .hero-img-card { 
+            min-width: 520px; flex: 0 0 520px; height: 1024px; 
+            border-radius: 40px; border: 2px solid var(--border); overflow: hidden;
+            scroll-snap-align: center; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            margin: 0 auto;
+        }
+
+        .section-banner img, .hero-img-card img { 
+            width: 100%; height: 100%; object-fit: cover; filter: brightness(0.9) contrast(1.1); 
         }
 
         nav { background: rgba(15, 20, 35, 0.9); padding: 5px 40px; position: fixed; width: 100%; top: 0; z-index: 2000; backdrop-filter: blur(25px); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
@@ -65,7 +74,7 @@
         .dropdown:hover .dropdown-content { display: block; }
 
         .hero { padding: 140px 20px 60px; text-align: center; }
-        .hero h1 { font-size: clamp(2.5rem, 10vw, 4.5rem); color: var(--gold); margin: 10px 0; font-weight: 900; }
+        .hero h1 { font-size: clamp(2.5rem, 10vw, 4.5rem); color: var(--gold); margin: 30px 0 10px; font-weight: 900; }
         .hero p { color: var(--cyan); font-size: 1.3rem; max-width: 800px; margin: 20px auto; }
 
         section { padding: 40px 20px; max-width: 1200px; margin: auto; position: relative; }
@@ -113,8 +122,6 @@
         .price-card.featured { border: 2px solid var(--cyan); z-index: 5; }
         .featured-tag { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--cyan); color: #000; padding: 5px 20px; border-radius: 20px; font-weight: 900; font-size: 0.8rem; }
         
-        .coming-tag { position: absolute; top: 15px; right: 15px; background: #ff4d4d; color: #fff; padding: 4px 12px; border-radius: 10px; font-weight: 900; font-size: 0.75rem; transform: rotate(5deg); box-shadow: 0 5px 15px rgba(255,77,77,0.3); }
-
         .amount { font-size: 3.5rem; font-weight: 900; color: var(--gold); margin: 5px 0; display: block; }
         .sub-fee { margin: 20px 0; padding: 15px; background: rgba(0, 242, 255, 0.05); border-radius: 20px; border: 1px dashed var(--cyan); }
         .sub-fee b { font-size: 1.5rem; color: var(--cyan); }
@@ -122,18 +129,11 @@
 
         .scroll-wrapper { position: relative; padding: 20px 0; width: 100%; }
         .scroll-container { 
-            display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; 
+            display: flex; gap: 30px; overflow-x: auto; scroll-snap-type: x mandatory; 
             padding: 20px 10px 40px; scrollbar-width: none; cursor: grab;
         }
         .scroll-container::-webkit-scrollbar { display: none; }
         
-        .hero-img-card { 
-            min-width: 100%; flex: 0 0 100%; height: 350px; 
-            border-radius: 30px; border: 1px solid var(--border); overflow: hidden;
-            scroll-snap-align: center; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        .hero-img-card img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.9); }
-
         .portfolio-card {
             min-width: 350px; flex: 0 0 350px; scroll-snap-align: center;
         }
@@ -180,7 +180,7 @@
             nav { padding: 10px 20px; } 
             .nav-logo-img { height: 45px; }
             .nav-logo-text { font-size: 1.1rem; }
-            .hero-img-card { height: 250px; }
+            .hero-img-card { min-width: 280px; flex: 0 0 280px; height: 550px; }
             section { padding: 30px 15px; }
             .portfolio-card { min-width: 300px; flex: 0 0 300px; }
             .price-card { min-width: 290px; flex: 0 0 290px; }
@@ -225,7 +225,7 @@
                 <div class="hero-img-card"><img src="top3.jpg" alt="Banner 2"></div>
                 <div class="hero-img-card"><img src="top4.jpg" alt="Banner 3"></div>
             </div>
-            <p style="text-align: center; color: var(--cyan); font-size: 0.8rem; margin-top: 10px; opacity: 0.8;">← اسحب الصور لليمين أو اليسار للمزيد →</p>
+            <p style="text-align: center; color: var(--cyan); font-size: 0.9rem; margin-top: 20px; opacity: 0.8;">← اسحب الصور لليمين أو اليسار للمزيد من العروض →</p>
         </div>
         <h1>شركة نيفيو شات</h1>
         <p>النظام الذي يقود مؤسستك للقمة. أتمتة شاملة لخدمة العملاء والبيع المباشر عبر الواتساب في اليمن.</p>
@@ -329,7 +329,6 @@
         <h2>ملف أعمالنا <span></span></h2>
         <div class="scroll-wrapper">
             <div class="scroll-container" id="portfolioSlider">
-                <!-- تم التحديث هنا لاستبدال الأعمال بسماء للعبايات فقط -->
                 <div class="card portfolio-card" style="text-align: center; border: 1px solid var(--gold); margin: 0 auto;">
                     <div style="font-size: 3rem; margin-bottom: 10px;">🛍️</div>
                     <h3>سماء للعبايات</h3>
@@ -413,7 +412,7 @@
             <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 40px;">
                 <div class="about-box about-box-site">العاصمة عدن_المنصورة</div>
                 <div class="about-box about-box-date">1 يناير 2026</div>
-                <div class="about-box about-box-owner"><b>  المؤسس:سلمان علي الغويبي</b></div>
+                <div class="about-box about-box-owner"><b> المؤسس: سلمان علي الغويبي</b></div>
             </div>
 
             <div class="solution-box" style="margin-top: 40px; border-right: none; border-left: 4px solid var(--cyan); text-align: right; display: flex; align-items: center; gap: 20px; padding: 25px;">
